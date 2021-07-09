@@ -186,7 +186,7 @@
                     OUTLINEWIDTH 2
                     TYPE truetype
                     #FONT "sans"
-                    SIZE 11
+                    SIZE 9
                     ANTIALIAS TRUE
                     POSITION AUTO
                     PARTIALS FALSE
@@ -208,7 +208,7 @@
                END
                LABEL
                     PRIORITY 1
-                    COLOR 100 100 100
+                    COLOR 0 0 0
                     OUTLINECOLOR  230 230 230
                     OUTLINEWIDTH 2
                     #SHADOWCOLOR 218 218 218
