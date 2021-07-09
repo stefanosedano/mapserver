@@ -1,0 +1,18 @@
+
+LAYER
+DATA "/var/s3fs/nwp/2021031200/ICON-IMS_01010000_verif.grb"
+NAME "ICON_humidity" 
+TYPE RASTER
+METADATA
+"gml_featureid"		"gid"
+"gml_include_items"	"all"
+"wms_title"		"ICON_humidity"
+"ows_include_items" "all" 
+END
+PROCESSING "BANDS=1,2,3"
+OPACITY 100
+STATUS OFF
+PROJECTION
+"init=epsg:4326"
+END
+END

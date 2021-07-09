@@ -1,0 +1,20 @@
+
+LAYER
+VALIDATION
+	"ctype" "[a-zA-Z_\-\s0-9\.\/]+"
+END
+DATA '%ctype%'
+TYPE RASTER
+METADATA
+"gml_featureid"		"gid"
+"gml_include_items"	"all"
+"wms_title"		"precipitation"
+"ows_include_items" "all" 
+END
+PROCESSING "BANDS=1"
+OPACITY 100
+STATUS OFF
+PROJECTION
+"init=epsg:4326"
+END
+END

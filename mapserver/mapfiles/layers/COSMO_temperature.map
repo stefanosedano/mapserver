@@ -1,0 +1,95 @@
+
+LAYER
+VALIDATION
+	"ctype" "[a-zA-Z_\-\s0-9\.\/]+"
+END
+DATA '%ctype%'
+NAME "temperature" 
+TYPE RASTER
+METADATA
+"gml_featureid"		"gid"
+"gml_include_items"	"all"
+"wms_title"		"temperature"
+"ows_include_items" "all" 
+END
+PROCESSING "BANDS=2"
+#PROCESSING "SCALE=-10,10"
+OPACITY 100
+STATUS OFF
+PROJECTION
+"init=epsg:4326"
+END
+CLASS
+ 
+  EXPRESSION ([pixel] >= -40 AND [pixel] < -15) 
+  STYLE 
+    COLORRANGE 149 137 211 149 209 215   #color start RGB and end RGB
+    DATARANGE -40 -15  #the data range is normally set to the class expression range
+    RANGEITEM "pixel" # pixel is the elevation value in a DEM
+  END #STYLE
+
+END #end class
+CLASS
+ 
+  EXPRESSION ([pixel] >= -15 AND [pixel] < -5) 
+  STYLE 
+    COLORRANGE 149 209 215 102 173 188   #color start RGB and end RGB
+    DATARANGE -15 -5  #the data range is normally set to the class expression range
+    RANGEITEM "pixel" # pixel is the elevation value in a DEM
+  END #STYLE
+
+END #end class
+CLASS
+ 
+  EXPRESSION ([pixel] >= -5 AND [pixel] < 5) 
+  STYLE 
+    COLORRANGE 102 173 188 81 140 70   #color start RGB and end RGB
+    DATARANGE -5 5  #the data range is normally set to the class expression range
+    RANGEITEM "pixel" # pixel is the elevation value in a DEM
+  END #STYLE
+
+END #end class
+CLASS
+ 
+  EXPRESSION ([pixel] >= 5 AND [pixel] < 15) 
+  STYLE 
+    COLORRANGE 81 140 70 172 161 14   #color start RGB and end RGB
+    DATARANGE 5 15  #the data range is normally set to the class expression range
+    RANGEITEM "pixel" # pixel is the elevation value in a DEM
+  END #STYLE
+
+END #end class
+CLASS
+ 
+  EXPRESSION ([pixel] >= 15 AND [pixel] < 25) 
+  STYLE 
+    COLORRANGE 172 161 14 243 150 6   #color start RGB and end RGB
+    DATARANGE 15 25  #the data range is normally set to the class expression range
+    RANGEITEM "pixel" # pixel is the elevation value in a DEM
+  END #STYLE
+
+END #end class
+CLASS
+ 
+  EXPRESSION ([pixel] >= 25 AND [pixel] < 35) 
+  STYLE 
+    COLORRANGE 243 150 6 189 65 18  #color start RGB and end RGB
+    DATARANGE 25 35  #the data range is normally set to the class expression range
+    RANGEITEM "pixel" # pixel is the elevation value in a DEM
+  END #STYLE
+
+END #end class
+CLASS
+ 
+  EXPRESSION ([pixel] >= 35 AND [pixel] < 50) 
+  STYLE 
+    COLORRANGE 189 65 18 138 43 10 #color start RGB and end RGB
+    DATARANGE 35 50  #the data range is normally set to the class expression range
+    RANGEITEM "pixel" # pixel is the elevation value in a DEM
+  END #STYLE
+
+END #end class
+
+
+
+END

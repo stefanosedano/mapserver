@@ -1,0 +1,78 @@
+
+	MAP
+	NAME SEEMHEWS
+	STATUS ON
+	TRANSPARENT ON
+	IMAGECOLOR 255 255 255
+	SIZE 250 250
+	EXTENT 8.5 45.36 8.8 45.60
+	UNITS dd
+	MAXSIZE 250000
+	CONFIG "MS_ERRORFILE" "/home/logs/HYDRO_detecmwf.log"
+	FONTSET "/etc/mapserver/font.txt"
+	#SYMBOLSET "/opt/mapserver/mapfiles/symbols/symbols.sym"
+	OUTPUTFORMAT
+	  NAME "png8"
+	  DRIVER AGG/PNG8
+	  MIMETYPE "image/png; mode=8bit"
+	  IMAGEMODE RGB
+	  EXTENSION "png"
+	  FORMATOPTION "QUANTIZE_FORCE=on"
+	  FORMATOPTION "QUANTIZE_COLORS=256"
+	  FORMATOPTION "GAMMA=0.75"
+	END
+	PROJECTION
+	"init=epsg:4326"
+	END
+	LEGEND
+	  STATUS ON
+	  KEYSIZE 18 12
+	  KEYSPACING 35 10
+	  # LABEL object
+	  LABEL
+	    TYPE BITMAP
+	    SIZE small
+	    COLOR 0 0 89
+	  END
+	  TEMPLATE "/etc/mapserver/mapfiles/layers/HYDRO_detecmwf_legend.html"  ### HTML template file
+	END
+
+	WEB
+
+
+	METADATA
+	"ows_enable_request" "*"
+	"wms_enable_request" "*"
+	"wfs_enable_request" "*"
+	"sos_enable_request" "*"
+	"wcs_enable_request" "*"
+	"wms_title"		"detecmwf"
+	"wms_srs"	"EPSG:4326 EPSG:3857 EPSG:3035 "
+	END
+	END
+
+    LAYER
+    VALIDATION
+	    "ctype" "[a-zA-Z_\-\s0-9\.\/]+"
+    END
+    #DATA '%ctype%'
+    #DATA "/var/s3fs/hydro/PGEN2021032212/maps/alEUD2021032212.png"
+    DATA "/var/s3fs/hydro/PGEN%ctype%/maps/alEUD%ctype%.png"
+    NAME "detecmwf"
+    TYPE RASTER
+    OFFSITE 255 255 255
+    METADATA
+    "gml_featureid"		"gid"
+    "gml_include_items"	"all"
+    "wms_title"		"detecmwf"
+    "ows_include_items" "all"
+    END
+    OPACITY 100
+    STATUS OFF
+    PROJECTION
+    "init=epsg:3035"
+    END
+    END
+
+
+	END

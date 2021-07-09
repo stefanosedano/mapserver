@@ -1,0 +1,2186 @@
+
+	MAP
+	NAME SEEMHEWS
+	STATUS ON
+	TRANSPARENT ON
+	IMAGECOLOR 255 255 255
+	SIZE 250 250
+	EXTENT 8.5 45.36 8.8 45.60
+	UNITS dd
+	MAXSIZE 250000
+	CONFIG "MS_ERRORFILE" "/home/logs/HYDRO_reportingpoints.log"
+	FONTSET "/etc/mapserver/font.txt"
+	SYMBOLSET "/etc/mapserver/mapfiles/symbols/symbols.sym"
+	OUTPUTFORMAT
+	  NAME "png8"
+	  DRIVER AGG/PNG8
+	  MIMETYPE "image/png; mode=8bit"
+	  IMAGEMODE RGB
+	  EXTENSION "png"
+	  FORMATOPTION "QUANTIZE_FORCE=on"
+	  FORMATOPTION "QUANTIZE_COLORS=256"
+	  FORMATOPTION "GAMMA=0.75"
+	END
+	PROJECTION
+	"init=epsg:4326"
+	END
+	LEGEND
+	  STATUS ON
+	  KEYSIZE 18 12
+	  KEYSPACING 35 10
+	  # LABEL object
+	  LABEL
+	    TYPE BITMAP
+	    SIZE small
+	    COLOR 0 0 89
+	  END
+	  TEMPLATE "/etc/mapserver/mapfiles/layers/HYDRO_legendreportingpoints.html"  ### HTML template file
+	END
+
+	WEB
+
+
+	METADATA
+	"ows_enable_request" "*"
+	"wms_enable_request" "*"
+	"wfs_enable_request" "*"
+	"sos_enable_request" "*"
+	"wcs_enable_request" "*"
+	"wms_title"		"reportingpoints"
+	"wms_srs"	"EPSG:4326 EPSG:3857 EPSG:3035 "
+	END
+	END
+
+#
+#######FLOOD SUMMARY LAYERS ##################
+#
+
+LAYER
+    NAME "reportingpoints"
+    VALIDATION
+	    "ctype" "[a-zA-Z_\-\s0-9\.\/]+"
+    END
+    DATA "/var/s3fs/hydro/PGEN%ctype%/points/RepPoints%ctype%.shp"
+    #DATA "/var/s3fs/hydro/PGEN2021032212/points/RepPoints2021032212.shp"
+                OFFSITE 255 255 255
+                METADATA
+                "gml_featureid"         "gid"
+                "gml_include_items"     "all"
+                "wms_title"             "reportingpoints"
+                "ows_include_items" "all"
+                END
+                OPACITY 100
+                STATUS OFF
+
+    PROJECTION
+        "init=epsg:4326"
+    END
+    TYPE point
+    CLASSITEM "LevelType"
+
+
+    ############ GREY POINTS############################################
+    CLASS
+        NAME "Inactive no RT"
+        EXPRESSION ('[LevelType]' = "Inactive" AND '[PostProces]' = "FALSE")
+        MINSCALEDENOM 4000000
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 3
+            COLOR 79 80 82 # inside color
+            OUTLINECOLOR 187 189 191
+            OPACITY 50
+        END
+    END
+
+    CLASS
+        NAME "Medium no RT"
+        EXPRESSION ('[LevelType]' = "Medium" AND '[PostProces]' = "FALSE" AND '[PointType]' = "Tiny")
+        MINSCALEDENOM 4000000
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 3
+            COLOR 79 80 82 # inside color
+            OUTLINECOLOR 187 189 191
+            OPACITY 50
+        END
+    END
+
+    CLASS
+        NAME "High no RT"
+        EXPRESSION ('[LevelType]' = "High" AND '[PostProces]' = "FALSE" AND '[PointType]' = "Tiny")
+        MINSCALEDENOM 4000000
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 3
+            COLOR 79 80 82 # inside color
+            OUTLINECOLOR 187 189 191
+            OPACITY 50
+        END
+    END
+
+    CLASS
+        NAME "Inactive no RT no transparency"
+        EXPRESSION ('[LevelType]' = "Inactive" AND '[PostProces]' = "FALSE")
+        MINSCALEDENOM 3000000
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 6
+            COLOR 79 80 82 # inside color
+            OUTLINECOLOR 187 189 191
+            OPACITY 100
+        END
+    END
+
+    CLASS
+        NAME "Inactive no RT no transparency yellow outline"
+        EXPRESSION ('[LevelType]' = "Medium" AND '[PostProces]' = "FALSE" AND '[PointType]' = "Tiny")
+        MINSCALEDENOM 3000000
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 6
+            COLOR 79 80 82 # inside color
+            OUTLINECOLOR 255 255 0
+            OPACITY 100
+        END
+    END
+
+    CLASS
+        NAME "Inactive no RT no transparency red outline"
+        EXPRESSION ('[LevelType]' = "High" AND '[PostProces]' = "FALSE" AND '[PointType]' = "Tiny")
+        MINSCALEDENOM 3000000
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 6
+            COLOR 79 80 82 # inside color
+            OUTLINECOLOR 255 0 0
+            OPACITY 100
+        END
+    END
+
+    CLASS
+        NAME "Inactive no RT-BIG"
+        EXPRESSION ('[LevelType]' = "Inactive" AND '[PostProces]' = "FALSE")
+        MAXSCALEDENOM 5000000
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 12
+            COLOR 79 80 82 # inside color
+            OUTLINECOLOR 187 189 191
+            OPACITY 100
+        END
+    END
+
+    CLASS
+        NAME "Inactive no RT-BIG yellow outline"
+        EXPRESSION ('[LevelType]' = "Medium" AND '[PostProces]' = "FALSE" AND '[PointType]' = "Tiny")
+        MAXSCALEDENOM 5000000
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 12
+            COLOR 79 80 82 # inside color
+            OUTLINECOLOR 255 255 0
+            WIDTH 2
+            OPACITY 100
+        END
+    END
+
+    CLASS
+        NAME "Inactive no RT-BIG red outline"
+        EXPRESSION ('[LevelType]' = "High" AND '[PostProces]' = "FALSE" AND '[PointType]' = "Tiny")
+        MAXSCALEDENOM 5000000
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 12
+            COLOR 79 80 82 # inside color
+            OUTLINECOLOR 255 0 0
+            WIDTH 2
+            OPACITY 100
+        END
+    END
+
+    ############ BLUE POINTS############################################
+    CLASS
+        NAME "Inactive RT"
+        EXPRESSION ('[LevelType]' = "Inactive" AND '[PostProces]' = "TRUE")
+        MINSCALEDENOM 4000000
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 3
+            COLOR 66 170 239 # inside color
+            OUTLINECOLOR 187 189 191
+            OPACITY 50
+        END
+    END
+
+    CLASS
+        NAME "Medium RT"
+        EXPRESSION ('[LevelType]' = "Medium" AND '[PostProces]' = "TRUE" AND '[PointType]' = "Tiny")
+        MINSCALEDENOM 4000000
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 3
+            COLOR 66 170 239 # inside color
+            OUTLINECOLOR 187 189 191
+            OPACITY 100
+        END
+    END
+
+    CLASS
+        NAME "High RT"
+        EXPRESSION ('[LevelType]' = "High" AND '[PostProces]' = "TRUE" AND '[PointType]' = "Tiny")
+        MINSCALEDENOM 4000000
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 3
+            COLOR 66 170 239 # inside color
+            OUTLINECOLOR 187 189 191
+            OPACITY 100
+        END
+    END
+
+    CLASS
+        NAME "Inactive RT no transparent"
+        EXPRESSION ('[LevelType]' = "Inactive" AND '[PostProces]' = "TRUE")
+        MINSCALEDENOM 3000000
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 6
+            COLOR 66 170 239 # inside color
+            OUTLINECOLOR 187 189 191
+            OPACITY 100
+        END
+    END
+
+    CLASS
+        NAME "Inactive RT no transparent yellow outline"
+        EXPRESSION ('[LevelType]' = "Medium" AND '[PostProces]' = "TRUE" AND '[PointType]' = "Tiny")
+        MINSCALEDENOM 3000000
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 6
+            COLOR 66 170 239 # inside color
+            OUTLINECOLOR 255 255 0
+            OPACITY 100
+        END
+    END
+
+    CLASS
+        NAME "Inactive RT no transparent red outline"
+        EXPRESSION ('[LevelType]' = "High" AND '[PostProces]' = "TRUE" AND '[PointType]' = "Tiny")
+        MINSCALEDENOM 3000000
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 6
+            COLOR 66 170 239 # inside color
+            OUTLINECOLOR 255 0 0
+            OPACITY 100
+        END
+    END
+
+    CLASS
+        NAME "Inactive RT-BIG"
+        EXPRESSION ('[LevelType]' = "Inactive" AND '[PostProces]' = "TRUE")
+        MAXSCALEDENOM 5000000
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 12
+            COLOR 66 170 239 # inside color
+            OUTLINECOLOR 187 189 191
+            OPACITY 100
+        END
+    END
+
+    CLASS
+        NAME "Medium RT-BIG no transparent yellow outline"
+        EXPRESSION ('[LevelType]' = "Medium" AND '[PostProces]' = "TRUE" AND '[PointType]' = "Tiny")
+        MAXSCALEDENOM 5000000
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 12
+            COLOR 66 170 239 # inside color
+            OUTLINECOLOR 255 255 0
+            WIDTH 2
+            OPACITY 100
+        END
+    END
+
+    CLASS
+        NAME "High RT-BIG no transparent red outline"
+        EXPRESSION ('[LevelType]' = "High" AND '[PostProces]' = "TRUE" AND '[PointType]' = "Tiny")
+        MAXSCALEDENOM 5000000
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 12
+            COLOR 66 170 239 # inside color
+            OUTLINECOLOR 255 0 0
+            WIDTH 2
+            OPACITY 100
+        END
+    END
+
+#### YELLOW POINTS######################################################
+
+    CLASS
+        NAME "Medium pk >=3 Tendency 0"
+        EXPRESSION ('[LevelType]' = 'Medium' AND [PeakTime] >=3 AND [Tendency] = 0 AND '[PointType]' != "Tiny")
+        TEXT ('[NoOfEPS]'+'(-)')
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 14
+            COLOR 255 255 102 # inside color
+            OUTLINECOLOR 128 128 128
+            WIDTH 1
+            OPACITY 100
+        END
+        LABEL
+            MAXSCALEDENOM 5000000
+            PRIORITY 8
+            MINSIZE 10
+            SIZE 12
+            MAXSIZE 14
+            TYPE truetype
+            COLOR 255 255 102
+            OUTLINECOLOR 128 128 128
+            OUTLINEWIDTH 3
+            ANTIALIAS true
+            PARTIALS false
+            POSITION ur
+            OFFSET 10 0
+        END
+    END
+
+    CLASS
+        NAME "Medium pk >=3 Tendency 1"
+        EXPRESSION ('[LevelType]' = 'Medium' AND [PeakTime] >=3 AND [Tendency] = 1 AND '[PointType]' != "Tiny")
+        TEXT ('[NoOfEPS]'+'(&#x2B07;)')
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 14
+            COLOR 255 255 102 # inside color
+            OUTLINECOLOR 128 128 128
+            WIDTH 1
+            OPACITY 100
+        END
+        LABEL
+            MAXSCALEDENOM 5000000
+            PRIORITY 8
+            MINSIZE 10
+            SIZE 12
+            MAXSIZE 14
+            TYPE truetype
+            COLOR 255 255 102
+            OUTLINECOLOR 128 128 128
+            OUTLINEWIDTH 3
+            ANTIALIAS true
+            PARTIALS false
+            POSITION ur
+            OFFSET 10 0
+        END
+    END
+
+    CLASS
+        NAME "Medium pk >=3 Tendency 2"
+        EXPRESSION ('[LevelType]' = 'Medium' AND [PeakTime] >=3 AND [Tendency] = 2 AND '[PointType]' != "Tiny")
+        TEXT ('[NoOfEPS]'+'(&#x27A1;)')
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 14
+            COLOR 255 255 102 # inside color
+            OUTLINECOLOR 128 128 128
+            WIDTH 1
+            OPACITY 100
+        END
+        LABEL
+            MAXSCALEDENOM 5000000
+            PRIORITY 8
+            MINSIZE 10
+            SIZE 12
+            MAXSIZE 14
+            TYPE truetype
+            COLOR 255 255 102
+            OUTLINECOLOR 128 128 128
+            OUTLINEWIDTH 3
+            ANTIALIAS true
+            PARTIALS false
+            POSITION ur
+            OFFSET 10 0
+        END
+    END
+
+    CLASS
+        NAME "Medium pk >=3 Tendency 3"
+        EXPRESSION ('[LevelType]' = 'Medium' AND [PeakTime] >=3 AND [Tendency] = 3 AND '[PointType]' != "Tiny")
+        TEXT ('[NoOfEPS]'+'(&#x2B06;)')
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 14
+            COLOR 255 255 102 # inside color
+            OUTLINECOLOR 128 128 128
+            WIDTH 1
+            OPACITY 100
+        END
+        LABEL
+            MAXSCALEDENOM 5000000
+            PRIORITY 8
+            MINSIZE 10
+            SIZE 12
+            MAXSIZE 14
+            TYPE truetype
+            COLOR 255 255 102
+            OUTLINECOLOR 128 128 128
+            OUTLINEWIDTH 3
+            ANTIALIAS true
+            PARTIALS false
+            POSITION ur
+            OFFSET 10 0
+        END
+    END
+
+    CLASS
+        NAME "Medium pk < 3 Tendency 0"
+        EXPRESSION ('[LevelType]' = 'Medium' AND [PeakTime] < 3 AND [Tendency] = 0 AND '[PointType]' != "Tiny")
+        TEXT ('[NoOfEPS]'+'(-)')
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 14
+            COLOR 255 255 102 # inside color
+            OUTLINECOLOR 0 0 0
+            WIDTH 2
+            OPACITY 100
+        END
+        LABEL
+            MAXSCALEDENOM 5000000
+            PRIORITY 8
+            MINSIZE 10
+            SIZE 12
+            MAXSIZE 14
+            TYPE truetype
+            COLOR 255 255 102
+            OUTLINECOLOR 128 128 128
+            OUTLINEWIDTH 3
+            ANTIALIAS true
+            PARTIALS false
+            POSITION ur
+            OFFSET 10 0
+        END
+    END
+
+    CLASS
+        NAME "Medium pk < 3 Tendency 1"
+        EXPRESSION ('[LevelType]' = 'Medium' AND [PeakTime] < 3 AND [Tendency] = 1 AND '[PointType]' != "Tiny")
+        TEXT ('[NoOfEPS]'+'(&#x2B07;)')
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 14
+            COLOR 255 255 102 # inside color
+            OUTLINECOLOR 0 0 0
+            WIDTH 2
+            OPACITY 100
+        END
+        LABEL
+            MAXSCALEDENOM 5000000
+            PRIORITY 8
+            MINSIZE 10
+            SIZE 12
+            MAXSIZE 14
+            TYPE truetype
+            COLOR 255 255 102
+            OUTLINECOLOR 128 128 128
+            OUTLINEWIDTH 3
+            ANTIALIAS true
+            PARTIALS false
+            POSITION ur
+            OFFSET 10 0
+        END
+    END
+
+    CLASS
+        NAME "Medium pk < 3 Tendency 2"
+        EXPRESSION ('[LevelType]' = 'Medium' AND [PeakTime] < 3 AND [Tendency] = 2 AND '[PointType]' != "Tiny")
+        TEXT ('[NoOfEPS]'+'(&#x27A1;)')
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 14
+            COLOR 255 255 102 # inside color
+            OUTLINECOLOR 0 0 0
+            WIDTH 2
+            OPACITY 100
+        END
+        LABEL
+            MAXSCALEDENOM 5000000
+            PRIORITY 8
+            MINSIZE 10
+            SIZE 12
+            MAXSIZE 14
+            TYPE truetype
+            COLOR 255 255 102
+            OUTLINECOLOR 128 128 128
+            OUTLINEWIDTH 3
+            ANTIALIAS true
+            PARTIALS false
+            POSITION ur
+            OFFSET 10 0
+        END
+    END
+
+    CLASS
+        NAME "Medium pk < 3 Tendency 3"
+        EXPRESSION ('[LevelType]' = 'Medium' AND [PeakTime] < 3 AND [Tendency] = 3 AND '[PointType]' != "Tiny")
+        TEXT ('[NoOfEPS]'+'(&#x2B06;)')
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 14
+            COLOR 255 255 102 # inside color
+            OUTLINECOLOR 0 0 0
+            WIDTH 2
+            OPACITY 100
+        END
+        LABEL
+            MAXSCALEDENOM 5000000
+            PRIORITY 8
+            MINSIZE 10
+            SIZE 12
+            MAXSIZE 14
+            TYPE truetype
+            COLOR 255 255 102
+            OUTLINECOLOR 128 128 128
+            OUTLINEWIDTH 3
+            ANTIALIAS true
+            PARTIALS false
+            POSITION ur
+            OFFSET 10 0
+        END
+    END
+
+############### END YELLOW POINTS#######################################
+
+################## RED POINTS ##########################################
+    CLASS
+        NAME "High pk >=3 Tendency 0"
+        EXPRESSION ('[LevelType]'= 'High' AND [PeakTime] >=3 AND [Tendency] = 0 AND '[PointType]' != "Tiny")
+        TEXT ('[NoOfEPS]'+'(-)')
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 14
+            COLOR 255 0 0 # inside color
+            OUTLINECOLOR 128 128 128
+            WIDTH 1
+            OPACITY 100
+        END
+        LABEL
+            MAXSCALEDENOM 5000000
+            PRIORITY 8
+            MINSIZE 10
+            SIZE 12
+            MAXSIZE 14
+            TYPE truetype
+            COLOR 255 0 0
+            OUTLINECOLOR 255 255 255
+            OUTLINEWIDTH 3
+            ANTIALIAS true
+            PARTIALS false
+            POSITION ur
+            OFFSET 10 0
+        END
+    END
+
+    CLASS
+        NAME "High pk >=3 Tendency 1"
+        EXPRESSION ('[LevelType]'= 'High' AND [PeakTime] >=3 AND [Tendency] = 1 AND '[PointType]' != "Tiny")
+        TEXT ('[NoOfEPS]'+'(&#x2B07;)')
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 14
+            COLOR 255 0 0 # inside color
+            OUTLINECOLOR 128 128 128
+            WIDTH 1
+            OPACITY 100
+        END
+        LABEL
+            MAXSCALEDENOM 5000000
+            PRIORITY 8
+            MINSIZE 10
+            SIZE 12
+            MAXSIZE 14
+            TYPE truetype
+            COLOR 255 0 0
+            OUTLINECOLOR 255 255 255
+            OUTLINEWIDTH 3
+            ANTIALIAS true
+            PARTIALS false
+            POSITION ur
+            OFFSET 10 0
+        END
+    END
+
+    CLASS
+        NAME "High pk >=3 Tendency 2"
+        EXPRESSION ('[LevelType]'= 'High' AND [PeakTime] >=3 AND [Tendency] = 2 AND '[PointType]' != "Tiny")
+        TEXT ('[NoOfEPS]'+'(&#x27A1;)')
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 14
+            COLOR 255 0 0 # inside color
+            OUTLINECOLOR 128 128 128
+            WIDTH 1
+            OPACITY 100
+        END
+        LABEL
+            MAXSCALEDENOM 5000000
+            PRIORITY 8
+            MINSIZE 10
+            SIZE 12
+            MAXSIZE 14
+            TYPE truetype
+            COLOR 255 0 0
+            OUTLINECOLOR 255 255 255
+            OUTLINEWIDTH 3
+            ANTIALIAS true
+            PARTIALS false
+            POSITION ur
+            OFFSET 10 0
+        END
+    END
+
+    CLASS
+        NAME "High pk >=3 Tendency 3"
+        EXPRESSION ('[LevelType]'= 'High' AND [PeakTime] >=3 AND [Tendency] = 3 AND '[PointType]' != "Tiny")
+        TEXT ('[NoOfEPS]'+'(&#x2B06;)')
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 14
+            COLOR 255 0 0 # inside color
+            OUTLINECOLOR 128 128 128
+            WIDTH 1
+            OPACITY 100
+        END
+        LABEL
+            MAXSCALEDENOM 5000000
+            PRIORITY 8
+            MINSIZE 10
+            SIZE 12
+            MAXSIZE 14
+            TYPE truetype
+            COLOR 255 0 0
+            OUTLINECOLOR 255 255 255
+            OUTLINEWIDTH 3
+            ANTIALIAS true
+            PARTIALS false
+            POSITION ur
+            OFFSET 10 0
+        END
+    END
+
+    CLASS
+        NAME "High pk < 3 Tendency 0"
+        EXPRESSION ('[LevelType]'= 'High' AND [PeakTime] < 3 AND [Tendency] = 0 AND '[PointType]' != "Tiny")
+        TEXT ('[NoOfEPS]'+'(-)')
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 14
+            COLOR 255 0 0 # inside color
+            OUTLINECOLOR 0 0 0
+            WIDTH 2
+            OPACITY 100
+        END
+        LABEL
+            MAXSCALEDENOM 5000000
+            PRIORITY 8
+            MINSIZE 10
+            SIZE 12
+            MAXSIZE 14
+            TYPE truetype
+            COLOR 255 0 0
+            OUTLINECOLOR 255 255 255
+            OUTLINEWIDTH 3
+            ANTIALIAS true
+            PARTIALS false
+            POSITION ur
+            OFFSET 10 0
+        END
+    END
+
+    CLASS
+        NAME "High pk < 3 Tendency 1"
+        EXPRESSION ('[LevelType]'= 'High' AND [PeakTime] < 3 AND [Tendency] = 1 AND '[PointType]' != "Tiny")
+        TEXT ('[NoOfEPS]'+'(&#x2B07;)')
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 14
+            COLOR 255 0 0 # inside color
+            OUTLINECOLOR 0 0 0
+            WIDTH 2
+            OPACITY 100
+        END
+        LABEL
+            MAXSCALEDENOM 5000000
+            PRIORITY 8
+            MINSIZE 10
+            SIZE 12
+            MAXSIZE 14
+            TYPE truetype
+            COLOR 255 0 0
+            OUTLINECOLOR 255 255 255
+            OUTLINEWIDTH 3
+            ANTIALIAS true
+            PARTIALS false
+            POSITION ur
+            OFFSET 10 0
+        END
+    END
+
+    CLASS
+        NAME "High pk < 3 Tendency 2"
+        EXPRESSION ('[LevelType]'= 'High' AND [PeakTime] < 3 AND [Tendency] = 2 AND '[PointType]' != "Tiny")
+        TEXT ('[NoOfEPS]'+'(&#x27A1;)')
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 14
+            COLOR 255 0 0 # inside color
+            OUTLINECOLOR 0 0 0
+            WIDTH 2
+            OPACITY 100
+        END
+        LABEL
+            MAXSCALEDENOM 5000000
+            PRIORITY 8
+            MINSIZE 10
+            SIZE 12
+            MAXSIZE 14
+            TYPE truetype
+            COLOR 255 0 0
+            OUTLINECOLOR 255 255 255
+            OUTLINEWIDTH 3
+            ANTIALIAS true
+            PARTIALS false
+            POSITION ur
+            OFFSET 10 0
+        END
+    END
+
+    CLASS
+        NAME "High pk < 3 Tendency 3"
+        EXPRESSION ('[LevelType]'= 'High' AND [PeakTime] < 3 AND [Tendency] = 3 AND '[PointType]' != "Tiny")
+        TEXT ('[NoOfEPS]'+'(&#x2B06;)')
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 14
+            COLOR 255 0 0 # inside color
+            OUTLINECOLOR 0 0 0
+            WIDTH 2
+            OPACITY 100
+        END
+        LABEL
+            MAXSCALEDENOM 5000000
+            PRIORITY 8
+            MINSIZE 10
+            SIZE 12
+            MAXSIZE 14
+            TYPE truetype
+            COLOR 255 0 0
+            OUTLINECOLOR 255 255 255
+            OUTLINEWIDTH 3
+            ANTIALIAS true
+            PARTIALS false
+            POSITION ur
+            OFFSET 10 0
+        END
+    END
+
+END # ReportingPoints
+
+
+LAYER
+    NAME "RepPoints_High"
+    METADATA
+        "ows_title" "Reporting Points 5yr RP"
+        "ows_abstract" "Reporting Points 5yr RP"
+        "wms_keywordlist" "Flood summary layers,2009-12-01T00:00:00/2019-10-07T12:00:00"
+      END
+    GROUP "Flood summary layers"
+    PROJECTION
+        AUTO
+      #"proj=laea"
+      #"lat_0=48.0"
+      #"lon_0=9.0"
+      #"x_0=0.0"
+      #"y_0=0.0"
+      #"units=m"
+      #"a=6378388"
+      #"b=6378388"
+    END
+    TYPE point
+    STATUS off
+    #data /var/lib/mapserver/data/forecasts/europe5km/2017/201706/2017062912/RepPoints_High2017062912.shp
+    TOLERANCE 20
+    TEMPLATE void
+    LABELITEM "NoOfEPS"
+    SYMBOLSCALEDENOM 3500000
+    CLASS
+        NAME "RepPoints_High"
+        STYLE
+            MINSIZE 12
+            SIZE 14
+            MAXSIZE 18
+            SYMBOL "circle"
+            COLOR 255 0 0
+        END
+        LABEL
+            PRIORITY 8
+            MINSIZE 10
+            SIZE 12
+            MAXSIZE 14
+            #FONT "liberation-sans"
+            TYPE truetype
+            COLOR 255 0 0
+            OUTLINECOLOR 255 255 255
+            OUTLINEWIDTH 2
+            POSITION auto
+            ANTIALIAS true
+            #BUFFER 5
+            PARTIALS false
+        END
+    END
+END
+
+
+LAYER
+    NAME "RepPoints_Med"
+    METADATA
+        "ows_title" "Reporting Points 2yr RP"
+        "ows_abstract" "Reporting Points 2yr RP"
+        "wms_keywordlist" "Flood summary layers,2009-12-01T00:00:00/2019-10-07T12:00:00"
+      END
+    GROUP "Flood summary layers"
+    PROJECTION
+      "proj=laea"
+      "lat_0=48.0"
+      "lon_0=9.0"
+      "x_0=0.0"
+      "y_0=0.0"
+      "units=m"
+      "a=6378388"
+      "b=6378388"
+    END
+    TYPE point
+    STATUS off
+    TOLERANCE 20
+    TEMPLATE void
+    CLASS
+        NAME "RepPoints_Med"
+        STYLE
+            SIZE 14
+            SYMBOL "triangle"
+            COLOR 255 255 0
+            OUTLINECOLOR 0 0 0
+        END
+    END
+END
+
+
+LAYER
+    NAME "RapidFloodMapping"
+    METADATA
+        "ows_title" "Rapid Flood Mapping"
+        "ows_abstract" "Estimated flood extent at 100m resolution based on forecasted flood magnitude. Protection levels considered in estimation are available under Background layers"
+        "wms_keywordlist" "Flood summary layers,2009-12-01T00:00:00/2100-01-01T00:00:00"
+    END
+    GROUP "Flood summary layers"
+    PROJECTION
+        "init=epsg:4326"
+    END
+    TYPE polygon
+    STATUS off
+    TOLERANCE 20
+    TEMPLATE void
+    LABELCACHE off
+    CLASS
+        NAME "RapidFloodMapping"
+        STYLE
+            COLOR 114 178 255
+            OUTLINECOLOR 114 133 132
+        END
+    END
+END
+
+
+LAYER
+    NAME "RapidImpactAssessment"
+    METADATA
+        "ows_title" "Rapid Impact Assessment"
+        "ows_abstract" "Potential impact of floods on population, land use (agriculture, urban), infrastructure (major roads/train networks), critical infrastructure based on 100m resolution flood hazard aggregated over NUTS regions. Protection levels considered in estimation are available under Background layers"
+        "wms_keywordlist" "Flood summary layers,2009-12-01T00:00:00/2100-01-01T00:00:00"
+    END
+    GROUP "Flood summary layers"
+    PROJECTION
+      "init=epsg:4326"
+    END
+    TYPE polygon
+    STATUS off
+    TOLERANCE 1
+    TOLERANCEUNITS PIXELS
+    TEMPLATE void
+    OPACITY 50
+    LABELCACHE off
+    CLASS
+        NAME "RapidImpactAssessment"
+        STYLE
+            OUTLINECOLOR 26 26 26
+            COLOR [PopColor]
+        END
+    END
+END
+
+
+LAYER
+    NAME "MIC1"
+    METADATA
+        "ows_title" "Threshold level exceedance ongoing"
+        "ows_abstract" "Threshold level exceedance ongoing"
+        "wms_keywordlist" "Flood summary layers,2009-12-01T00:00:00/2100-01-01T00:00:00"
+      END
+    GROUP "Flood summary layers"
+    PROJECTION
+        AUTO
+    END
+    TYPE point
+    STATUS OFF
+    #DATA /var/lib/mapserver/data/forecasts/europe5km/2017/201706/2017062912/RepPoints_High2017072400.shp
+    TOLERANCE 10
+    TEMPLATE void
+    CLASSITEM "PeakTime"
+    LABELITEM "PeakTime_r"
+    CLASS
+        NAME "0 Yellow"
+        EXPRESSION ([PeakTime]=0 AND [HighPerc]<0)
+        STYLE
+            SYMBOL "circle"
+            SIZE 14
+            COLOR 255 255 0
+            OUTLINECOLOR 0 0 0
+        END
+        LABEL
+            #FONT FreeSans
+            TYPE truetype
+            COLOR 255 255 0
+            OUTLINECOLOR 0 0 0
+            OUTLINEWIDTH 2
+            SIZE 12
+            POSITION auto
+            PARTIALS false
+            ANTIALIAS true
+        END
+    END
+    CLASS
+        NAME "0 Red"
+        EXPRESSION ([PeakTime]=0 AND [HighPerc]>0 AND [HighPerc]<=1)
+        STYLE
+            SYMBOL "circle"
+            SIZE 14
+            COLOR 255 0 0
+            OUTLINECOLOR 0 0 0
+        END
+        LABEL
+            #FONT FreeSans
+            TYPE truetype
+            COLOR 255 0 0
+            OUTLINECOLOR 255 255 255
+            OUTLINEWIDTH 2
+            SIZE 12
+            POSITION auto
+            PARTIALS false
+            ANTIALIAS true
+        END
+    END
+    CLASS
+        NAME "0 Pink"
+        EXPRESSION ([PeakTime]=0 AND [HighPerc]>1)
+        STYLE
+            SYMBOL "circle"
+            SIZE 14
+            COLOR 204 0 255
+            OUTLINECOLOR 0 0 0
+        END
+        LABEL
+            #FONT FreeSans
+            TYPE truetype
+            COLOR 204 0 255
+            OUTLINECOLOR 255 255 255
+            OUTLINEWIDTH 2
+            SIZE 12
+            POSITION auto
+            PARTIALS false
+            ANTIALIAS true
+        END
+    END
+END
+
+
+LAYER
+    NAME "MIC2"
+    METADATA
+        "ows_title" "Threshold level exceedance 1-2 days"
+        "ows_abstract" "Threshold level exceedance 1-2 days"
+        "wms_keywordlist" "Flood summary layers,2009-12-01T00:00:00/2100-01-01T00:00:00"
+      END
+    GROUP "Flood summary layers"
+    PROJECTION
+        AUTO
+    END
+    TYPE point
+    STATUS off
+    TOLERANCE 20
+    TEMPLATE void
+    CLASSITEM "PeakTime"
+    LABELITEM "PeakTime_r"
+    CLASS
+        NAME "1-2 Yellow"
+        EXPRESSION ([HighPerc]<0 AND [PeakTime]>=1 AND [PeakTime]<3)
+        STYLE
+            SYMBOL "circle"
+            SIZE 14
+            COLOR 255 255 0 # inside color yellow
+            OUTLINECOLOR 0 0 0
+        END
+        LABEL
+            #FONT FreeSans
+            TYPE truetype
+            COLOR 255 255 0
+            OUTLINECOLOR 0 0 0
+            OUTLINEWIDTH 2
+            SIZE 12
+            POSITION auto
+            PARTIALS false
+            ANTIALIAS true
+        END
+    END
+    CLASS
+        NAME "1-2 Red"
+        EXPRESSION ([HighPerc]<=1 AND [PeakTime]>=1 AND [PeakTime]<3)
+        STYLE
+            SYMBOL "circle"
+            SIZE 14
+            COLOR 255 0 0
+            OUTLINECOLOR 0 0 0
+        END
+        LABEL
+            #FONT FreeSans
+            TYPE truetype
+            COLOR 255 0 0
+            OUTLINECOLOR 255 255 255
+            OUTLINEWIDTH 2
+            SIZE 12
+            POSITION auto
+            PARTIALS false
+            ANTIALIAS true
+        END
+    END
+    CLASS
+        NAME "1-2 Pink"
+        EXPRESSION ([HighPerc]>1 AND [PeakTime]>=1 AND [PeakTime]<3)
+        STYLE
+            SYMBOL "circle"
+            SIZE 14
+            COLOR 204 0 255
+            OUTLINECOLOR 0 0 0
+        END
+        LABEL
+            #FONT FreeSans
+            TYPE truetype
+            COLOR 204 0 255
+            OUTLINECOLOR 255 255 255
+            OUTLINEWIDTH 2
+            SIZE 12
+            POSITION auto
+            PARTIALS false
+            ANTIALIAS true
+        END
+    END
+END
+
+
+LAYER
+    NAME "MIC3"
+    METADATA
+        "ows_title" "Threshold level exceedance 3-5 days"
+        "ows_abstract" "Threshold level exceedance 3-5 days"
+        "wms_keywordlist" "Flood summary layers,2009-12-01T00:00:00/2100-01-01T00:00:00"
+      END
+    GROUP "Flood summary layers"
+    PROJECTION
+        AUTO
+    END
+    TYPE point
+    STATUS off
+    TOLERANCE 20
+    TEMPLATE void
+    CLASSITEM "PeakTime"
+    LABELITEM "PeakTime_r"
+    CLASS
+        NAME "3-5 Yellow"
+        EXPRESSION ([HighPerc]<0 AND [PeakTime]>=3 AND [PeakTime]<5)
+        STYLE
+            SYMBOL "circle"
+            SIZE 12
+            COLOR 255 255 0 # inside color yellow
+            OUTLINECOLOR 0 0 0
+        END
+        LABEL
+            #FONT FreeSans
+            TYPE truetype
+            COLOR 255 255 0
+            OUTLINECOLOR 0 0 0
+            OUTLINEWIDTH 2
+            SIZE 14
+            POSITION auto
+            PARTIALS false
+            ANTIALIAS true
+        END
+    END
+    CLASS
+        NAME "3-5 Red"
+        EXPRESSION ([HighPerc]<=1 AND [PeakTime]>=3 AND [PeakTime]<5)
+        STYLE
+            SYMBOL "circle"
+            SIZE 12
+            COLOR 255 0 0
+            OUTLINECOLOR 0 0 0
+        END
+        LABEL
+            #FONT FreeSans
+            TYPE truetype
+            COLOR 255 0 0
+            OUTLINECOLOR 255 255 255
+            OUTLINEWIDTH 2
+            SIZE 12
+            POSITION auto
+            PARTIALS false
+            ANTIALIAS true
+        END
+    END
+    CLASS
+        NAME "3-5 Pink"
+        EXPRESSION ([HighPerc]>1 AND [PeakTime]>=3 AND [PeakTime]<5)
+        STYLE
+            SYMBOL "circle"
+            SIZE 14
+            COLOR 204 0 255
+            OUTLINECOLOR 0 0 0
+        END
+        LABEL
+            #FONT FreeSans
+            TYPE truetype
+            COLOR 204 0 255
+            OUTLINECOLOR 255 255 255
+            OUTLINEWIDTH 2
+            SIZE 12
+            POSITION auto
+            PARTIALS false
+            ANTIALIAS true
+        END
+    END
+END
+
+
+LAYER
+    NAME "MIC4"
+    METADATA
+        "ows_title" "Threshold level exceedance > 5 days"
+        "ows_abstract" "Threshold level exceedance > 5 days"
+        "wms_keywordlist" "Flood summary layers,2009-12-01T00:00:00/2100-01-01T00:00:00"
+      END
+    GROUP "Flood summary layers"
+    PROJECTION
+        AUTO
+    END
+    TYPE point
+    STATUS off
+    TOLERANCE 20
+    TEMPLATE void
+    CLASSITEM "PeakTime"
+    LABELITEM "PeakTime_r"
+    CLASS
+        NAME ">5 Yellow"
+        EXPRESSION ([HighPerc]<0 AND [PeakTime]>=5)
+        STYLE
+            SYMBOL "circle"
+            SIZE 14
+            COLOR 255 255 0 # inside color yellow
+            OUTLINECOLOR 0 0 0
+        END
+        LABEL
+            #FONT FreeSans
+            TYPE truetype
+            COLOR 255 255 0
+            OUTLINECOLOR 0 0 0
+            OUTLINEWIDTH 2
+            SIZE 12
+            POSITION auto
+            PARTIALS false
+            ANTIALIAS true
+        END
+    END
+    CLASS
+        NAME ">5 Red"
+        EXPRESSION ([HighPerc]<=1 AND [PeakTime]>=5)
+        STYLE
+            SYMBOL "circle"
+            SIZE 14
+            COLOR 255 0 0
+            OUTLINECOLOR 0 0 0
+        END
+        LABEL
+            #FONT FreeSans
+            TYPE truetype
+            COLOR 255 0 0
+            OUTLINECOLOR 255 255 255
+            OUTLINEWIDTH 2
+            SIZE 12
+            POSITION auto
+            PARTIALS false
+            ANTIALIAS true
+        END
+    END
+    CLASS
+        NAME ">5 Pink"
+        EXPRESSION ([HighPerc]>1 AND [PeakTime]>=5)
+        STYLE
+            SYMBOL "circle"
+            SIZE 14
+            COLOR 204 0 255
+            OUTLINECOLOR 0 0 0
+        END
+        LABEL
+            #FONT FreeSans
+            TYPE truetype
+            COLOR 204 0 255
+            OUTLINECOLOR 255 255 255
+            OUTLINEWIDTH 2
+            SIZE 12
+            POSITION auto
+            PARTIALS false
+            ANTIALIAS true
+        END
+    END
+END
+
+
+LAYER
+    NAME "RealTimeHydrographs"
+    METADATA
+        "ows_title" "Real-time hydrographs"
+        "ows_description" "Post-processed forecast hydrographs where near real-time discharge observations are available. On the right the probability of exceeding two thresholds (MHQ and MQ) versus lead-time is shown. The MHQ (shown on the top) is defined as the average yearly maximum value (peak discharges which occur every one or two year on average), whereas the MQ is the average of all the discharge values (normal condition)."
+        "wms_keywordlist" "Flood summary layers,2009-12-01T00:00:00/2019-10-07T12:00:00"
+    END
+    GROUP "Flood summary layers"
+    PROJECTION
+      "proj=laea"
+      "lat_0=48.0"
+      "lon_0=9.0"
+      "x_0=0.0"
+      "y_0=0.0"
+      "units=m"
+      "a=6378388"
+      "b=6378388"
+    END
+    TYPE point
+    STATUS off
+    TOLERANCE 20
+    TEMPLATE void
+    CLASSITEM "warn_level"
+    CLASS
+        NAME "warn_level = 2"
+        EXPRESSION ([warn_level]=2)
+        STYLE
+            COLOR 255 51 0
+            SYMBOL "hydrograph2"
+            SIZE 24
+        END
+    END
+    CLASS
+        NAME "warn_level = 1"
+        EXPRESSION ([warn_level]=1)
+        STYLE
+            SYMBOL "hydrograph1"
+            COLOR 255 255 102
+            SIZE 24
+        END
+    END
+    CLASS
+        NAME "warn_level = 0"
+        EXPRESSION ([warn_level]=0)
+        STYLE
+            COLOR 51 51 255
+            SYMBOL "hydrograph0"
+            SIZE 24
+        END
+    END
+END
+
+LAYER
+    NAME "RepWB"
+    METADATA
+        "ows_title" "Water Balance"
+        "ows_abstract" "Water Balance"
+        "wms_keywordlist" "Flood summary layers,2009-12-01T00:00:00/2100-01-01T00:00:00"
+    END
+    GROUP "EU-FLOOD-GIS layers"
+    PROJECTION
+      "proj=laea"
+      "lat_0=48.0"
+      "lon_0=9.0"
+      "x_0=0.0"
+      "y_0=0.0"
+      "units=m"
+      "a=6378388"
+      "b=6378388"
+    END
+    TYPE point
+    #DATA /var/lib/mapserver/data/forecasts/europe5km/2017/201706/2017062912/RepWB2017062912
+    STATUS off
+    TOLERANCE 20
+    TEMPLATE void
+    LABELCACHE off
+
+    CLASSITEM "Ups_Area"
+    CLASS
+        NAME "Ups_Area 0-5000"
+        EXPRESSION ([Ups_Area]<5000)
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 7
+            COLOR 0 0 255 # inside color
+            OUTLINECOLOR 0 0 0
+        END
+    END
+    CLASS
+        NAME "Ups_Area 5000-10000"
+        EXPRESSION ([Ups_Area]>=5000 AND [Ups_Area]<10000)
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 10
+            COLOR 0 0 255 # inside color
+            OUTLINECOLOR 0 0 0
+        END
+    END
+    CLASS
+        NAME "Ups_Area 10000-20000"
+        EXPRESSION ([Ups_Area]>=10000 AND [Ups_Area]<20000)
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 13
+            COLOR 0 0 255 # inside color
+            OUTLINECOLOR 0 0 0
+        END
+    END
+    CLASS
+        NAME "Ups_Area 20000-50000"
+        EXPRESSION ([Ups_Area]>=20000 AND [Ups_Area]<50000)
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 16
+            COLOR 0 0 255 # inside color
+            OUTLINECOLOR 0 0 0
+        END
+    END
+    CLASS
+        NAME "Ups_Area >50000"
+        EXPRESSION ([Ups_Area]>=50000)
+        STYLE
+            SYMBOL "quadrato"
+            SIZE 19
+            COLOR 0 0 255 # inside color
+            OUTLINECOLOR 0 0 0
+        END
+    END
+END
+#
+#######END  FLOOD SUMMARY LAYERS ##################
+#
+
+#
+###### HYDROLOGICAL LAYERS ##################
+#
+LAYER
+    NAME "s2s"
+    METADATA
+        "ows_title" "Sub-seasonal outlook"
+        "ows_abstract" "River flow anomaly and its probability of occurrence for the next eight weeks, aggregated over regions."
+        "wms_keywordlist" "Hydrological layers,2019-12-01T00:00:00/2100-01-01T00:00:00"
+    END
+    GROUP "Hydrological layers"
+    TYPE polygon
+    PROJECTION
+        "init=epsg:3035"
+        #"init=epsg:3857"
+    END
+    EXTENT 280000 1800000 6293974 5446513
+    STATUS OFF
+    #DATA /var/lib/mapserver/data/forecasts/s2s/2019/201910/2019102000/s2s.shp
+    TEMPLATE void
+    OPACITY 90
+    CLASSITEM "flag"
+    CLASS
+        NAME "3"
+        EXPRESSION ([flag]=3)
+        STYLE
+            COLOR 5 113 176
+            OUTLINECOLOR 158 158 158
+        END
+    END
+    CLASS
+        NAME "2"
+        EXPRESSION ([flag]=2)
+        STYLE
+            COLOR 98 169 206
+            OUTLINECOLOR 158 158 158
+        END
+    END
+    CLASS
+        NAME "1"
+        EXPRESSION ([flag]=1)
+        STYLE
+            COLOR 179 213 230
+            OUTLINECOLOR 158 158 158
+        END
+    END
+    CLASS
+        NAME "0"
+        EXPRESSION ([flag]=0)
+        STYLE
+            COLOR 247 247 247
+            OUTLINECOLOR 158 158 158
+        END
+    END
+    CLASS
+        NAME "-1"
+        EXPRESSION ([flag]=-1)
+        STYLE
+            COLOR 245 192 169
+            OUTLINECOLOR 158 158 158
+        END
+    END
+    CLASS
+        NAME "-2"
+        EXPRESSION ([flag]=-2)
+        STYLE
+            COLOR 230 110 97
+            OUTLINECOLOR 158 158 158
+        END
+    END
+
+    CLASS
+        NAME "-3"
+        EXPRESSION ([flag]=-3)
+        STYLE
+            COLOR 202 0 32
+            OUTLINECOLOR 158 158 158
+        END
+    END
+END
+
+
+LAYER
+    NAME "SeasonalOutlook"
+    METADATA
+        "ows_title" "Seasonal outlook"
+        "ows_abstract" "River flow trend, and its probability of occurrence, for the next 8 weeks. The trend is calculated from the current forecast with respect to the 90th and 10th percentiles of the simulated discharge from a 24 year model climatology (1990 - 2013)."
+        "wms_keywordlist" "Hydrological layers,2009-12-01T00:00:00/2100-01-01T00:00:00"
+    END
+    GROUP "Hydrological layers"
+    TYPE polygon
+    PROJECTION
+      "proj=laea"
+      "lat_0=48.0"
+      "lon_0=9.0"
+      "x_0=0.0"
+      "y_0=0.0"
+      "units=m"
+      "a=6378388"
+      "b=6378388"
+    END
+    STATUS OFF
+    #DATA /var/lib/mapserver/data/forecasts/seasonal/2017/201706/swp.shp
+    TEMPLATE "/var/lib/mapserver/data/pepe.html"
+    # TEMPLATE void
+    OPACITY 90
+    CLASSITEM "flag"
+    CLASS
+        NAME "3"
+        EXPRESSION ([flag]=3)
+        STYLE
+            COLOR 5 113 176
+            OUTLINECOLOR 158 158 158
+        END
+    END
+    CLASS
+        NAME "2"
+        EXPRESSION ([flag]=2)
+        STYLE
+            COLOR 98 169 206
+            OUTLINECOLOR 158 158 158
+        END
+    END
+    CLASS
+        NAME "1"
+        EXPRESSION ([flag]=1)
+        STYLE
+            COLOR 179 213 230
+            OUTLINECOLOR 158 158 158
+        END
+    END
+    CLASS
+        NAME "0"
+        EXPRESSION ([flag]=0)
+        STYLE
+            COLOR 247 247 247
+            OUTLINECOLOR 158 158 158
+        END
+    END
+    CLASS
+        NAME "-1"
+        EXPRESSION ([flag]=-1)
+        STYLE
+            COLOR 245 192 169
+            OUTLINECOLOR 158 158 158
+        END
+    END
+    CLASS
+        NAME "-2"
+        EXPRESSION ([flag]=-2)
+        STYLE
+            COLOR 230 110 97
+            OUTLINECOLOR 158 158 158
+        END
+    END
+
+    CLASS
+        NAME "-3"
+        EXPRESSION ([flag]=-3)
+        STYLE
+            COLOR 202 0 32
+            OUTLINECOLOR 158 158 158
+        END
+    END
+END
+
+
+#
+####### INIT. CONDITIONS LAYERS ##################
+#
+
+LAYER
+    NAME "synopStation24Hours"
+    METADATA
+        "ows_title" "Synop 24 hours precip"
+        "ows_abstract" "Synop 24 hours precip"
+        "wms_keywordlist" "Init. Conditions layers,2009-12-01T00:00:00/2100-01-01T00:00:00"
+    END
+    PROJECTION
+        "init=epsg:4326"
+    END
+    #DATA /var/lib/mapserver/data/forecasts/europe5km/2017/201706/2017062912/geoTPs_EU2017062912
+    PROCESSING "LABEL_NO_CLIP=1"
+    GROUP "Init. Conditions layers"
+    TOLERANCE 20
+    TYPE POINT
+    STATUS off
+    LABELITEM "NAME"
+    SYMBOLSCALEDENOM 2500000
+    CLASSITEM "PCAT6h1"
+    CLASS
+        NAME "0 mm"
+        EXPRESSION ([SIZE]=6)
+        MAXSCALEDENOM 50000000
+        STYLE
+            SYMBOL "circle"
+            COLOR 0 0 0
+            # SIZE [SIZE]
+            SIZE 10
+            MINSIZE 4
+            MAXSIZE 8
+            MINWIDTH 1
+            MAXWIDTH 1
+            OUTLINECOLOR 255 255 255
+        END
+       LABEL
+            MAXSCALEDENOM 5000000
+            POSITION auto
+            COLOR 0 0 0
+            OUTLINECOLOR 255 255 255
+            OUTLINEWIDTH 4
+            #FONT verdana
+            TYPE truetype
+            SIZE 5
+            MINSIZE 4
+            MAXSIZE 8
+            BUFFER 10
+            PARTIALS false
+        END
+
+    END
+    CLASS
+        NAME "6 hour"
+        EXPRESSION ('[PCAT6h1]'!='-99' AND [SIZE]!=6)
+        STYLE
+            SYMBOL "SQUARE_TL"
+            COLOR [PCAT6h2]
+            SIZE 12
+            # SIZE [SIZE]
+            MINSIZE 7
+            MAXSIZE 15
+            MINWIDTH 1
+            MAXWIDTH 2
+            OUTLINECOLOR 0 0 0
+        END
+        STYLE
+            SYMBOL "SQUARE_BL"
+            COLOR [PCAT6h1]
+            SIZE 12
+            # SIZE [SIZE]
+            MINSIZE 7
+            MAXSIZE 15
+            MINWIDTH 1
+            MAXWIDTH 2
+            OUTLINECOLOR 0 0 0
+        END
+        STYLE
+            SYMBOL "SQUARE_TR"
+            COLOR [PCAT6h3]
+            SIZE 12
+            # SIZE [SIZE]
+            MINSIZE 7
+            MAXSIZE 15
+            MINWIDTH 1
+            MAXWIDTH 2
+            OUTLINECOLOR 0 0 0
+        END
+        STYLE
+            SYMBOL "SQUARE_BR"
+            COLOR [PCAT6h4]
+            SIZE 12
+            # SIZE [SIZE]
+            MINSIZE 7
+            MAXSIZE 15
+            MINWIDTH 1
+            MAXWIDTH 2
+            OUTLINECOLOR 0 0 0
+        END
+        LABEL
+            MAXSCALEDENOM 5000000
+            MINSCALEDENOM 500000
+            POSITION ul
+            COLOR 0 0 0
+            OUTLINECOLOR 255 255 255
+            OUTLINEWIDTH 4
+            #FONT verdana
+            TYPE truetype
+            SIZE 6
+            MINSIZE 5
+            MAXSIZE 10
+            BUFFER 10
+            PARTIALS false
+            FORCE true
+            OFFSET 1 -2
+        END
+        LABEL
+            MAXSCALEDENOM 500000
+            POSITION ul
+            COLOR 0 0 0
+            OUTLINECOLOR 255 255 255
+            OUTLINEWIDTH 4
+            #FONT verdana
+            TYPE truetype
+            SIZE 6
+            MINSIZE 5
+            MAXSIZE 10
+            BUFFER 10
+            PARTIALS false
+            FORCE true
+            OFFSET 0 -2
+        END
+        LABEL
+            MAXSCALEDENOM 5000000
+            MINSCALEDENOM 500000
+            EXPRESSION ('[PVAL24]' ~ '.')
+            #FONT verdana
+            TYPE truetype
+            TEXT '[PVAL24]'
+            POSITION lr
+            FORCE true
+            OFFSET -3 -6
+            OUTLINECOLOR 255 255 255
+            OUTLINEWIDTH 8
+            SIZE 7
+            MINSIZE 5
+            MAXSIZE 12
+        END
+        LABEL
+            MAXSCALEDENOM 500000
+            EXPRESSION ('[PVAL24]' ~ '.')
+            #FONT verdana
+            TYPE truetype
+            TEXT '[PVAL24]'
+            POSITION lr
+            FORCE true
+            OFFSET -4 -6
+            OUTLINECOLOR 255 255 255
+            OUTLINEWIDTH 8
+            SIZE 7
+            MINSIZE 5
+            MAXSIZE 12
+        END
+    END
+    CLASS
+        NAME "12 hour"
+        EXPRESSION ('[PCAT6h1]'='-99' AND [SIZE]!=6)
+        STYLE
+            SYMBOL "SQUARE_FULL"
+            COLOR [PCAT12h1]
+            SIZE 22
+            # SIZE [SIZE]
+            MINSIZE 14
+            MAXSIZE 30
+            MINWIDTH 1
+            MAXWIDTH 2
+            OUTLINECOLOR 0 0 0
+        END
+        STYLE
+            SYMBOL "SQUARE_R"
+            COLOR [PCAT12h2]
+            SIZE 22
+            # SIZE [SIZE]
+            MINSIZE 14
+            MAXSIZE 30
+            MINWIDTH 1
+            MAXWIDTH 2
+            OUTLINECOLOR 0 0 0
+        END
+        LABEL
+            MAXSCALEDENOM 5000000
+            MINSCALEDENOM 500000
+            POSITION ul
+            COLOR 0 0 0
+            OUTLINECOLOR 255 255 255
+            OUTLINEWIDTH 4
+            #FONT verdana
+            TYPE truetype
+            SIZE 6
+            MINSIZE 5
+            MAXSIZE 10
+            BUFFER 10
+            PARTIALS false
+            FORCE true
+            OFFSET -1 -3
+        END
+        LABEL
+            MAXSCALEDENOM 500000
+            POSITION ul
+            COLOR 0 0 0
+            OUTLINECOLOR 255 255 255
+            OUTLINEWIDTH 4
+            #FONT verdana
+            TYPE truetype
+            SIZE 6
+            MINSIZE 5
+            MAXSIZE 10
+            BUFFER 10
+            PARTIALS false
+            FORCE true
+            OFFSET -1 -2
+        END
+        LABEL
+            MAXSCALEDENOM 5000000
+            MINSCALEDENOM 500000
+            EXPRESSION ('[PVAL24]' ~ '.')
+            #FONT verdana
+            TYPE truetype
+            TEXT '[PVAL24]'
+            POSITION lr
+            FORCE true
+            OFFSET -4 -7
+            OUTLINECOLOR 255 255 255
+            OUTLINEWIDTH 8
+            SIZE 7
+            MINSIZE 5
+            MAXSIZE 12
+        END
+        LABEL
+            MAXSCALEDENOM 500000
+            EXPRESSION ('[PVAL24]' ~ '.')
+            #FONT verdana
+            TYPE truetype
+            TEXT '[PVAL24]'
+            POSITION lr
+            FORCE true
+            OFFSET -5 -6
+            OUTLINECOLOR 255 255 255
+            OUTLINEWIDTH 8
+            SIZE 7
+            MINSIZE 5
+            MAXSIZE 12
+        END
+
+    END
+
+END
+#
+####### END INIT. CONDITIONS LAYERS ##################
+#
+
+
+#
+#### FLASH Flood Layers
+#
+
+# new version of the ERIC layer introducing a bigger point for each region
+# used as a reference point for issuing notifications
+LAYER
+    NAME "Eric_v2"
+    METADATA
+        "ows_title" "ERIC Reporting Points"
+        "ows_abstract" "Reporting points showing the forecasted probability [%] of precipitation intensities to exceed a 5 (red) or 20 (purple) year return period magnitude."
+        "wms_keywordlist" "Flash flood layers,2019-12-10T00:00:00/2100-01-01T00:00:00"
+    END
+    GROUP "Flash flood layers"
+    PROJECTION
+        "init=epsg:3035"
+    END
+    #DATA /var/lib/mapserver/data/forecasts/europe5km/2019/201910/2019101600/Eric2019101600
+    EXTENT 2568000 1182000 6139000 4163000
+    TYPE point
+    STATUS off
+    TOLERANCE 20
+    TEMPLATE void
+    LABELITEM "Prob"
+    CLASSITEM "alert_lev"
+
+    CLASS
+        NAME "alert_lev=3"
+        EXPRESSION ([alert_lev]=3)
+        SYMBOL "inverse_triangle"
+        STYLE
+            COLOR 255 255 0
+            OUTLINECOLOR 0 0 0
+            SIZE 16
+            SYMBOL "inverse_triangle"
+        END
+        LABEL
+            TYPE truetype
+            COLOR 255 255 0255
+            OUTLINECOLOR 128 128 128
+            OUTLINEWIDTH 2
+            SIZE 12
+            POSITION auto
+            PARTIALS false
+            ANTIALIAS true
+        END
+    END
+    CLASS
+        NAME "alert_lev=1, alert_loc=1"
+        EXPRESSION ([alert_lev]=1 AND [alert_loc]=1)
+        SYMBOL "inverse_triangle"
+        STYLE
+            COLOR 255 102 102
+            OUTLINECOLOR 0 0 0
+            SIZE 40
+            SYMBOL "inverse_triangle"
+        END
+        LABEL
+            TYPE truetype
+            COLOR 255 102 102
+            OUTLINECOLOR 255 255 254
+            OUTLINEWIDTH 2
+            SIZE 12
+            POSITION auto
+            PARTIALS false
+            ANTIALIAS true
+        END
+    END
+    CLASS
+        NAME "alert_lev=2 and alert_loc=1"
+        EXPRESSION ([alert_lev]=2 AND [alert_loc]=1)
+        SYMBOL "inverse_triangle"
+        STYLE
+            COLOR 230 102 255
+            OUTLINECOLOR 0 0 0
+            SIZE 40
+            SYMBOL "inverse_triangle"
+        END
+        LABEL
+            TYPE truetype
+            COLOR 230 102 255
+            OUTLINECOLOR 255 255 254
+            OUTLINEWIDTH 2
+            SIZE 12
+            POSITION auto
+            PARTIALS false
+            ANTIALIAS true
+        END
+    END
+    CLASS
+        NAME "alert_lev=1, ff_t_gt5<0.10"
+        EXPRESSION ([alert_lev]=1 and [ff_t_gt5]<0.10)
+        SYMBOL "inverse_triangle"
+        STYLE
+            COLOR 255 102 102
+            OUTLINECOLOR 0 0 0
+            SIZE 16
+            SYMBOL "inverse_triangle"
+        END
+        LABEL
+            TYPE truetype
+            COLOR 255 102 102
+            OUTLINECOLOR 255 255 254
+            OUTLINEWIDTH 2
+            SIZE 12
+            POSITION auto
+            PARTIALS false
+            ANTIALIAS true
+        END
+    END
+    CLASS
+        NAME "alert_lev=1, ff_t_gt5>=0.10, alert_loc=0"
+        EXPRESSION ([alert_lev]=1 AND [ff_t_gt5]>=0.10 AND [alert_loc]=0)
+        SYMBOL "inverse_triangle"
+        STYLE
+            COLOR 255 102 102
+            OUTLINECOLOR 0 0 0
+            SIZE 16
+            SYMBOL "inverse_triangle"
+        END
+        LABEL
+            TYPE truetype
+            COLOR 255 102 102
+            OUTLINECOLOR 255 255 254
+            OUTLINEWIDTH 2
+            SIZE 12
+            POSITION auto
+            PARTIALS false
+            ANTIALIAS true
+        END
+    END
+    CLASS
+        NAME "alert_lev=1, ff_t_gt5>=0.10"
+        EXPRESSION ([alert_lev]=1 AND [ff_t_gt5]>=0.10)
+        SYMBOL "inverse_triangle"
+        STYLE
+            COLOR 255 102 102
+            OUTLINECOLOR 0 0 0
+            SIZE 16
+            SYMBOL "inverse_triangle"
+        END
+        LABEL
+            TYPE truetype
+            COLOR 255 102 102
+            OUTLINECOLOR 255 255 254
+            OUTLINEWIDTH 2
+            SIZE 12
+            POSITION auto
+            PARTIALS false
+            ANTIALIAS true
+        END
+    END
+    CLASS
+        NAME "alert_lev=2"
+        EXPRESSION ([alert_lev]=2)
+        SYMBOL "inverse_triangle"
+        STYLE
+            COLOR 230 102 255
+            OUTLINECOLOR 0 0 0
+            SIZE 16
+            SYMBOL "inverse_triangle"
+        END
+        LABEL
+            TYPE truetype
+            COLOR 230 102 255
+            OUTLINECOLOR 255 255 254
+            OUTLINEWIDTH 2
+            SIZE 12
+            POSITION auto
+            PARTIALS false
+            ANTIALIAS true
+        END
+    END
+END
+
+
+LAYER
+    NAME "Eric"
+    METADATA
+        "ows_title" "ERIC - Reporting Points"
+        "ows_abstract" "Reporting points showing the forecasted probability [%] of precipitation intensities to exceed a 5 (red) or 20 (purple) year return period magnitude."
+        "wms_keywordlist" "Flash flood layers,2009-12-01T00:00:00/2019-12-09T12:00:00"
+      END
+    GROUP "Flash flood layers"
+    PROJECTION
+      "proj=laea"
+      "lat_0=48.0"
+      "lon_0=9.0"
+      "x_0=0.0"
+      "y_0=0.0"
+      "units=m"
+      "a=6378388"
+      "b=6378388"
+    END
+    DATA /var/s3fs/hydro/PGEN2021032212/points/RepPoints2021032212.shp
+    TYPE point
+    STATUS off
+    TOLERANCE 20
+    TEMPLATE void
+    LABELITEM "Prob"
+    CLASSITEM "alert_lev"
+
+    CLASS #class0
+        NAME "alert_lev=3"
+        EXPRESSION ([alert_lev]=-99)
+        SYMBOL "inverse_triangle"
+        STYLE
+            COLOR 255 255 0
+            OUTLINECOLOR 0 0 0
+            SIZE 16
+            SYMBOL "inverse_triangle"
+        END
+        LABEL
+            TYPE truetype
+            COLOR 255 255 0255
+            OUTLINECOLOR 128 128 128
+            OUTLINEWIDTH 2
+            SIZE 12
+            POSITION auto
+            PARTIALS false
+            ANTIALIAS true
+        END
+    END
+    CLASS #class1
+        NAME "alert_lev=1, ff_t_gt5<0.10"
+        EXPRESSION ([alert_lev]=-99)
+        SYMBOL "inverse_triangle"
+        STYLE
+            COLOR 255 102 102
+            OUTLINECOLOR 0 0 0
+            SIZE 16
+            SYMBOL "inverse_triangle"
+        END
+        LABEL
+            TYPE truetype
+            COLOR 255 102 102
+            OUTLINECOLOR 255 255 254
+            OUTLINEWIDTH 2
+            SIZE 12
+            POSITION auto
+            PARTIALS false
+            ANTIALIAS true
+        END
+    END
+    CLASS #class2
+        NAME "alert_lev=1, ff_t_gt5>=0.10"
+        EXPRESSION ([alert_lev]=-99)
+        SYMBOL "inverse_triangle"
+        STYLE
+            COLOR 255 102 102
+            OUTLINECOLOR 0 0 0
+            SIZE 32
+            SYMBOL "inverse_triangle"
+        END
+        LABEL
+            TYPE truetype
+            COLOR 255 102 102
+            OUTLINECOLOR 255 255 254
+            OUTLINEWIDTH 2
+            SIZE 13
+            POSITION auto
+            PARTIALS false
+            ANTIALIAS true
+        END
+    END
+    CLASS #class3
+        NAME "alert_lev=2"
+        EXPRESSION ([alert_lev]=-99)
+        SYMBOL "inverse_triangle"
+        STYLE
+            COLOR 230 102 255
+            OUTLINECOLOR 0 0 0
+            SIZE 32
+            SYMBOL "inverse_triangle"
+        END
+        LABEL
+            TYPE truetype
+            COLOR 230 102 255
+            OUTLINECOLOR 255 255 254
+            OUTLINEWIDTH 2
+            SIZE 13
+            POSITION auto
+            PARTIALS false
+            ANTIALIAS true
+        END
+    END
+    CLASS #class4 used for the old visualization of ERIC
+        NAME "alert_lev=1"
+        EXPRESSION ([alert_lev]=1)
+        SYMBOL "inverse_triangle"
+        STYLE
+            COLOR 255 102 102
+            OUTLINECOLOR 0 0 0
+            SIZE 16
+            SYMBOL "inverse_triangle"
+        END
+        LABEL
+            TYPE truetype
+            COLOR 255 102 102
+            OUTLINECOLOR 255 255 254
+            OUTLINEWIDTH 2
+            SIZE 12
+            POSITION auto
+            PARTIALS false
+            ANTIALIAS true
+        END
+    END
+    CLASS #class5 used for the old visualization of ERIC
+        NAME "alert_lev=2, ff_t_gt20<0.35"
+        EXPRESSION ([alert_lev]=2 AND [ff_t_gt20]<0.35)
+        SYMBOL "inverse_triangle"
+        STYLE
+            COLOR 255 204 255
+            OUTLINECOLOR 0 0 0
+            SIZE 16
+            SYMBOL "inverse_triangle"
+        END
+        LABEL
+            TYPE truetype
+            COLOR 255 204 255
+            OUTLINECOLOR 0 0 0
+            OUTLINEWIDTH 2
+            SIZE 12
+            POSITION auto
+            PARTIALS false
+            ANTIALIAS true
+        END
+    END
+    CLASS #class6 used for the old visualization of ERIC
+        NAME "alert_lev=2, ff_t_gt20>=0.35"
+        EXPRESSION ([alert_lev]=2 AND [ff_t_gt20]>=0.35)
+        SYMBOL "inverse_triangle"
+        STYLE
+            COLOR 230 102 255
+            OUTLINECOLOR 0 0 0
+            SIZE 32
+            SYMBOL "inverse_triangle"
+        END
+        LABEL
+            TYPE truetype
+            COLOR 230 102 255
+            OUTLINECOLOR 255 255 254
+            OUTLINEWIDTH 2
+            SIZE 13
+            POSITION auto
+            PARTIALS false
+            ANTIALIAS true
+        END
+    END
+END
+
+
+
+	END

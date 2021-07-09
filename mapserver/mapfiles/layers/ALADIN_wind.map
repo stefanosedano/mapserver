@@ -1,0 +1,166 @@
+SYMBOL
+  NAME "horizline"
+  TYPE VECTOR
+  POINTS
+     0 0
+     1 0
+  END # points
+END # symbol
+SYMBOL
+  NAME "arrowhead"
+  TYPE vector
+  FILLED true
+  #ANCHORPOINT 0 0.5
+  POINTS
+    0 2
+    4 1
+    0 0
+  END # points
+END # symbol
+SYMBOL
+  NAME "arrowtail"
+  TYPE vector
+  FILLED true
+  ANCHORPOINT 1 0.5 # to shift the arrowtail
+  POINTS
+    0 2
+    4 1
+    0 0
+    -99 -99
+    0 1
+    4 1
+  END # points
+END # symbol
+
+
+
+LAYER
+DATA "/var/s3fs/nwp/2021031200/ICON-IMS_01010000_verif.grb"
+NAME "wind_gust" 
+TYPE RASTER
+METADATA
+"gml_featureid"		"gid"
+"gml_include_items"	"all"
+"wms_title"		"wind_gust"
+"ows_include_items" "all" 
+END
+PROCESSING "BANDS=6"
+#PROCESSING "SCALE=99995,103148"
+
+CLASS
+  EXPRESSION ([pixel] >= 0 AND [pixel] < 3) 
+  STYLE 
+    COLORRANGE "#6271B8" "#4B93A2"   #color start RGB and end RGB
+    DATARANGE 0 3  #the data range is normally set to the class expression range
+    RANGEITEM "pixel" # pixel is the elevation value in a DEM
+  END #STYLE
+END #end class
+CLASS
+  EXPRESSION ([pixel] >= 3 AND [pixel] < 5 ) 
+  STYLE 
+    COLORRANGE "#4B93A2" "#4CA151"  #color start RGB and end RGB
+    DATARANGE 3 5 #the data range is normally set to the class expression range
+    RANGEITEM "pixel" # pixel is the elevation value in a DEM
+  END #STYLE
+END #end class
+CLASS
+  EXPRESSION ([pixel] >= 5 AND [pixel] < 10 ) 
+  STYLE 
+    COLORRANGE "#4CA151" "#5FA43D" #color start RGB and end RGB
+    DATARANGE 5 99500 #the data range is normally set to the class expression range
+    RANGEITEM "pixel" # pixel is the elevation value in a DEM
+  END #STYLE
+END #end class
+
+CLASS
+  EXPRESSION ([pixel] >= 10 AND [pixel] < 15 ) 
+  STYLE 
+    COLORRANGE "#5FA43D" "#A28047" #color start RGB and end RGB
+    DATARANGE 10 15 #the data range is normally set to the class expression range
+    RANGEITEM "pixel" # pixel is the elevation value in a DEM
+  END #STYLE
+END #end class
+
+CLASS
+  EXPRESSION ([pixel] >= 15 AND [pixel] < 20 ) 
+  STYLE 
+    COLORRANGE "#A28047" "#924576" #color start RGB and end RGB
+    DATARANGE 15 20 #the data range is normally set to the class expression range
+    RANGEITEM "pixel" # pixel is the elevation value in a DEM
+  END #STYLE
+END #end class
+
+CLASS
+  EXPRESSION ([pixel] >= 20 AND [pixel] < 25 ) 
+  STYLE 
+    COLORRANGE "#924576" "#6C5E9C" #color start RGB and end RGB
+    DATARANGE 20 25 #the data range is normally set to the class expression range
+    RANGEITEM "pixel" # pixel is the elevation value in a DEM
+  END #STYLE
+END #end class
+
+CLASS
+  EXPRESSION ([pixel] >= 25 AND [pixel] < 100 ) 
+  STYLE 
+    COLORRANGE "#6C5E9C" "#6C5E9C" #color start RGB and end RGB
+    DATARANGE 25 100 #the data range is normally set to the class expression range
+    RANGEITEM "pixel" # pixel is the elevation value in a DEM
+  END #STYLE
+END #end class
+
+OPACITY 100
+STATUS OFF
+PROJECTION
+"init=epsg:4326"
+END
+END
+
+
+
+
+
+
+
+
+LAYER
+  NAME "wind_arrow"
+  TYPE POINT
+  STATUS OFF
+  CONNECTIONTYPE uvraster
+  DATA  "/var/s3fs/nwp/2021031200/ICON-IMS_01010000_verif.grb"
+  PROCESSING "BANDS=4,5"
+  PROCESSING "UV_SPACING=40"
+  PROCESSING "UV_SIZE_SCALE=0.3"
+  METADATA
+	"gml_featureid"		"gid"
+	"gml_include_items"	"all"
+	"wms_title"		"wind_arrow"
+	"ows_include_items" "all" 
+	END
+  CLASS
+    STYLE
+      SYMBOL "horizline"
+      ANGLE [uv_angle]
+      SIZE [uv_length]
+      WIDTH 1
+      COLOR 100 255 0
+    END # style
+    STYLE
+      SYMBOL "arrowhead"
+      ANGLE [uv_angle]
+      SIZE 5
+      COLOR 0 0 0
+      POLAROFFSET [uv_length_2] [uv_angle]
+    END # style
+    STYLE
+      SYMBOL "arrowtail"
+      ANGLE [uv_angle]
+      SIZE 5
+      COLOR 0 0 0
+      POLAROFFSET [uv_length_2] [uv_minus_angle]
+    END # style
+  END # class
+END # layer
+
+
+

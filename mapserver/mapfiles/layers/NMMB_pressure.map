@@ -1,0 +1,163 @@
+
+LAYER
+DATA "/var/s3fs/nwp/2021031200/ICON-IMS_01010000_verif.grb"
+NAME "pressure_contour" 
+TYPE LINE
+CONNECTIONTYPE CONTOUR
+METADATA
+"gml_featureid"		"gid"
+"gml_include_items"	"all"
+"wms_title"		"pressure_contour"
+"ows_include_items" "all" 
+END
+PROCESSING "BANDS=7"
+PROCESSING "CONTOUR_ITEM=pressure"
+PROCESSING "CONTOUR_INTERVAL=200"
+GEOMTRANSFORM (smoothsia(generalize([shape], 6*[data_cellsize])))
+LABELITEM "pressure"
+CLASS
+NAME "Contours"
+STYLE
+  WIDTH 1
+  COLOR 100 100 100
+END
+TEXT (tostring(([pressure]/100),"%.0f"))
+LABEL
+  COLOR  0 0 0
+  ANGLE FOLLOW
+  OUTLINECOLOR 255 255 255
+  OUTLINEWIDTH  2
+  FONT "arial.ttf"
+  TYPE truetype
+  SIZE 8
+  POSITION AUTO
+  PARTIALS FALSE
+  
+END
+END
+OPACITY 100
+STATUS OFF
+PROJECTION
+"init=epsg:4326"
+END
+END
+
+
+LAYER
+DATA "/var/s3fs/nwp/2021031200/ICON-IMS_01010000_verif.grb"
+NAME "pressure" 
+TYPE RASTER
+CONNECTIONTYPE CONTOUR
+METADATA
+"gml_featureid"		"gid"
+"gml_include_items"	"all"
+"wms_title"		"pressure"
+"ows_include_items" "all" 
+END
+PROCESSING "BANDS=7"
+#PROCESSING "SCALE=99995,103148"
+
+CLASS
+  EXPRESSION ([pixel] >= 0 AND [pixel] < 98500) 
+  STYLE 
+    COLORRANGE "#1F5AA2" "#1F5AA2"   #color start RGB and end RGB
+    DATARANGE 0 98500  #the data range is normally set to the class expression range
+    RANGEITEM "pixel" # pixel is the elevation value in a DEM
+  END #STYLE
+END #end class
+CLASS
+  EXPRESSION ([pixel] >= 98500 AND [pixel] < 99000 ) 
+  STYLE 
+    COLORRANGE "#4474B4" "#4474B4"  #color start RGB and end RGB
+    DATARANGE 98500 99000 #the data range is normally set to the class expression range
+    RANGEITEM "pixel" # pixel is the elevation value in a DEM
+  END #STYLE
+END #end class
+CLASS
+  EXPRESSION ([pixel] >= 99000 AND [pixel] < 99500 ) 
+  STYLE 
+    COLORRANGE "#6489C1" "#6489C1" #color start RGB and end RGB
+    DATARANGE 99000 99500 #the data range is normally set to the class expression range
+    RANGEITEM "pixel" # pixel is the elevation value in a DEM
+  END #STYLE
+END #end class
+
+CLASS
+  EXPRESSION ([pixel] >= 99500 AND [pixel] < 100000 ) 
+  STYLE 
+    COLORRANGE "#85A0D0" "#85A0D0" #color start RGB and end RGB
+    DATARANGE 99500 1000000 #the data range is normally set to the class expression range
+    RANGEITEM "pixel" # pixel is the elevation value in a DEM
+  END #STYLE
+END #end class
+
+CLASS
+  EXPRESSION ([pixel] >= 100000 AND [pixel] < 105000 ) 
+  STYLE 
+    COLORRANGE "#A7BADF" "#A7BADF" #color start RGB and end RGB
+    DATARANGE 100000 105000 #the data range is normally set to the class expression range
+    RANGEITEM "pixel" # pixel is the elevation value in a DEM
+  END #STYLE
+END #end class
+
+CLASS
+  EXPRESSION ([pixel] >= 105000 AND [pixel] < 110000 ) 
+  STYLE 
+    COLORRANGE "#CDD6EF" "#CDD6EF" #color start RGB and end RGB
+    DATARANGE 105000 110000 #the data range is normally set to the class expression range
+    RANGEITEM "pixel" # pixel is the elevation value in a DEM
+  END #STYLE
+END #end class
+
+CLASS
+  EXPRESSION ([pixel] >= 110000 AND [pixel] < 115000 ) 
+  STYLE 
+    COLORRANGE "#E3E5F1" "#E3E5F1" #color start RGB and end RGB
+    DATARANGE 110000 115000 #the data range is normally set to the class expression range
+    RANGEITEM "pixel" # pixel is the elevation value in a DEM
+  END #STYLE
+END #end class
+
+CLASS
+  EXPRESSION ([pixel] >= 115000 AND [pixel] < 120000 ) 
+  STYLE 
+    COLORRANGE  "#EEE3E9" "#EEE3E9" #color start RGB and end RGB
+    DATARANGE 115000 120000 #the data range is normally set to the class expression range
+    RANGEITEM "pixel" # pixel is the elevation value in a DEM
+  END #STYLE
+END #end class
+
+CLASS
+  EXPRESSION ([pixel] >= 120000 AND [pixel] < 125000 ) 
+  STYLE 
+    COLORRANGE  "#F5BECB" "#F5BECB" #color start RGB and end RGB
+    DATARANGE 120000 125000 #the data range is normally set to the class expression range
+    RANGEITEM "pixel" # pixel is the elevation value in a DEM
+  END #STYLE
+END #end class
+
+CLASS
+  EXPRESSION ([pixel] >= 125000 AND [pixel] < 130000 ) 
+  STYLE 
+    COLORRANGE  "#EF91A0" "#EF91A0" #color start RGB and end RGB
+    DATARANGE 125000 130000 #the data range is normally set to the class expression range
+    RANGEITEM "pixel" # pixel is the elevation value in a DEM
+  END #STYLE
+END #end class
+
+CLASS
+  EXPRESSION ([pixel] >= 130000 AND [pixel] < 330000 ) 
+  STYLE 
+    COLORRANGE  "#E55F76" "#E55F76" #color start RGB and end RGB
+    DATARANGE 130000 330000 #the data range is normally set to the class expression range
+    RANGEITEM "pixel" # pixel is the elevation value in a DEM
+  END #STYLE
+END #end class
+
+
+OPACITY 100
+STATUS OFF
+PROJECTION
+"init=epsg:4326"
+END
+END

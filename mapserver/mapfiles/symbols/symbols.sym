@@ -1,0 +1,718 @@
+SYMBOLSET
+
+
+SYMBOL
+  # Symbol name (referenced in STYLEs)
+  NAME "circle"
+  TYPE ellipse # Type of symbol
+  # Start of the symbol geometry
+  POINTS
+    1 1
+  END # end of POINTS
+  # The symbol should be filled
+  FILLED true
+  # Place the according to its center
+  ANCHORPOINT 0.5 0.5
+END # end of SYMBOL
+
+
+
+SYMBOL
+  NAME "linee-verticali"
+  TYPE vector
+  POINTS
+    0 0 
+   0 1 
+  -99 -99 
+   1 0 
+   1 1
+
+ END
+END
+SYMBOL
+  NAME "in_point1"
+  TYPE PIXMAP
+  IMAGE "flaeche1_1.png"
+  TRANSPARENT 13
+END
+SYMBOL
+  NAME "point_green"
+  TYPE PIXMAP
+  IMAGE "punti_verdi.png"
+  #TRANSPARENT 13
+END
+SYMBOL
+    NAME "altre aree"
+    TYPE PIXMAP
+    IMAGE "ghemme/altre-aree.png"
+    TRANSPARENT 8
+END
+SYMBOL
+    NAME "area agricola inedificabile"
+    TYPE PIXMAP
+    IMAGE "ghemme/area agricola inedificabile.png"
+    TRANSPARENT -1
+END
+SYMBOL
+    NAME "area agricola"
+    TYPE PIXMAP
+    IMAGE "ghemme/area agricola.png"
+    TRANSPARENT -1
+END
+SYMBOL
+    NAME "area boscata"
+    TYPE PIXMAP
+    IMAGE "ghemme/area boscata.png"
+    TRANSPARENT -1
+END
+SYMBOL
+    NAME "area concentrazione edificato"
+    TYPE PIXMAP
+    IMAGE "ghemme/area-concentrazione-edificato.png"
+    TRANSPARENT -1
+END
+SYMBOL
+    NAME "area distribuzione carburante"
+    TYPE PIXMAP
+    IMAGE "ghemme/area distribuzione carburante.png"
+    TRANSPARENT -1
+END
+SYMBOL
+    NAME "area servizi"
+    TYPE PIXMAP
+    IMAGE "ghemme/area-servizi.png"
+    TRANSPARENT -1
+END
+SYMBOL
+    NAME "aree commerciali"
+    TYPE PIXMAP
+    IMAGE "ghemme/aree commerciali.png"
+    TRANSPARENT -1
+END
+SYMBOL
+    NAME "aree ferroviarie"
+    TYPE PIXMAP
+    IMAGE "ghemme/aree ferroviarie.png"
+    TRANSPARENT -1
+END
+SYMBOL
+    NAME "art16"
+    TYPE PIXMAP
+    IMAGE "ghemme/art16.png"
+    TRANSPARENT -1
+END
+SYMBOL
+    NAME "edifici di pregio"
+    TYPE PIXMAP
+    IMAGE "ghemme/edifici di pregio.png"
+    TRANSPARENT -1
+END
+SYMBOL
+    NAME "zona cimiteriale"
+    TYPE PIXMAP
+    IMAGE "ghemme/zona cimiteriale.png"
+    TRANSPARENT -1
+END
+SYMBOL
+    NAME "fascia di rispetto autostradale"
+    TYPE PIXMAP
+    IMAGE "ghemme/fascia di rispetto autostradale.png"
+    TRANSPARENT -1
+END
+SYMBOL
+    NAME "parco esposizioni"
+    TYPE PIXMAP
+    IMAGE "ghemme/parco-esposizioni.png"
+    TRANSPARENT -1
+END
+SYMBOL
+    NAME "fascia oscillazione"
+    TYPE PIXMAP
+    IMAGE "ghemme/fascia oscillazione.png"
+    TRANSPARENT -1
+END
+SYMBOL
+    NAME "fiume sesia"
+    TYPE PIXMAP
+    IMAGE "ghemme/fiume sesia.png"
+    TRANSPARENT -1
+END
+SYMBOL
+    NAME "aree-consolidate-ville-con-giardino"
+    TYPE PIXMAP
+    IMAGE "ghemme/aree-consolidate-ville-con-giardino.png"
+    TRANSPARENT -1
+END
+
+SYMBOL
+  NAME "vertline"
+  TYPE vector
+  FILLED true
+  POINTS
+    0 5
+    0 10
+    1.4 10
+    1.4 5
+    0 5
+  END # POINTS
+END # SYMBOL
+
+
+
+
+SYMBOL
+  NAME "A"
+  TYPE TRUETYPE
+  FONT "arial.ttf"
+  CHARACTER "A"
+  ANTIALIAS TRUE  	  
+END
+SYMBOL
+  NAME "I"
+  TYPE TRUETYPE
+  FONT "arial.ttf"
+  CHARACTER "I"
+  ANTIALIAS TRUE  	  
+END
+SYMBOL
+  NAME "P"
+  TYPE TRUETYPE
+  FONT "arial.ttf"
+  CHARACTER "P"
+  ANTIALIAS TRUE  	  
+END
+SYMBOL
+  NAME "V"
+  TYPE TRUETYPE
+  FONT "arial.ttf"
+  CHARACTER "V"
+  ANTIALIAS TRUE  	  
+END
+SYMBOL
+  NAME "C"
+  TYPE TRUETYPE
+  FONT "arial.ttf"
+  CHARACTER "C"
+  ANTIALIAS TRUE  	  
+END
+SYMBOL
+  NAME "plus"
+  TYPE TRUETYPE
+  FONT "esri_11.ttf"
+  CHARACTER "G"
+  ANTIALIAS TRUE  	  
+END
+SYMBOL
+  NAME "T"
+  TYPE TRUETYPE
+  FONT "arial.ttf"
+  CHARACTER "T"
+  ANTIALIAS TRUE  	  
+END
+
+SYMBOL
+  NAME "hatchsymbol"
+  TYPE hatch
+END
+
+SYMBOL
+  NAME "lineatratteggio"
+   TYPE vector
+  POINTS
+	0 2
+	2 0
+  END
+END # SYMBOL
+
+SYMBOL
+  NAME "lineatratteggio2"
+   TYPE vector
+  POINTS
+	5 2.5
+	0 5
+  END
+END # SYMBOL
+
+
+SYMBOL
+  NAME "croce"
+   TYPE vector
+  POINTS
+   0 0
+	1 1
+	-99 -99
+	0 1
+	1 0
+  END
+END # SYMBOL
+
+
+
+SYMBOL
+  NAME "elle"
+   TYPE vector
+  POINTS
+   0 0
+	0.5 0.5
+	-99 -99
+	0.5 0.5
+	1 0
+  END
+END # SYMBOL
+
+
+
+SYMBOL
+  NAME "diagonale"
+   TYPE vector
+  POINTS
+	0 1
+	1 0
+  END
+END # SYMBOL
+
+
+
+SYMBOL
+  NAME "altrearee"
+   TYPE ellipse
+  FILLED true
+  POINTS
+    1 1
+  END
+END # SYMBOL
+
+
+
+SYMBOL
+    NAME "VEGERADA"
+    TYPE PIXMAP
+    IMAGE "vegerada.png"
+    TRANSPARENT -1
+    #TRANSPARENT 15
+END
+
+SYMBOL
+    NAME "BOSCO"
+    TYPE PIXMAP
+    IMAGE "bosco.png"
+    TRANSPARENT -1
+    #TRANSPARENT 0
+END
+
+SYMBOL
+    NAME "ERBA"
+    TYPE PIXMAP
+    IMAGE "erba.png"
+    TRANSPARENT -1
+    #TRANSPARENT 15
+END
+
+##############SIMBOLI DEFINITI NEL MANUALE
+
+SYMBOL
+  NAME "quadrato"
+  TYPE vector 
+  POINTS
+    0 0
+    0 1
+    1 1
+    1 0
+    0 0
+  END 
+  FILLED true
+  # Place the according to its center
+  ANCHORPOINT 0.5 0.5
+END # end of SYMBOL
+
+# Start of symbol definition
+SYMBOL
+  NAME "punto"
+  TYPE ellipse
+  POINTS
+    1 1
+  END # end of POINTS
+  FILLED true
+  # Place the according to its center
+  ANCHORPOINT 0.5 0.5
+END # end of SYMBOL
+
+SYMBOL
+  NAME "quadrat"
+  TYPE vector 
+  POINTS
+    0 0
+    0 1
+    1 1
+    1 0
+    0 0
+  END 
+  FILLED true
+  # Place the according to its center
+  ANCHORPOINT 0.5 0.5
+END # end of SYMBOL
+
+SYMBOL
+  NAME "punkt"
+  TYPE ellipse
+  POINTS
+    1 1
+  END # end of POINTS
+  FILLED true
+  # Place the according to its center
+  ANCHORPOINT 0.5 0.5
+END # end of SYMBOL
+
+SYMBOL
+  NAME "kreuz2"
+  TYPE VECTOR
+  POINTS
+    0 0
+	1 1
+	-99 -99
+	0 1
+	1 0
+  END
+END # end of SYMBOL
+
+SYMBOL
+  NAME "circlef"
+  TYPE ellipse
+  FILLED true
+  POINTS
+    1 1
+  END # POINTS
+END # SYMBOL
+
+SYMBOL
+  NAME "P"
+  TYPE truetype
+  FONT "arial"
+  CHARACTER "P"
+END # SYMBOL
+
+SYMBOL
+  NAME "vertline"
+  TYPE vector
+  FILLED true
+  POINTS
+    0 0
+    0 10
+    2.8 10
+    2.8 0
+    0 0
+  END # POINTS
+  ANCHORPOINT 0.5 0
+END # SYMBOL
+
+SYMBOL
+  NAME "o-flag-trans"
+  TYPE pixmap
+  IMAGE "o-flag-trans.png"
+END # SYMBOL
+
+SYMBOL
+  NAME "hatchsymbol"
+  TYPE hatch
+END
+
+SYMBOL
+  NAME "in_the_star"
+  TYPE PIXMAP
+  IMAGE "stern.png"
+  TRANSPARENT 8
+END
+
+SYMBOL
+  NAME "in_point1"
+  TYPE PIXMAP
+  IMAGE "flaeche1_1.png"
+  TRANSPARENT 13
+END
+
+SYMBOL
+  NAME "in_hatch"
+  TYPE PIXMAP
+  IMAGE "schraffur.png"
+  TRANSPARENT 2
+END
+
+SYMBOL
+  NAME "circlef"
+  TYPE ellipse
+  FILLED true
+  POINTS
+    10 10
+  END # POINTS
+END # SYMBOL
+
+SYMBOL
+  NAME "circle"
+  TYPE ellipse
+  FILLED false
+  POINTS
+    10 10
+  END # POINTS
+END # SYMBOL
+
+SYMBOL
+  NAME "v-line"
+  TYPE vector
+  POINTS
+    0  0
+    5 10
+    10 0
+  END
+END
+
+SYMBOL
+  NAME "v-poly"
+  TYPE vector
+  FILLED false
+  FILLED true
+  POINTS
+    0  0
+    3.5 8
+    7 0
+    5.2 0
+    3.5 4
+    1.8 0
+    0 0
+  END
+END
+
+SYMBOL
+  NAME "x-line"
+  TYPE vector
+  POINTS
+    0 0
+    1 1
+    -99 -99
+    0 1
+    1 0
+  END
+END
+
+SYMBOL
+  NAME "chess"
+  TYPE vector
+  FILLED true
+  POINTS
+    0 0
+    10 0
+    10 10
+    0 10
+    0 0
+    -99 -99
+    10 10
+    20 10
+    20 20
+    10 20
+    10 10
+  END
+END
+
+SYMBOL
+  NAME "x-poly-fill"
+  TYPE vector
+  FILLED true
+  POINTS
+    0     1.131
+    0     0
+    1.131 0
+    4.566 3.434
+    8     0
+    9.131 0
+    9.131 1.131
+    5.697 4.566
+    9.131 8
+    9.131 9.131
+    8     9.131
+    4.566 5.697
+    1.131 9.131
+    0     9.131
+    0     8
+    3.434 4.566
+    0     1.131
+  END # POINTS
+END # SYMBOL
+
+SYMBOL
+  NAME "ind_marsh_poly"
+  TYPE vector
+  FILLED true
+  POINTS
+    # Half line
+    0 2
+    4.5 2
+    4.5 3
+    0 3
+    0 2
+    -99 -99
+    # Half line
+    7 2
+    11.5 2
+    11.5 3
+    7 3
+    7 2
+    -99 -99
+    # Hole line
+    1.25 5
+    10.25 5
+    10.25 6
+    1.25 6
+    1.25 5
+  END
+END
+
+SYMBOL
+  NAME "diag_dots"
+  TYPE vector
+  FILLED true
+  POINTS
+    # Central circle:
+    0.7450    0.4500
+    0.7365    0.5147
+    0.7115    0.5750
+    0.6718    0.6268
+    0.6200    0.6665
+    0.5597    0.6915
+    0.4950    0.7000
+    0.4303    0.6915
+    0.3700    0.6665
+    0.3182    0.6268
+    0.2785    0.5750
+    0.2535    0.5147
+    0.2450    0.4500
+    0.2535    0.3853
+    0.2785    0.3250
+    0.3182    0.2732
+    0.3700    0.2335
+    0.4303    0.2085
+    0.4950    0.2000
+    0.5597    0.2085
+    0.6200    0.2335
+    0.6718    0.2732
+    0.7115    0.3250
+    0.7365    0.3853
+    0.7450    0.4500
+    -99 -99
+    0.25      0.0
+    0.2415    0.0647
+    0.2165    0.1250
+    0.1768    0.1768
+    0.1250    0.2165
+    0.0647    0.2415
+    0.0       0.25
+    0.0       0.0
+    0.25      0.0
+    -99 -99
+    1 0.25
+    0.9252    0.2415
+    0.8649    0.2165
+    0.8132    0.1768
+    0.7734    0.1250
+    0.7485    0.0647
+    0.74      0.0
+    1 0.0
+    1 0.25
+    -99 -99
+    0.74      1
+    0.7485    0.9252
+    0.7734    0.8649
+    0.8132    0.8132
+    0.8649    0.7734
+    0.9252    0.7485
+    1 0.74
+    1 1
+    0.74      1
+    -99 -99
+    0.0       0.74
+    0.0647    0.7485
+    0.1250    0.7734
+    0.1768    0.8132
+    0.2165    0.8649
+    0.2415    0.9252
+    0.25      1
+    0.0       1
+    0.0       0.74
+  END
+END
+
+SYMBOL
+  NAME "diag_holes"
+  TYPE vector
+  FILLED true
+  POINTS
+    0.0     0.0
+    # Left half circle
+    0.0       0.24
+    0.0647    0.2485
+    0.1250    0.2734
+    0.1768    0.3132
+    0.2165    0.3649
+    0.2415    0.4252
+    0.25      0.5
+    0.2415    0.5647
+    0.2165    0.6250
+    0.1768    0.6768
+    0.1250    0.7165
+    0.0647    0.7415
+    0.0       0.75
+
+    0.0       1.0
+    # Bottom half circle
+    0.24      1
+    0.2485    0.9252
+    0.2734    0.8649
+    0.3132    0.8132
+    0.3649    0.7734
+    0.4252    0.7485
+    0.5       0.74
+    0.5647    0.7485
+    0.6250    0.7734
+    0.6768    0.8132
+    0.7165    0.8649
+    0.7415    0.9252
+    0.75      1
+
+    1.0     1.0
+    # Right half circle
+    1 0.75
+    0.9252    0.7415
+    0.8649    0.7165
+    0.8132    0.6768
+    0.7734    0.6250
+    0.7485    0.5647
+    0.74      0.5
+    0.7485    0.4252
+    0.7734    0.3649
+    0.8132    0.3132
+    0.8649    0.2734
+    0.9252    0.2485
+    1 0.24
+
+    1.0     0.0
+    # Top half circle
+    0.75      0.0
+    0.7415    0.0647
+    0.7165    0.1250
+    0.6768    0.1768
+    0.6250    0.2165
+    0.5647    0.2415
+    0.5       0.25
+    0.4252    0.2415
+    0.3649    0.2165
+    0.3132    0.1768
+    0.2734    0.1250
+    0.2485    0.0647
+    0.24      0.0
+
+    0.0     0.0
+  END
+END
+
+
+
+
+

@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+    mapserver:
+      privileged: true
+      ports:
+        - "8080:80"
+      image: stefanosedano/mapserver
+      environment:
+        - MS_DEBUGLEVEL=5
+      volumes:
+        - ./hydro:/var/s3fs/hydro
+        - ./baselayers:/var/s3fs/baselayers
+        - ./mapserver:/etc/mapserver
+volumes:
+    hydro:
+    mapserver:
