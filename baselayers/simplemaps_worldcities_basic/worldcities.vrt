@@ -1,0 +1,8 @@
+<OGRVRTDataSource>
+    <OGRVRTLayer name="worldcities">
+        <SrcDataSource>/var/s3fs/baselayers/simplemaps_worldcities_basic/worldcities.csv</SrcDataSource>
+        <SrcLayer>worldcities</SrcLayer>
+        <GeometryType>wkbPoint</GeometryType>
+        <GeometryField encoding="PointFromColumns" x="Lng" y="Lat"/>
+  </OGRVRTLayer>
+</OGRVRTDataSource>
