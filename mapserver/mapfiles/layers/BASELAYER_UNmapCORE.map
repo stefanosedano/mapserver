@@ -156,6 +156,7 @@
         NAME "worldcities"
         DEBUG on
         STATUS default
+        OFFSITE 255 255 255
         TYPE POINT
         CONNECTION   "/var/s3fs/baselayers/simplemaps_worldcities_basic/worldcities.vrt"
         CONNECTIONTYPE OGR
