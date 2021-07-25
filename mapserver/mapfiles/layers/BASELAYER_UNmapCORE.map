@@ -182,7 +182,7 @@
                LABEL
                     PRIORITY 10
                     COLOR 0 0 0
-                    OUTLINECOLOR  230 230 230
+                    OUTLINECOLOR  255 255 255
                     OUTLINEWIDTH 2
                     TYPE truetype
                     #FONT "sans"
@@ -197,7 +197,7 @@
                 END
             END
             CLASS
-               EXPRESSION ('[capital]' eq 'admin' )
+               EXPRESSION ('[population]' gt '100000' )
                #MINSCALEDENOM 40000000
                MAXSCALEDENOM  20000000
                NAME "admin"
@@ -209,7 +209,7 @@
                LABEL
                     PRIORITY 1
                     COLOR 0 0 0
-                    OUTLINECOLOR  230 230 230
+                    OUTLINECOLOR  255 255 255
                     OUTLINEWIDTH 2
                     #SHADOWCOLOR 218 218 218
                     #SHADOWSIZE 2 2
@@ -219,7 +219,7 @@
                     ANTIALIAS TRUE
                     POSITION AUTO
                     PARTIALS FALSE
-                    MINDISTANCE 300
+                    MINDISTANCE 400
                     #BUFFER 10
                     #FORCE True
                 END
