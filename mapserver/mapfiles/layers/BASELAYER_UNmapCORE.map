@@ -151,7 +151,6 @@
 
     END # layer
 
-
     LAYER
         NAME "worldcities"
         DEBUG on
