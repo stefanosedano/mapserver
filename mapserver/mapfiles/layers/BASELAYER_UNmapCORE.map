@@ -2,8 +2,7 @@
 	MAP
 	NAME SEEMHEWS
 	STATUS ON
-	TRANSPARENT ON
-	IMAGECOLOR 255 255 255
+	IMAGECOLOR 255 0 0
 	SIZE 250 250
 	EXTENT 8.5 45.36 8.8 45.60
 	UNITS dd
@@ -11,19 +10,21 @@
 	CONFIG "MS_ERRORFILE" "/home/logs/BASELAYER_UNmapCORE.log"
 	FONTSET "/etc/mapserver/font.txt"
 	SYMBOLSET "/etc/mapserver/mapfiles/symbols/symbols.sym"
-	OUTPUTFORMAT
-	  NAME "png8"
-	  DRIVER AGG/PNG8
-	  MIMETYPE "image/png; mode=8bit"
-	  IMAGEMODE RGB
-	  EXTENSION "png"
-	  FORMATOPTION "QUANTIZE_FORCE=on"
-	  FORMATOPTION "QUANTIZE_COLORS=256"
-	  FORMATOPTION "GAMMA=0.75"
-	END
 	PROJECTION
 	"init=epsg:4326"
 	END
+	OUTPUTFORMAT
+        NAME "ciccio"
+        DRIVER AGG/PNG8
+    MIMETYPE "image/png; mode=8bit"
+    IMAGEMODE RGB
+    EXTENSION "png"
+    FORMATOPTION "QUANTIZE_FORCE=on"
+    FORMATOPTION "QUANTIZE_COLORS=256"
+    FORMATOPTION "GAMMA=0.75"
+        TRANSPARENT on
+    END
+
 	LEGEND
 	  STATUS ON
 	  KEYSIZE 18 12
@@ -51,11 +52,88 @@
 	END
 
 
+
+
+    LAYER
+        NAME "worldcities"
+        DEBUG on
+        STATUS default
+        TYPE POINT
+        CONNECTION   "/var/s3fs/baselayers/simplemaps_worldcities_basic/worldcities.vrt"
+        CONNECTIONTYPE OGR
+        LABELITEM "city"
+        OFFSITE 255 0 0
+        PROJECTION
+            "init=epsg:4326"
+        END
+
+            METADATA
+            "gml_featureid"		"id"
+            "gml_include_items"	"all"
+            "wms_title"		"worldcities"
+            "ows_include_items" "all"
+            END
+
+            CLASS
+               EXPRESSION ('[capital]' eq 'primary' )
+               NAME "primary"
+               STYLE
+                    SYMBOL "circle"
+                    SIZE 10
+                    COLOR 255 0 0
+               END
+               LABEL
+                    PRIORITY 10
+                    COLOR 0 0 0
+                    OUTLINECOLOR  255 0 0
+                    OUTLINEWIDTH 2
+                    TYPE truetype
+                    #FONT "sans"
+                    SIZE 9
+                    ANTIALIAS TRUE
+                    POSITION AUTO
+                    PARTIALS FALSE
+                    #MINDISTANCE 200
+                    #MAXDISTANCE 1000
+                    #BUFFER 10
+                    FORCE True
+                END
+            END
+            CLASS
+               EXPRESSION ('[population]' gt '100000' )
+               #MINSCALEDENOM 40000000
+               MAXSCALEDENOM  20000000
+               NAME "admin"
+               STYLE
+                    SYMBOL "circle"
+                    SIZE 0
+                    COLOR 150 150 150
+               END
+               LABEL
+                    PRIORITY 1
+                    COLOR 0 0 0
+                    OUTLINECOLOR  255 0 0
+                    OUTLINEWIDTH 2
+                    #SHADOWCOLOR 218 218 218
+                    #SHADOWSIZE 2 2
+                    TYPE truetype
+                    #FONT "sans"
+                    SIZE 9
+                    ANTIALIAS TRUE
+                    POSITION AUTO
+                    PARTIALS FALSE
+                    MINDISTANCE 400
+                    #BUFFER 10
+                    #FORCE True
+                END
+            END
+    END
+
     LAYER
     DATA "/var/s3fs/baselayers/UNmapCORE/shapefile/UNmapCORE_0/BNDL.shp"
     NAME "UNmapCORE"
     TYPE LINE
-    OFFSITE 255 255 255
+    #OFFSITE 255 255 255
     METADATA
     "gml_featureid"		"gid"
     "gml_include_items"	"all"
@@ -150,82 +228,6 @@
 
 
     END # layer
-
-    LAYER
-        NAME "worldcities"
-        DEBUG on
-        STATUS default
-        OFFSITE 255 255 255
-        TYPE POINT
-        CONNECTION   "/var/s3fs/baselayers/simplemaps_worldcities_basic/worldcities.vrt"
-        CONNECTIONTYPE OGR
-        LABELITEM "city"
-        PROJECTION
-            "init=epsg:4326"
-        END
-
-            METADATA
-            "gml_featureid"		"id"
-            "gml_include_items"	"all"
-            "wms_title"		"worldcities"
-            "ows_include_items" "all"
-            END
-
-            CLASS
-               EXPRESSION ('[capital]' eq 'primary' )
-               NAME "primary"
-               STYLE
-                    SYMBOL "circle"
-                    SIZE 4
-                    COLOR 0 0 0
-               END
-               LABEL
-                    PRIORITY 10
-                    COLOR 0 0 0
-                    OUTLINECOLOR  255 255 255
-                    OUTLINEWIDTH 2
-                    TYPE truetype
-                    #FONT "sans"
-                    SIZE 9
-                    ANTIALIAS TRUE
-                    POSITION AUTO
-                    PARTIALS FALSE
-                    #MINDISTANCE 200
-                    #MAXDISTANCE 1000
-                    #BUFFER 10
-                    FORCE True
-                END
-            END
-            CLASS
-               EXPRESSION ('[population]' gt '100000' )
-               #MINSCALEDENOM 40000000
-               MAXSCALEDENOM  20000000
-               NAME "admin"
-               STYLE
-                    SYMBOL "circle"
-                    SIZE 0
-                    COLOR 150 150 150
-               END
-               LABEL
-                    PRIORITY 1
-                    COLOR 0 0 0
-                    OUTLINECOLOR  255 255 255
-                    OUTLINEWIDTH 2
-                    #SHADOWCOLOR 218 218 218
-                    #SHADOWSIZE 2 2
-                    TYPE truetype
-                    #FONT "sans"
-                    SIZE 9
-                    ANTIALIAS TRUE
-                    POSITION AUTO
-                    PARTIALS FALSE
-                    MINDISTANCE 400
-                    #BUFFER 10
-                    #FORCE True
-                END
-            END
-    END
-
 
 
 
