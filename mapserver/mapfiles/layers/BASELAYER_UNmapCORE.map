@@ -2,7 +2,7 @@
 	MAP
 	NAME SEEMHEWS
 	STATUS ON
-	IMAGECOLOR 255 0 0
+	IMAGECOLOR 255 255 255
 	SIZE 250 250
 	EXTENT 8.5 45.36 8.8 45.60
 	UNITS dd
@@ -62,7 +62,7 @@
         CONNECTION   "/var/s3fs/baselayers/simplemaps_worldcities_basic/worldcities.vrt"
         CONNECTIONTYPE OGR
         LABELITEM "city"
-        OFFSITE 255 0 0
+        OFFSITE 255 255 255
         PROJECTION
             "init=epsg:4326"
         END
@@ -80,12 +80,12 @@
                STYLE
                     SYMBOL "circle"
                     SIZE 10
-                    COLOR 255 0 0
+                    COLOR 255 255 255
                END
                LABEL
                     PRIORITY 10
                     COLOR 0 0 0
-                    OUTLINECOLOR  255 0 0
+                    OUTLINECOLOR  255 255 255
                     OUTLINEWIDTH 2
                     TYPE truetype
                     #FONT "sans"
@@ -112,7 +112,7 @@
                LABEL
                     PRIORITY 1
                     COLOR 0 0 0
-                    OUTLINECOLOR  255 0 0
+                    OUTLINECOLOR  255 255 255
                     OUTLINEWIDTH 2
                     #SHADOWCOLOR 218 218 218
                     #SHADOWSIZE 2 2
