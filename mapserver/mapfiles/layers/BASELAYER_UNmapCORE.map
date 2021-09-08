@@ -79,8 +79,8 @@
                NAME "primary"
                STYLE
                     SYMBOL "circle"
-                    SIZE 10
-                    COLOR 255 255 255
+                    SIZE 2
+                    COLOR 10 10 10
                END
                LABEL
                     PRIORITY 10
