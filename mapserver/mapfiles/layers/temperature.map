@@ -54,7 +54,7 @@
 
 
 LAYER
-DATA /data1/nfs_share/nwp/TEST/GEOTIFF/2021092300_2t.tif
+DATA /var/s3fs/nwp/TEST/GEOTIFF/2021092300_2t.tif
 NAME "temperature"
 TYPE RASTER
 METADATA
