@@ -1,3 +1,57 @@
+
+	MAP
+	NAME SEEMHEWS
+	STATUS ON
+	TRANSPARENT ON
+	IMAGECOLOR 255 255 255
+	SIZE 250 250
+	EXTENT 8.5 45.36 8.8 45.60
+	UNITS dd
+	MAXSIZE 250000
+	CONFIG "MS_ERRORFILE" "/home/logs/temperature.log"
+	FONTSET "/etc/mapserver/font.txt"
+	#SYMBOLSET "/opt/mapserver/mapfiles/symbols/symbols.sym"
+	OUTPUTFORMAT
+	  NAME "png8"
+	  DRIVER AGG/PNG8
+	  MIMETYPE "image/png; mode=8bit"
+	  IMAGEMODE RGB
+	  EXTENSION "png"
+	  FORMATOPTION "QUANTIZE_FORCE=on"
+	  FORMATOPTION "QUANTIZE_COLORS=256"
+	  FORMATOPTION "GAMMA=0.75"
+	END
+	PROJECTION
+	"init=epsg:4326"
+	END
+	LEGEND
+	  STATUS ON
+	  KEYSIZE 18 12
+	  KEYSPACING 35 10
+	  # LABEL object
+	  LABEL
+	    TYPE BITMAP
+	    SIZE small
+	    COLOR 0 0 89
+	  END
+	  #TEMPLATE "/etc/mapserver/mapfiles/layers/temperature.html"  ### HTML template file
+	END
+
+	WEB
+
+
+	METADATA
+	"ows_enable_request" "*"
+	"wms_enable_request" "*"
+	"wfs_enable_request" "*"
+	"sos_enable_request" "*"
+	"wcs_enable_request" "*"
+	"wms_title"		"soilmoisture"
+	"wms_srs"	"EPSG:4326 EPSG:3857 EPSG:3035"
+	END
+	END
+
+
 LAYER
 DATA /data1/nfs_share/nwp/TEST/GEOTIFF/2021092300_2t.tif
 NAME "temperature"
@@ -148,3 +202,5 @@ CLASS
 END #end class
 
 END
+
+END #MAP
