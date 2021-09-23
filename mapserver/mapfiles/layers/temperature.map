@@ -46,9 +46,10 @@
 	"wfs_enable_request" "*"
 	"sos_enable_request" "*"
 	"wcs_enable_request" "*"
-	"wms_title"		"soilmoisture"
+	"wms_title"		"temperature"
 	"wms_srs"	"EPSG:4326 EPSG:3857 EPSG:3035"
 	END
+
 	END
 
 
