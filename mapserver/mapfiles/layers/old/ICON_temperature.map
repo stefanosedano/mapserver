@@ -12,7 +12,7 @@ METADATA
 "wms_title"		"temperature"
 "ows_include_items" "all" 
 END
-PROCESSING "BANDS=2"
+PROCESSING "BANDS=1,2"
 #PROCESSING "SCALE=-10,10"
 OPACITY 100
 STATUS OFF

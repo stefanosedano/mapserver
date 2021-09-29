@@ -1,0 +1,159 @@
+	MAP
+	NAME SEEMHEWS
+	STATUS ON
+	TRANSPARENT ON
+	IMAGECOLOR 255 255 255
+	SIZE 250 250
+	EXTENT 8.5 45.36 8.8 45.60
+	UNITS dd
+	MAXSIZE 250000
+	CONFIG "MS_ERRORFILE" "/home/logs/t.log"
+	FONTSET "/etc/mapserver/font.txt"
+	OUTPUTFORMAT
+	  NAME "png8"
+	  DRIVER AGG/PNG8
+	  MIMETYPE "image/png; mode=8bit"
+	  IMAGEMODE RGB
+	  EXTENSION "png"
+	  FORMATOPTION "QUANTIZE_FORCE=on"
+	  FORMATOPTION "QUANTIZE_COLORS=256"
+	  FORMATOPTION "GAMMA=0.75"
+	END
+	PROJECTION
+	"init=epsg:4326"
+	END
+
+    SYMBOL
+        NAME "windbarb1"
+        TYPE vector
+        FILLED false
+        POINTS
+            0 0
+            5 0
+            -99 -99
+            0 1
+            1 0
+        END
+    END
+
+    SYMBOL
+        NAME "windbarb2"
+        TYPE vector
+        FILLED false
+        POINTS
+            0 0
+            5 0
+            -99 -99
+            0 1
+            1 0
+            -99 -99
+            1 1
+            2 0
+        END
+    END
+
+    SYMBOL
+        NAME "windcalm"
+        TYPE ellipse
+        FILLED false
+        POINTS
+            1 1
+        END
+    END
+
+
+	LEGEND
+	  STATUS ON
+	  KEYSIZE 18 12
+	  KEYSPACING 35 10
+	  # LABEL object
+	  LABEL
+	    TYPE BITMAP
+	    SIZE small
+	    COLOR 0 0 89
+	  END
+	END
+
+	WEB
+
+
+	METADATA
+	"ows_enable_request" "*"
+	"wms_enable_request" "*"
+	"wfs_enable_request" "*"
+	"sos_enable_request" "*"
+	"wcs_enable_request" "*"
+	"wms_title"		"wind"
+	"wms_srs"	"EPSG:4326 EPSG:3857 EPSG:3035"
+	END
+
+	END
+
+LAYER
+NAME "wind"
+TYPE POINT
+VALIDATION
+	"run" "[a-zA-Z_\-\s0-9\.\/]+"
+	"step" "[a-zA-Z_\-\s0-9\.\/]+"
+	"model" "[a-zA-Z_\-\s0-9\.\/]+"
+	"level" "[a-zA-Z_\-\s0-9\.\/]+"
+END
+CONNECTIONTYPE uvraster
+DATA '/var/s3fs/nwp/GEOTIFF/%model%/%run%/%run%_%step%_wind_%level%.tif'
+PROCESSING "BANDS=1,2"
+PROCESSING "UV_SPACING=32"
+PROCESSING "RESAMPLE=NEAREST"
+PROCESSING "UV_SIZE_SCALE=1"
+METADATA
+"gml_featureid"		"gid"
+"gml_include_items"	"all"
+"wms_title"		"wind"
+"ows_include_items" "all"
+END
+OPACITY 100
+STATUS OFF
+PROJECTION
+"init=epsg:4326"
+END
+
+
+        CLASS
+            EXPRESSION ([uv_length] < 0.3)
+            STYLE
+                COLOR 0 0 0
+                SYMBOL "windcalm"
+                SIZE 5
+                POSITION CC
+            END
+        END
+        CLASS
+            EXPRESSION ([uv_length] < 0.7)
+            STYLE
+                COLOR 0 0 0
+                SYMBOL "windbarb1"
+                SIZE 5
+                ANGLE [uv_angle]
+                POSITION CC
+            END
+        END
+        CLASS
+            EXPRESSION ([uv_length] >= 0.7)
+            STYLE
+                COLOR 0 0 0
+                SYMBOL "windbarb2"
+                SIZE 5
+                ANGLE [uv_angle]
+                POSITION CC
+            END
+        END
+
+
+
+
+
+END # layer
+
+END # map
+
+
+
