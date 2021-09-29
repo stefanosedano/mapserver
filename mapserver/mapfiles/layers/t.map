@@ -72,51 +72,130 @@ PROJECTION
 END
 
 CLASS
+  EXPRESSION ([pixel] >= -96 AND [pixel] < -92)
+  STYLE
+    COLOR "#000019"
+  END #STYLE
+END #end class
+
+CLASS
+  EXPRESSION ([pixel] >= -92 AND [pixel] < -88)
+  STYLE
+    COLOR "#080022"
+  END #STYLE
+END #end class
+
+
+CLASS
+  EXPRESSION ([pixel] >= -88 AND [pixel] < -84)
+  STYLE
+    COLOR "#10002B"
+  END #STYLE
+END #end class
+
+CLASS
+  EXPRESSION ([pixel] >= -84 AND [pixel] < -80)
+  STYLE
+    COLOR "#180035"
+  END #STYLE
+END #end class
+
+CLASS
+  EXPRESSION ([pixel] >= -80 AND [pixel] < -76)
+  STYLE
+    COLOR "#20003E"
+  END #STYLE
+END #end class
+
+CLASS
+  EXPRESSION ([pixel] >= -76 AND [pixel] < -72)
+  STYLE
+    COLOR "#280047"
+  END #STYLE
+END #end class
+
+
+CLASS
+  EXPRESSION ([pixel] >= -72 AND [pixel] < -68)
+  STYLE
+    COLOR "#300051"
+  END #STYLE
+END #end class
+
+CLASS
+  EXPRESSION ([pixel] >= -68 AND [pixel] < -64)
+  STYLE
+    COLOR "#38005A"
+  END #STYLE
+END #end class
+
+CLASS
+  EXPRESSION ([pixel] >= -64 AND [pixel] < -60)
+  STYLE
+    COLOR "#400063"
+  END #STYLE
+END #end class
+
+CLASS
+  EXPRESSION ([pixel] >= -60 AND [pixel] < -56)
+  STYLE
+    COLOR "#48006D"
+  END #STYLE
+END #end class
+
+CLASS
+  EXPRESSION ([pixel] >= -56 AND [pixel] < -52)
+  STYLE
+    COLOR "#500076"
+  END #STYLE
+END #end class
+
+CLASS
   EXPRESSION ([pixel] >= -52 AND [pixel] < -48)
   STYLE
-    COLOR "#E133E1"
+    COLOR "#7B11B3"
   END #STYLE
 END #end class
 
 CLASS
   EXPRESSION ([pixel] >= -48 AND [pixel] < -44)
   STYLE
-    COLOR "#AE33AE"
+    COLOR "#8000D9"
   END #STYLE
 END #end class
 
 CLASS
   EXPRESSION ([pixel] >= -44 AND [pixel] < -40)
   STYLE
-    COLOR "#7A337A"
+    COLOR "#8000FF"
   END #STYLE
 END #end class
 
 CLASS
   EXPRESSION ([pixel] >= -40 AND [pixel] < -36)
   STYLE
-    COLOR "#473347"
+    COLOR "#6B14FF"
   END #STYLE
 END #end class
 
 CLASS
   EXPRESSION ([pixel] >= -36 AND [pixel] < -32)
   STYLE
-    COLOR "#330066"
+    COLOR "#5C28FF"
   END #STYLE
 END #end class
 
 CLASS
   EXPRESSION ([pixel] >= -32 AND [pixel] < -28)
   STYLE
-    COLOR "#590080"
+    COLOR "#4040FF"
   END #STYLE
 END #end class
 
 CLASS
   EXPRESSION ([pixel] >= -28 AND [pixel] < -24)
   STYLE
-    COLOR "#8000FF"
+    COLOR "#1966FF"
   END #STYLE
 END #end class
 
@@ -130,122 +209,135 @@ END #end class
 CLASS
   EXPRESSION ([pixel] >= -20 AND [pixel] < -16)
   STYLE
-    COLOR "#00CCFF"
+    COLOR "#0099FF"
   END #STYLE
 END #end class
 
 CLASS
   EXPRESSION ([pixel] >= -16 AND [pixel] < -12)
   STYLE
-    COLOR "#00FFFF"
+    COLOR "#00B3FF"
   END #STYLE
 END #end class
 
 CLASS
   EXPRESSION ([pixel] >= -12 AND [pixel] < -8)
   STYLE
-    COLOR "#00FF80"
+    COLOR "#00CCFF"
   END #STYLE
 END #end class
 
 CLASS
   EXPRESSION ([pixel] >= -8 AND [pixel] < -4)
   STYLE
-    COLOR "#80FF00"
+    COLOR "#00E6FF"
   END #STYLE
 END #end class
 
 CLASS
   EXPRESSION ([pixel] >= -4 AND [pixel] < -0)
   STYLE
-    COLOR "#DAFF00"
+    COLOR "#00FFFF"
   END #STYLE
 END #end class
 
 CLASS
   EXPRESSION ([pixel] >= 0 AND [pixel] < 4)
   STYLE
-    COLOR "#FFFF80"
+    COLOR "#00FF80"
   END #STYLE
 END #end class
 
 CLASS
   EXPRESSION ([pixel] >= 4 AND [pixel] < 8)
   STYLE
-    COLOR "#FFFF00"
+    COLOR "#80FF00"
   END #STYLE
 END #end class
 
 CLASS
   EXPRESSION ([pixel] >= 8 AND [pixel] < 12)
   STYLE
-    COLOR "#FFDA00"
+    COLOR "#DAFF00"
   END #STYLE
 END #end class
 
 CLASS
   EXPRESSION ([pixel] >= 12 AND [pixel] < 16)
   STYLE
-    COLOR "#FFB000"
+    COLOR "#FFFF00"
   END #STYLE
 END #end class
 
 CLASS
   EXPRESSION ([pixel] >= 16 AND [pixel] < 20)
   STYLE
-    COLOR "#FF7300"
+    COLOR "#FFF600"
   END #STYLE
 END #end class
 
 CLASS
   EXPRESSION ([pixel] >= 20 AND [pixel] < 24)
   STYLE
-    COLOR "#FF0000"
+    COLOR "#FFDA00"
   END #STYLE
 END #end class
 
 CLASS
   EXPRESSION ([pixel] >= 24 AND [pixel] < 28)
   STYLE
-    COLOR "#CC0000"
+    COLOR "#FFB000"
   END #STYLE
 END #end class
 
 CLASS
   EXPRESSION ([pixel] >= 28 AND [pixel] < 32)
   STYLE
-    COLOR "#80002C"
+    COLOR "#FF8000"
   END #STYLE
 END #end class
 
 CLASS
   EXPRESSION ([pixel] >= 32 AND [pixel] < 36)
   STYLE
-    COLOR "#CC3D6E"
+    COLOR "#FF4F00"
   END #STYLE
 END #end class
 
 CLASS
   EXPRESSION ([pixel] >= 36 AND [pixel] < 40)
   STYLE
-    COLOR "#FF00FF"
+    COLOR "#D4340E"
   END #STYLE
 END #end class
 
 CLASS
   EXPRESSION ([pixel] >= 40 AND [pixel] < 44)
   STYLE
-    COLOR "#FF80FF"
+    COLOR "#AA1A1D"
   END #STYLE
 END #end class
 
 CLASS
   EXPRESSION ([pixel] >= 44 AND [pixel] < 48)
   STYLE
-    COLOR "#FFBFFF"
+    COLOR "#80002C"
   END #STYLE
 END #end class
 
+CLASS
+  EXPRESSION ([pixel] >= 48 AND [pixel] < 52)
+  STYLE
+    COLOR "#FF00FF"
+  END #STYLE
+END #end class
+
+CLASS
+  EXPRESSION ([pixel] >= 52 AND [pixel] < 56)
+  STYLE
+    COLOR "#FF80FF"
+  END #STYLE
+END #end class
 
 END
 
