@@ -93,6 +93,7 @@ CLASS
 END # CLASS
 
 CLASS
+    EXPRESSION ([pressure] == 100000)
     NAME "Contours"
     STYLE
       WIDTH 1
