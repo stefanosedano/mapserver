@@ -53,6 +53,25 @@
     END
 
     SYMBOL
+        NAME "windbarb3"
+        TYPE vector
+        FILLED false
+        POINTS
+            0 0
+            5 0
+            -99 -99
+            0 1
+            1 0
+            -99 -99
+            1 1
+            2 0
+            -99 -99
+            2 1
+            3 0
+        END
+    END
+
+    SYMBOL
         NAME "windcalm"
         TYPE ellipse
         FILLED false
@@ -118,7 +137,7 @@ END
 
 
         CLASS
-            EXPRESSION ([uv_length] < 0.3)
+            EXPRESSION ([uv_length] < 5)
             STYLE
                 COLOR 0 0 0
                 SYMBOL "windcalm"
@@ -127,7 +146,7 @@ END
             END
         END
         CLASS
-            EXPRESSION ([uv_length] < 0.7)
+            EXPRESSION ([uv_length] < 10)
             STYLE
                 COLOR 0 0 0
                 SYMBOL "windbarb1"
@@ -137,10 +156,20 @@ END
             END
         END
         CLASS
-            EXPRESSION ([uv_length] >= 0.7)
+            EXPRESSION ([uv_length] < 15)
             STYLE
                 COLOR 0 0 0
                 SYMBOL "windbarb2"
+                SIZE 5
+                ANGLE [uv_angle]
+                POSITION CC
+            END
+        END
+        CLASS
+            EXPRESSION ([uv_length] >= 15)
+            STYLE
+                COLOR 0 0 0
+                SYMBOL "windbarb3"
                 SIZE 5
                 ANGLE [uv_angle]
                 POSITION CC
