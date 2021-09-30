@@ -72,6 +72,7 @@ PROJECTION
 END
 
 CLASS
+  NAME "65 - 80"
   EXPRESSION ([pixel] >= 65 AND [pixel] < 80)
   STYLE
     COLOR "#25FF00"
@@ -79,6 +80,7 @@ CLASS
 END #end class
 
 CLASS
+  NAME "80 - 95"
   EXPRESSION ([pixel] >= 80 AND [pixel] < 95)
   STYLE
     COLOR "#00FFED"
@@ -86,6 +88,7 @@ CLASS
 END #end class
 
 CLASS
+  NAME "95 - 200"
   EXPRESSION ([pixel] >= 95 AND [pixel] < 200)
   STYLE
     COLOR "#0000FF"

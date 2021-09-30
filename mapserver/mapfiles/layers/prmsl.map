@@ -72,6 +72,7 @@ GEOMTRANSFORM (smoothsia(generalize([shape], 3*[data_cellsize])))
 LABELITEM "pressure"
 
 CLASS
+    NAME "101000"
     EXPRESSION ([pressure] == 101000)
     STYLE
       WIDTH 2.5
@@ -93,6 +94,7 @@ CLASS
 END # CLASS
 
 CLASS
+    NAME "Contours"
     #EXPRESSION ([pressure] == 100000)
     NAME "Contours"
     STYLE
