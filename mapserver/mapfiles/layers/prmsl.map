@@ -68,7 +68,7 @@ METADATA
 END
 PROCESSING "CONTOUR_ITEM=pressure"
 PROCESSING "CONTOUR_INTERVAL=200"
-GEOMTRANSFORM (smoothsia(generalize([shape], 6*[data_cellsize])))
+GEOMTRANSFORM (smoothsia(generalize([shape], 2*[data_cellsize])))
 LABELITEM "pressure"
 
 CLASS
@@ -93,7 +93,7 @@ CLASS
 END # CLASS
 
 CLASS
-    EXPRESSION ([pressure] == 100000)
+    #EXPRESSION ([pressure] == 100000)
     NAME "Contours"
     STYLE
       WIDTH 1
