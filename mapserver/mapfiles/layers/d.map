@@ -72,6 +72,7 @@ PROJECTION
 END
 
 CLASS
+
   EXPRESSION ([pixel] >= -40 AND [pixel] < -28)
   STYLE
     COLOR 0 0 128
