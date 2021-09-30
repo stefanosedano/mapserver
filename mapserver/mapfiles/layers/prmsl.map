@@ -68,13 +68,13 @@ METADATA
 END
 PROCESSING "CONTOUR_ITEM=pressure"
 PROCESSING "CONTOUR_INTERVAL=200"
-GEOMTRANSFORM (smoothsia(generalize([shape], 2*[data_cellsize])))
+GEOMTRANSFORM (smoothsia(generalize([shape], 3*[data_cellsize])))
 LABELITEM "pressure"
 
 CLASS
     EXPRESSION ([pressure] == 101000)
     STYLE
-      WIDTH 3
+      WIDTH 2.5
       COLOR 100 100 100
     END
     TEXT (tostring(([pressure]/100),"%.0f"))
