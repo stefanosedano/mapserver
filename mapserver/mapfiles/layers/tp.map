@@ -72,6 +72,7 @@ PROJECTION
 END
 
 CLASS
+NAME "0.5 2"
   EXPRESSION ([pixel] >= 0.5 AND [pixel] < 2)
   STYLE
     COLOR "#00FFFF"
@@ -79,6 +80,7 @@ CLASS
 END #end class
 
 CLASS
+NAME "2 4"
   EXPRESSION ([pixel] >= 2 AND [pixel] < 4)
   STYLE
     COLOR "#0080FF"
@@ -86,6 +88,7 @@ CLASS
 END #end class
 
 CLASS
+NAME "4 10"
   EXPRESSION ([pixel] >= 4 AND [pixel] < 10)
   STYLE
     COLOR "#0000FF"
@@ -93,6 +96,7 @@ CLASS
 END #end class
 
 CLASS
+NAME "10 25"
   EXPRESSION ([pixel] >= 10 AND [pixel] < 25)
   STYLE
     COLOR "#DA00FF"
@@ -100,6 +104,7 @@ CLASS
 END #end class
 
 CLASS
+NAME "25 50"
   EXPRESSION ([pixel] >= 25 AND [pixel] < 50)
   STYLE
     COLOR "#FF00FF"
@@ -107,6 +112,7 @@ CLASS
 END #end class
 
 CLASS
+NAME "50 100"
   EXPRESSION ([pixel] >= 50 AND [pixel] < 100)
   STYLE
     COLOR "#FF8000"
@@ -114,6 +120,7 @@ CLASS
 END #end class
 
 CLASS
+NAME "100"
   EXPRESSION ([pixel] >= 100)
   STYLE
     COLOR "#FF0000"

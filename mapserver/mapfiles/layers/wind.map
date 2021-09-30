@@ -137,7 +137,7 @@ END
 
 
         CLASS
-            NAME "x<5 m/s"
+            NAME "<5 m/s"
             EXPRESSION ([uv_length] < 5)
             STYLE
                 COLOR 0 0 0
@@ -147,7 +147,7 @@ END
             END
         END
         CLASS
-            NAME "5<=x<10 m/s"
+            NAME "5 10 m/s"
             EXPRESSION ([uv_length] < 10)
             STYLE
                 COLOR 0 0 0
@@ -158,7 +158,7 @@ END
             END
         END
         CLASS
-            NAME "10<=x<15 m/s"
+            NAME "10 15 m/s"
             EXPRESSION ([uv_length] < 15)
             STYLE
                 COLOR 0 0 0
@@ -169,7 +169,7 @@ END
             END
         END
         CLASS
-            NAME "x>=15 m/s"
+            NAME ">=15 m/s"
             EXPRESSION ([uv_length] >= 15)
             STYLE
                 COLOR 0 0 0

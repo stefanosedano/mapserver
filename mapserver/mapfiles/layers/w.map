@@ -72,6 +72,7 @@ PROJECTION
 END
 
 CLASS
+NAME "-50 -10"
   EXPRESSION ([pixel] >= -50 AND [pixel] < -10)
   STYLE
     COLOR "#000066"
@@ -79,6 +80,7 @@ CLASS
 END #end class
 
 CLASS
+NAME "-10 -5"
   EXPRESSION ([pixel] >= -10 AND [pixel] < -5)
   STYLE
     COLOR "#0000BF"
@@ -87,6 +89,7 @@ END #end class
 
 
 CLASS
+NAME "-5 -2"
   EXPRESSION ([pixel] >= -5 AND [pixel] < -2)
   STYLE
     COLOR "#0000FF"
@@ -94,6 +97,7 @@ CLASS
 END #end class
 
 CLASS
+NAME "-2 -1"
   EXPRESSION ([pixel] >= -2 AND [pixel] < -1)
   STYLE
     COLOR "#004CFF"
@@ -101,6 +105,7 @@ CLASS
 END #end class
 
 CLASS
+NAME "-1 -0.5"
   EXPRESSION ([pixel] >= -1 AND [pixel] < -0.5)
   STYLE
     COLOR "#0080FF"
@@ -108,6 +113,7 @@ CLASS
 END #end class
 
 CLASS
+NAME "-0.5 -0.3"
   EXPRESSION ([pixel] >= -0.5 AND [pixel] < -0.3)
   STYLE
     COLOR "#00B3FF"
@@ -116,6 +122,7 @@ END #end class
 
 
 CLASS
+NAME "-0.3 -0.2"
   EXPRESSION ([pixel] >= -0.3 AND [pixel] < -0.2)
   STYLE
     COLOR "#00D9FF"
@@ -123,6 +130,7 @@ CLASS
 END #end class
 
 CLASS
+NAME "-0.2 -0.2"
   EXPRESSION ([pixel] >= -0.2 AND [pixel] < -0.1)
   STYLE
     COLOR "#19FFFF"
@@ -130,6 +138,7 @@ CLASS
 END #end class
 
 CLASS
+NAME "-0.1 -0.05"
   EXPRESSION ([pixel] >= -0.1 AND [pixel] < -0.05)
   STYLE
     COLOR "#99FFFF"
@@ -137,6 +146,7 @@ CLASS
 END #end class
 
 CLASS
+NAME "-0.05 0.05"
   EXPRESSION ([pixel] >= -0.05 AND [pixel] < 0.05)
   STYLE
     COLOR "#FFFFFF"
@@ -144,6 +154,7 @@ CLASS
 END #end class
 
 CLASS
+NAME "0.05 0.1"
   EXPRESSION ([pixel] >= 0.05 AND [pixel] < 0.1)
   STYLE
     COLOR "#FFFF00"
@@ -151,6 +162,7 @@ CLASS
 END #end class
 
 CLASS
+NAME "0.1 0.2"
   EXPRESSION ([pixel] >= 0.1 AND [pixel] < 0.2)
   STYLE
     COLOR "#FFD900"
@@ -158,6 +170,7 @@ CLASS
 END #end class
 
 CLASS
+NAME "0.2 0.3"
   EXPRESSION ([pixel] >= 0.2 AND [pixel] < 0.3)
   STYLE
     COLOR "#FFB300"
@@ -165,6 +178,7 @@ CLASS
 END #end class
 
 CLASS
+NAME "0.3 0.5"
   EXPRESSION ([pixel] >= 0.3 AND [pixel] < 0.5)
   STYLE
     COLOR "#FF8C00"
@@ -172,6 +186,7 @@ CLASS
 END #end class
 
 CLASS
+NAME "0.5 1"
   EXPRESSION ([pixel] >= 0.5 AND [pixel] < 1)
   STYLE
     COLOR "#FF6600"
@@ -179,6 +194,7 @@ CLASS
 END #end class
 
 CLASS
+NAME "1 2"
   EXPRESSION ([pixel] >= 1 AND [pixel] < 2)
   STYLE
     COLOR "#FF1900"
@@ -186,6 +202,7 @@ CLASS
 END #end class
 
 CLASS
+NAME "2 5"
   EXPRESSION ([pixel] >= 2 AND [pixel] < 5)
   STYLE
     COLOR "#D90000"
@@ -193,6 +210,7 @@ CLASS
 END #end class
 
 CLASS
+NAME "5 10"
   EXPRESSION ([pixel] >= 5 AND [pixel] < 10)
   STYLE
     COLOR "#990000"
@@ -200,6 +218,7 @@ CLASS
 END #end class
 
 CLASS
+NAME "10 50"
   EXPRESSION ([pixel] >= 10 AND [pixel] < 50)
   STYLE
     COLOR "#660000"
