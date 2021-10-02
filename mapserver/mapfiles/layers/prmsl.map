@@ -26,7 +26,7 @@
 	LEGEND
 	  STATUS ON
 	  KEYSIZE 18 12
-	  KEYSPACING 35 10
+	  KEYSPACING 15 5
 	  # LABEL object
 	  LABEL
 	    TYPE BITMAP
@@ -50,6 +50,9 @@
 
 	END
 LAYER
+PROJECTION
+   "init=epsg:4326"
+END
 VALIDATION
 	"run" "[a-zA-Z_\-\s0-9\.\/]+"
 	"step" "[a-zA-Z_\-\s0-9\.\/]+"
