@@ -142,7 +142,7 @@ END
             STYLE
                 COLOR 0 0 0
                 SYMBOL "windcalm"
-                SIZE 5
+                SIZE 1
                 POSITION CC
             END
         END
