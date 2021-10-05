@@ -56,8 +56,9 @@ VALIDATION
 	"model" "[a-zA-Z_\-\s0-9\.\/]+"
 	"level" "[a-zA-Z_\-\s0-9\.\/]+"
 END
-CONNECTIONTYPE CONTOUR
-DATA '/var/s3fs/nwp/GEOTIFF/%model%/%run%/%run%_%step%_z_%level%.tif'
+#CONNECTIONTYPE CONTOUR
+DATA '/var/s3fs/nwp/GEOTIFF/%model%/%run%/%run%_%step%_z_%level%.shp'
+GEOMTRANSFORM (smoothsia([shape], 5, 5))
 NAME "z"
 TYPE LINE
 METADATA
@@ -66,18 +67,20 @@ METADATA
 "wms_title"		"z"
 "ows_include_items" "all"
 END
-PROCESSING "CONTOUR_ITEM=pressure"
-PROCESSING "CONTOUR_INTERVAL=200"
-GEOMTRANSFORM (smoothsia(generalize([shape], 6*[data_cellsize])))
-LABELITEM "pressure"
+#PROCESSING "CONTOUR_ITEM=pressure"
+#PROCESSING "CONTOUR_INTERVAL=200"
+#GEOMTRANSFORM (smoothsia(generalize([shape], 6*[data_cellsize])))
+#LABELITEM "pressure"
+
+LABELITEM "prmsl"
 
 CLASS
-    EXPRESSION ([pressure] == 101000)
+    EXPRESSION ([prmsl] == 101000)
     STYLE
       WIDTH 3
       COLOR 100 100 100
     END
-    TEXT (tostring(([pressure]/100),"%.0f"))
+    TEXT (tostring(([prmsl]/100),"%.0f"))
     LABEL
       COLOR  0 0 0
       ANGLE FOLLOW
@@ -98,7 +101,7 @@ CLASS
       WIDTH 1
       COLOR 100 100 100
     END
-    TEXT (tostring(([pressure]/100),"%.0f"))
+    TEXT (tostring(([prmsl]/100),"%.0f"))
     LABEL
       COLOR  0 0 0
       ANGLE FOLLOW
