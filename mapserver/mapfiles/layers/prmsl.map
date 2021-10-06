@@ -96,15 +96,38 @@ END # CLASS
 
 CLASS
     NAME "Contours"
-    #EXPRESSION ([pressure] == 100000)
+    EXPRESSION ([prmsl] > 101000)
     NAME "Contours"
     STYLE
       WIDTH 1
-      COLOR 100 100 100
+      COLOR "#FF00DC"
     END
     TEXT (tostring(([prmsl]/100),"%.0f"))
     LABEL
-      COLOR  0 0 0
+      COLOR  "#FF00DC"
+      ANGLE FOLLOW
+      OUTLINECOLOR 255 255 255
+      OUTLINEWIDTH  2
+      FONT "arial.ttf"
+      TYPE truetype
+      SIZE 8
+      POSITION AUTO
+      PARTIALS FALSE
+
+    END
+END
+
+CLASS
+    NAME "Contours"
+    EXPRESSION ([prmsl] < 101000)
+    NAME "Contours"
+    STYLE
+      WIDTH 1
+      COLOR "#0D6EFD"
+    END
+    TEXT (tostring(([prmsl]/100),"%.0f"))
+    LABEL
+      COLOR  "#0D6EFD"
       ANGLE FOLLOW
       OUTLINECOLOR 255 255 255
       OUTLINEWIDTH  2
