@@ -60,7 +60,7 @@ VALIDATION
 	"level" "[a-zA-Z_\-\s0-9\.\/]+"
 END
 DATA '/var/s3fs/nwp/GEOTIFF/%model%/%run%/%run%_%step%_prmsl_%level%.shp'
-GEOMTRANSFORM (smoothsia([shape], 5, 5))
+GEOMTRANSFORM (smoothsia([shape], 20, 5))
 NAME "prmsl"
 TYPE LINE
 METADATA
