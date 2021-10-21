@@ -132,7 +132,8 @@ END
 OPACITY 100
 STATUS OFF
 PROJECTION
-"init=epsg:4326"
+#"init=epsg:4326"
+    AUTO
 END
 
 

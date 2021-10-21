@@ -51,7 +51,8 @@
 	END
 LAYER
 PROJECTION
-   "init=epsg:4326"
+#   "init=epsg:4326"
+AUTO
 END
 VALIDATION
 	"run" "[a-zA-Z_\-\s0-9\.\/]+"

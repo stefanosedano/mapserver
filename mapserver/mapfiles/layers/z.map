@@ -50,6 +50,10 @@
 
 	END
 LAYER
+PROJECTION
+#"init=epsg:4326"
+    AUTO
+END
 VALIDATION
 	"run" "[a-zA-Z_\-\s0-9\.\/]+"
 	"step" "[a-zA-Z_\-\s0-9\.\/]+"
