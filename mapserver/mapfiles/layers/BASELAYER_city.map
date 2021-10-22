@@ -55,7 +55,7 @@
 
 
     LAYER
-        NAME "worldcities"
+        NAME "city"
         DEBUG on
         STATUS OFF
         TYPE POINT
