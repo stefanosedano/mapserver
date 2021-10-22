@@ -80,7 +80,7 @@
           COLOR 70 70 70
           WIDTH 1.0
           OUTLINECOLOR "#DDDDDD"
-          OUTLINEWIDTH 1.5
+          OUTLINEWIDTH 2
         END # STYLE
       END # CLASS
 
@@ -92,7 +92,7 @@
           COLOR 70 70 70
           WIDTH 0.8
           OUTLINECOLOR "#DDDDDD"
-          OUTLINEWIDTH 1.2
+          OUTLINEWIDTH 2
           LINECAP round #[butt|round|square|triangle]
           LINEJOIN miter #[round|miter|bevel]
           LINEJOINMAXSIZE 3
@@ -108,7 +108,7 @@
           COLOR 100 100 100
           WIDTH 1
           OUTLINECOLOR "#DDDDDD"
-          OUTLINEWIDTH 1.5
+          OUTLINEWIDTH 2
           LINECAP round #[butt|round|square|triangle]
           LINEJOIN miter #[round|miter|bevel]
           LINEJOINMAXSIZE 3
@@ -124,7 +124,7 @@
           COLOR 100 100 100
           WIDTH 1
           OUTLINECOLOR "#DDDDDD"
-          OUTLINEWIDTH 1.5
+          OUTLINEWIDTH 2
           LINECAP round #[butt|round|square|triangle]
           LINEJOIN miter #[round|miter|bevel]
           LINEJOINMAXSIZE 3
@@ -140,7 +140,7 @@
           COLOR 100 100 100
           WIDTH 1
           OUTLINECOLOR "#DDDDDD"
-          OUTLINEWIDTH 1.5
+          OUTLINEWIDTH 2
           LINECAP round #[butt|round|square|triangle]
           LINEJOIN miter #[round|miter|bevel]
           LINEJOINMAXSIZE 3
@@ -156,7 +156,7 @@
           COLOR 100 100 100
           WIDTH 0.5
           OUTLINECOLOR "#DDDDDD"
-          OUTLINEWIDTH 1
+          OUTLINEWIDTH 2
           LINECAP round #[butt|round|square|triangle]
           LINEJOIN miter #[round|miter|bevel]
           LINEJOINMAXSIZE 3
