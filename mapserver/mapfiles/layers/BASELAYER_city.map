@@ -1,0 +1,132 @@
+
+	MAP
+	NAME SEEMHEWS
+	STATUS ON
+	IMAGECOLOR 255 255 255
+	SIZE 250 250
+	EXTENT 8.5 45.36 8.8 45.60
+	UNITS dd
+	MAXSIZE 250000
+	CONFIG "MS_ERRORFILE" "/home/logs/BASELAYER_city.log"
+	FONTSET "/etc/mapserver/font.txt"
+	SYMBOLSET "/etc/mapserver/mapfiles/symbols/symbols.sym"
+	PROJECTION
+	"init=epsg:4326"
+	END
+	OUTPUTFORMAT
+        NAME "ciccio"
+        DRIVER AGG/PNG8
+    MIMETYPE "image/png; mode=8bit"
+    IMAGEMODE RGB
+    EXTENSION "png"
+    FORMATOPTION "QUANTIZE_FORCE=on"
+    FORMATOPTION "QUANTIZE_COLORS=256"
+    FORMATOPTION "GAMMA=0.75"
+        TRANSPARENT on
+    END
+
+	LEGEND
+	  STATUS ON
+	  KEYSIZE 18 12
+	  KEYSPACING 35 10
+	  # LABEL object
+	  LABEL
+	    TYPE BITMAP
+	    SIZE small
+	    COLOR 0 0 89
+	  END
+	  #TEMPLATE "/etc/mapserver/mapfiles/layers/BASELAYER_city_legend.html"  ### HTML template file
+	END
+
+	WEB
+
+	METADATA
+	"ows_enable_request" "*"
+	"wms_enable_request" "*"
+	"wfs_enable_request" "*"
+	"sos_enable_request" "*"
+	"wcs_enable_request" "*"
+	"wms_title"		"city"
+	"wms_srs"	"EPSG:4326 EPSG:3857 EPSG:3035 "
+	END
+	END
+
+
+
+
+    LAYER
+        NAME "worldcities"
+        DEBUG on
+        STATUS default
+        TYPE POINT
+        CONNECTION   "/var/s3fs/baselayers/simplemaps_worldcities_basic/worldcities.vrt"
+        CONNECTIONTYPE OGR
+        LABELITEM "city"
+        OFFSITE 255 255 255
+        PROJECTION
+            "init=epsg:4326"
+        END
+
+            METADATA
+            "gml_featureid"		"id"
+            "gml_include_items"	"all"
+            "wms_title"		"worldcities"
+            "ows_include_items" "all"
+            END
+
+            CLASS
+               EXPRESSION ('[capital]' eq 'primary' )
+               NAME "primary"
+               STYLE
+                    SYMBOL "circle"
+                    SIZE 2
+                    COLOR 10 10 10
+               END
+               LABEL
+                    PRIORITY 10
+                    COLOR 0 0 0
+                    OUTLINECOLOR  "#DDDDDD"
+                    OUTLINEWIDTH 2
+                    TYPE truetype
+                    #FONT "sans"
+                    SIZE 9
+                    ANTIALIAS TRUE
+                    POSITION AUTO
+                    PARTIALS FALSE
+                    #MINDISTANCE 200
+                    #MAXDISTANCE 1000
+                    #BUFFER 10
+                    FORCE True
+                END
+            END
+            CLASS
+               EXPRESSION ('[population]' gt '100000' )
+               #MINSCALEDENOM 40000000
+               MAXSCALEDENOM  20000000
+               NAME "admin"
+               STYLE
+                    SYMBOL "circle"
+                    SIZE 0
+                    COLOR 150 150 150
+               END
+               LABEL
+                    PRIORITY 1
+                    COLOR 0 0 0
+                    OUTLINECOLOR  "#DDDDDD"
+                    OUTLINEWIDTH 2
+                    #SHADOWCOLOR 218 218 218
+                    #SHADOWSIZE 2 2
+                    TYPE truetype
+                    #FONT "sans"
+                    SIZE 9
+                    ANTIALIAS TRUE
+                    POSITION AUTO
+                    PARTIALS FALSE
+                    MINDISTANCE 400
+                    #BUFFER 10
+                    #FORCE True
+                END
+            END
+    END
+
+	END
