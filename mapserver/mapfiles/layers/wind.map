@@ -171,7 +171,7 @@ END
         END
         CLASS
             NAME ">=15 m/s"
-            EXPRESSION ([uv_length] >= 15)
+            EXPRESSION ([uv_length] >= 15 and [uv_length] < 1000)
             STYLE
                 COLOR 0 0 0
                 SYMBOL "windbarb3"
