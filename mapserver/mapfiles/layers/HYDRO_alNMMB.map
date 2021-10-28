@@ -8,7 +8,7 @@
 	EXTENT 8.5 45.36 8.8 45.60
 	UNITS dd
 	MAXSIZE 250000
-	CONFIG "MS_ERRORFILE" "/home/logs/HYDRO_allNMMB.log"
+	CONFIG "MS_ERRORFILE" "/home/logs/HYDRO_alNMMB.log"
 	FONTSET "/etc/mapserver/font.txt"
 	#SYMBOLSET "/opt/mapserver/mapfiles/symbols/symbols.sym"
 	OUTPUTFORMAT
@@ -34,7 +34,7 @@
 	    SIZE small
 	    COLOR 0 0 89
 	  END
-	  TEMPLATE "/etc/mapserver/mapfiles/layers/HYDRO_allNMMB_legend.html"  ### HTML template file
+	  TEMPLATE "/etc/mapserver/mapfiles/layers/HYDRO_alNMMB_legend.html"  ### HTML template file
 	END
 
 	WEB
@@ -46,7 +46,7 @@
 	"wfs_enable_request" "*"
 	"sos_enable_request" "*"
 	"wcs_enable_request" "*"
-	"wms_title"		"allNMMB"
+	"wms_title"		"alNMMB"
 	"wms_srs"	"EPSG:4326 EPSG:3857 EPSG:3035"
 	END
 	END
@@ -55,15 +55,15 @@
     VALIDATION
 	    "ctype" "[a-zA-Z_\-\s0-9\.\/]+"
     END
-    DATA "/var/s3fs/hydro/%ctype%/maps/allNMMB%ctype%.png"
-    #DATA "/var/s3fs/hydro/PGEN2021032212/maps/allNMMB2021032212.png"
-    NAME "allNMMB"
+    DATA "/var/s3fs/hydro/%ctype%/maps/alNMMB%ctype%.png"
+    #DATA "/var/s3fs/hydro/PGEN2021032212/maps/alNMMB2021032212.png"
+    NAME "alNMMB"
     TYPE RASTER
     OFFSITE 255 255 255
     METADATA
     "gml_featureid"		"gid"
     "gml_include_items"	"all"
-    "wms_title"		"allNMMB"
+    "wms_title"		"alNMMB"
     "ows_include_items" "all"
     END
     OPACITY 100
