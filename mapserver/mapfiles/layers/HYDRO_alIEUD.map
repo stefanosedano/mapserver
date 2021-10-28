@@ -55,7 +55,7 @@
     VALIDATION
 	    "ctype" "[a-zA-Z_\-\s0-9\.\/]+"
     END
-    DATA "/var/s3fs/hydro/PGEN%ctype%/maps/alIEUD%ctype%.png"
+    DATA "/var/s3fs/hydro/%ctype%/maps/alIEUD%ctype%.png"
     #DATA "/var/s3fs/hydro/PGEN2021032212/maps/alIEUD2021032212.png"
     NAME "alIEUD"
     TYPE RASTER
