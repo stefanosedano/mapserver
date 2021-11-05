@@ -1,0 +1,135 @@
+
+	MAP
+	NAME SEEMHEWS
+	STATUS ON
+	TRANSPARENT ON
+	IMAGECOLOR 255 255 255
+	SIZE 250 250
+	EXTENT 8.5 45.36 8.8 45.60
+	UNITS dd
+	MAXSIZE 250000
+	CONFIG "MS_ERRORFILE" "/home/logs/tp.log"
+	FONTSET "/etc/mapserver/font.txt"
+	OUTPUTFORMAT
+	  NAME "png8"
+	  DRIVER AGG/PNG8
+	  MIMETYPE "image/png; mode=8bit"
+	  IMAGEMODE RGB
+	  EXTENSION "png"
+	  FORMATOPTION "QUANTIZE_FORCE=on"
+	  FORMATOPTION "QUANTIZE_COLORS=256"
+	  FORMATOPTION "GAMMA=0.75"
+	END
+	PROJECTION
+	"init=epsg:4326"
+	END
+	LEGEND
+	  STATUS ON
+	  KEYSIZE 18 12
+	  KEYSPACING 15 5
+	  # LABEL object
+	  LABEL
+	    TYPE BITMAP
+	    SIZE small
+	    COLOR 0 0 89
+	  END
+	END
+
+	WEB
+
+
+	METADATA
+	"ows_enable_request" "*"
+	"wms_enable_request" "*"
+	"wfs_enable_request" "*"
+	"sos_enable_request" "*"
+	"wcs_enable_request" "*"
+	"wms_title"		"tp12"
+	"wms_srs"	"EPSG:4326 EPSG:3857 EPSG:3035"
+	END
+
+	END
+LAYER
+VALIDATION
+	"run" "[a-zA-Z_\-\s0-9\.\/]+"
+	"step" "[a-zA-Z_\-\s0-9\.\/]+"
+	"model" "[a-zA-Z_\-\s0-9\.\/]+"
+	"level" "[a-zA-Z_\-\s0-9\.\/]+"
+END
+DATA '/var/s3fs/nwp/GEOTIFF/%model%/%run%/%run%_%step%_tp12_%level%.tif'
+NAME "tp12"
+TYPE RASTER
+METADATA
+"gml_featureid"		"gid"
+"gml_include_items"	"all"
+"wms_title"		"tp12"
+"ows_include_items" "all"
+END
+OPACITY 100
+STATUS OFF
+PROJECTION
+#"init=epsg:4326"
+    AUTO
+END
+
+CLASS
+NAME "0.5 2"
+  EXPRESSION ([pixel] >= 0.5 AND [pixel] < 2)
+  STYLE
+    COLOR "#00FFFF"
+  END #STYLE
+END #end class
+
+CLASS
+NAME "2 4"
+  EXPRESSION ([pixel] >= 2 AND [pixel] < 4)
+  STYLE
+    COLOR "#0080FF"
+  END #STYLE
+END #end class
+
+CLASS
+NAME "4 10"
+  EXPRESSION ([pixel] >= 4 AND [pixel] < 10)
+  STYLE
+    COLOR "#0000FF"
+  END #STYLE
+END #end class
+
+CLASS
+NAME "10 25"
+  EXPRESSION ([pixel] >= 10 AND [pixel] < 25)
+  STYLE
+    COLOR "#DA00FF"
+  END #STYLE
+END #end class
+
+CLASS
+NAME "25 50"
+  EXPRESSION ([pixel] >= 25 AND [pixel] < 50)
+  STYLE
+    COLOR "#FF00FF"
+  END #STYLE
+END #end class
+
+CLASS
+NAME "50 100"
+  EXPRESSION ([pixel] >= 50 AND [pixel] < 100)
+  STYLE
+    COLOR "#FF8000"
+  END #STYLE
+END #end class
+
+CLASS
+NAME "100"
+  EXPRESSION ([pixel] >= 100)
+  STYLE
+    COLOR "#FF0000"
+  END #STYLE
+END #end class
+
+
+
+END
+
+END #MAP
