@@ -56,7 +56,7 @@
 	    "ctype" "[a-zA-Z_\-\s0-9\.\/]+"
     END
 
-    DATA "/var/s3fs/hydro/%ctype%/maps/alEUD%ctype%.png"
+    DATA "/var/s3fs/hydro/%ctype%/LISFLOOD/maps/alEUD%ctype%.png"
     NAME "detecmwf"
     TYPE RASTER
     OFFSITE 255 255 255

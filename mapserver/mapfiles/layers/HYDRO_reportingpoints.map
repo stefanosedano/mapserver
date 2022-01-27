@@ -60,7 +60,7 @@ LAYER
     VALIDATION
 	    "ctype" "[a-zA-Z_\-\s0-9\.\/]+"
     END
-    DATA "/var/s3fs/hydro/PGEN%ctype%/points/RepPoints%ctype%.shp"
+    DATA "/var/s3fs/hydro/PGEN%ctype%/LISFLOOD/points/RepPoints%ctype%.shp"
     #DATA "/var/s3fs/hydro/PGEN2021032212/points/RepPoints2021032212.shp"
                 OFFSITE 255 255 255
                 METADATA
