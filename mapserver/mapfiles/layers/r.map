@@ -90,7 +90,7 @@ END #end class
 
 CLASS
   NAME "95 - 200"
-  EXPRESSION ([pixel] >= 95 AND [pixel] < 200)
+  EXPRESSION ([pixel] >= 95 AND [pixel] < 100)
   STYLE
     COLOR "#0000FF"
   END #STYLE
