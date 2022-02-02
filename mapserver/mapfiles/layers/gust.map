@@ -72,61 +72,132 @@ PROJECTION
 AUTO
 END
 
+
+
+
 CLASS
-  EXPRESSION ([pixel] >= 10 AND [pixel] < 15)
+  NAME "BF 0"
+  EXPRESSION ([pixel] < 0.3)
   STYLE
-    COLOR "#FFFF00"
+    COLOR "#DCDDDD"
+  END #STYLE
+END #end class
+CLASS
+  NAME "BF 1"
+  EXPRESSION ([pixel] >= 0.3 AND [pixel] < 1.5)
+  STYLE
+    COLOR "#84CECD"
+  END #STYLE
+END #end class
+CLASS
+  NAME "BF 2-3"
+  EXPRESSION ([pixel] >= 1.5 AND [pixel] < 5.5)
+  STYLE
+    COLOR "#6CBC6C"
+  END #STYLE
+END #end class
+CLASS
+  NAME "BF 4-5"
+  EXPRESSION ([pixel] >= 5.5 AND [pixel] < 10.7)
+  STYLE
+    COLOR "#2C842F"
+  END #STYLE
+END #end class
+CLASS
+  NAME "BF 6-7"
+  EXPRESSION ([pixel] >= 10.7 AND [pixel] < 17.1)
+  STYLE
+    COLOR "#FFD015"
+  END #STYLE
+END #end class
+CLASS
+  NAME "BF 8-9"
+  EXPRESSION ([pixel] >= 17.1 AND [pixel] < 24.4)
+  STYLE
+    COLOR "#FF7652"
+  END #STYLE
+END #end class
+CLASS
+  NAME "BF 10-11"
+  EXPRESSION ([pixel] >= 24.4 AND [pixel] < 32.6)
+  STYLE
+    COLOR "#FF4C25"
+  END #STYLE
+END #end class
+CLASS
+  NAME "BF 12"
+  EXPRESSION ([pixel] >= 32.6)
+  STYLE
+    COLOR "#D53A24"
   END #STYLE
 END #end class
 
-CLASS
-  EXPRESSION ([pixel] >= 15 AND [pixel] < 20)
-  STYLE
-    COLOR "#FFDB00"
-  END #STYLE
-END #end class
 
-CLASS
-  EXPRESSION ([pixel] >= 20 AND [pixel] < 25)
-  STYLE
-    COLOR "#FFB600"
-  END #STYLE
-END #end class
 
-CLASS
-  EXPRESSION ([pixel] >= 25 AND [pixel] < 30)
-  STYLE
-    COLOR "#FF9200"
-  END #STYLE
-END #end class
 
-CLASS
-  EXPRESSION ([pixel] >= 30 AND [pixel] < 40)
-  STYLE
-    COLOR "#FF6D00"
-  END #STYLE
-END #end class
 
-CLASS
-  EXPRESSION ([pixel] >= 40 AND [pixel] < 50)
-  STYLE
-    COLOR "#FF4900"
-  END #STYLE
-END #end class
 
-CLASS
-  EXPRESSION ([pixel] >= 50 AND [pixel] < 60)
-  STYLE
-    COLOR "#FF2400"
-  END #STYLE
-END #end class
 
-CLASS
-  EXPRESSION ([pixel] >= 60 AND [pixel] < 70)
-  STYLE
-    COLOR "#FF0000"
-  END #STYLE
-END #end class
+
+
+
+
+
+#CLASS
+#  EXPRESSION ([pixel] >= 10 AND [pixel] < 15)
+#  STYLE
+#    COLOR "#FFFF00"
+#  END #STYLE
+#END #end class
+#
+#CLASS
+#  EXPRESSION ([pixel] >= 15 AND [pixel] < 20)
+#  STYLE
+#    COLOR "#FFDB00"
+#  END #STYLE
+#END #end class
+#
+#CLASS
+#  EXPRESSION ([pixel] >= 20 AND [pixel] < 25)
+#  STYLE
+#    COLOR "#FFB600"
+#  END #STYLE
+#END #end class
+#
+#CLASS
+#  EXPRESSION ([pixel] >= 25 AND [pixel] < 30)
+#  STYLE
+#    COLOR "#FF9200"
+#  END #STYLE
+#END #end class
+#
+#CLASS
+#  EXPRESSION ([pixel] >= 30 AND [pixel] < 40)
+#  STYLE
+#    COLOR "#FF6D00"
+#  END #STYLE
+#END #end class
+#
+#CLASS
+#  EXPRESSION ([pixel] >= 40 AND [pixel] < 50)
+#  STYLE
+#    COLOR "#FF4900"
+#  END #STYLE
+#END #end class
+#
+#CLASS
+#  EXPRESSION ([pixel] >= 50 AND [pixel] < 60)
+#  STYLE
+#    COLOR "#FF2400"
+#  END #STYLE
+#END #end class
+#
+#CLASS
+#  EXPRESSION ([pixel] >= 60 AND [pixel] < 70)
+#  STYLE
+#    COLOR "#FF0000"
+#  END #STYLE
+#END #end class
 
 
 END
