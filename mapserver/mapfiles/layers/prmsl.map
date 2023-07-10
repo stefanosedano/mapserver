@@ -49,6 +49,7 @@
 	END
 
 	END
+
 LAYER
 PROJECTION
 #   "init=epsg:4326"
@@ -97,15 +98,17 @@ END # CLASS
 
 CLASS
     NAME "Contours"
-    EXPRESSION ([prmsl] > 101000)
+    EXPRESSION ([prmsl] >= 102000)
     NAME "Contours"
     STYLE
-      WIDTH 1
-      COLOR "#FF00DC"
+      WIDTH 2
+      RANGEITEM 'prmsl'
+      COLORRANGE "#FFFFFF" "#AC2F2F"
+      DATARANGE 101000 102500
     END
     TEXT (tostring(([prmsl]/100),"%.0f"))
     LABEL
-      COLOR  "#FF00DC"
+      COLOR  "#AC2F2F"
       ANGLE FOLLOW
       OUTLINECOLOR 255 255 255
       OUTLINEWIDTH  2
@@ -120,15 +123,67 @@ END
 
 CLASS
     NAME "Contours"
-    EXPRESSION ([prmsl] < 101000)
+    EXPRESSION ([prmsl] > 101000 AND [prmsl] < 102000)
     NAME "Contours"
     STYLE
       WIDTH 1
-      COLOR "#0D6EFD"
+      RANGEITEM 'prmsl'
+      COLORRANGE "#FFFFFF" "#AC2F2F"
+      DATARANGE 101000 102500
     END
     TEXT (tostring(([prmsl]/100),"%.0f"))
     LABEL
-      COLOR  "#0D6EFD"
+      COLOR  "#AC2F2F"
+      ANGLE FOLLOW
+      OUTLINECOLOR 255 255 255
+      OUTLINEWIDTH  2
+      FONT "arial.ttf"
+      TYPE truetype
+      SIZE 8
+      POSITION AUTO
+      PARTIALS FALSE
+
+    END
+END
+
+CLASS
+    NAME "Contours"
+    EXPRESSION ([prmsl] < 101000 AND [prmsl] > 100000)
+    NAME "Contours"
+    STYLE
+      WIDTH 1
+      RANGEITEM 'prmsl'
+      COLORRANGE "#2E30B8" "#FFFFFF"
+      DATARANGE 100000 101000
+    END
+    TEXT (tostring(([prmsl]/100),"%.0f"))
+    LABEL
+      COLOR  "#2E30B8"
+      ANGLE FOLLOW
+      OUTLINECOLOR 255 255 255
+      OUTLINEWIDTH  2
+      FONT "arial.ttf"
+      TYPE truetype
+      SIZE 8
+      POSITION AUTO
+      PARTIALS FALSE
+
+    END
+END
+
+CLASS
+    NAME "Contours"
+    EXPRESSION ([prmsl] <= 100000)
+    NAME "Contours"
+    STYLE
+      WIDTH 2
+      RANGEITEM 'prmsl'
+      COLORRANGE "#2E30B8" "#FFFFFF"
+      DATARANGE 100000 101000
+    END
+    TEXT (tostring(([prmsl]/100),"%.0f"))
+    LABEL
+      COLOR  "#2E30B8"
       ANGLE FOLLOW
       OUTLINECOLOR 255 255 255
       OUTLINEWIDTH  2
@@ -142,6 +197,67 @@ CLASS
 END
 
 
+END #layer
+
+
+
+LAYER
+VALIDATION
+	"run" "[a-zA-Z_\-\s0-9\.\/]+"
+	"step" "[a-zA-Z_\-\s0-9\.\/]+"
+	"model" "[a-zA-Z_\-\s0-9\.\/]+"
+	"level" "[a-zA-Z_\-\s0-9\.\/]+"
 END
+DATA '/var/s3fs/nwp/GEOTIFF/%model%/%run%/%run%_%step%_prmsl_%level%.tif'
+NAME "t"
+TYPE RASTER
+METADATA
+"gml_featureid"		"gid"
+"gml_include_items"	"all"
+"wms_title"		"p"
+"ows_include_items" "all"
+END
+OPACITY 50
+STATUS DEFAULT
+PROJECTION
+#"init=epsg:4326"
+    AUTO
+END
+
+CLASS
+  NAME "BF 0"
+  EXPRESSION ([pixel] > 101000)
+  STYLE
+    COLORRANGE "#FFFFFF" "#AC2F2F"
+    DATARANGE 101000 102500
+  END #STYLE
+END #end class
+
+CLASS
+  NAME "BF 0"
+  EXPRESSION ([pixel] < 101000)
+  STYLE
+    COLORRANGE "#2E30B8" "#FFFFFF"
+      DATARANGE 100000 101000
+  END #STYLE
+END #end class
+
+
+
+END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 END #MAP
