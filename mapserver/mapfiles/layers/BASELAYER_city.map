@@ -106,7 +106,7 @@
                NAME "admin"
                STYLE
                     SYMBOL "circle"
-                    SIZE 0
+                    SIZE 1
                     COLOR 150 150 150
                END
                LABEL
