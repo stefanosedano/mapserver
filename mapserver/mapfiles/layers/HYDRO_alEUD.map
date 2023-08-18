@@ -65,7 +65,7 @@
     "wms_title"		"alEUD"
     "ows_include_items" "all"
     END
-    OPACITY 100
+    
     STATUS OFF
     PROJECTION
     "init=epsg:3035"

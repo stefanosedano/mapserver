@@ -216,7 +216,7 @@ METADATA
 "wms_title"		"p"
 "ows_include_items" "all"
 END
-OPACITY 50
+
 STATUS DEFAULT
 PROJECTION
 #"init=epsg:4326"

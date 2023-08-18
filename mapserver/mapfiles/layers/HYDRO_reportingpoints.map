@@ -68,7 +68,7 @@ LAYER
                 "wms_title"             "reportingpoints"
                 "ows_include_items" "all"
                 END
-                OPACITY 100
+                
                 STATUS OFF
 
     PROJECTION
@@ -88,7 +88,7 @@ LAYER
             SIZE 3
             COLOR 79 80 82 # inside color
             OUTLINECOLOR 187 189 191
-            OPACITY 50
+            
         END
     END
 
@@ -101,7 +101,7 @@ LAYER
             SIZE 3
             COLOR 79 80 82 # inside color
             OUTLINECOLOR 187 189 191
-            OPACITY 50
+            
         END
     END
 
@@ -114,7 +114,7 @@ LAYER
             SIZE 3
             COLOR 79 80 82 # inside color
             OUTLINECOLOR 187 189 191
-            OPACITY 50
+            
         END
     END
 
@@ -127,7 +127,7 @@ LAYER
             SIZE 6
             COLOR 79 80 82 # inside color
             OUTLINECOLOR 187 189 191
-            OPACITY 100
+            
         END
     END
 
@@ -140,7 +140,7 @@ LAYER
             SIZE 6
             COLOR 79 80 82 # inside color
             OUTLINECOLOR 255 255 0
-            OPACITY 100
+            
         END
     END
 
@@ -153,7 +153,7 @@ LAYER
             SIZE 6
             COLOR 79 80 82 # inside color
             OUTLINECOLOR 255 0 0
-            OPACITY 100
+            
         END
     END
 
@@ -166,7 +166,7 @@ LAYER
             SIZE 12
             COLOR 79 80 82 # inside color
             OUTLINECOLOR 187 189 191
-            OPACITY 100
+            
         END
     END
 
@@ -180,7 +180,7 @@ LAYER
             COLOR 79 80 82 # inside color
             OUTLINECOLOR 255 255 0
             WIDTH 2
-            OPACITY 100
+            
         END
     END
 
@@ -194,7 +194,7 @@ LAYER
             COLOR 79 80 82 # inside color
             OUTLINECOLOR 255 0 0
             WIDTH 2
-            OPACITY 100
+            
         END
     END
 
@@ -208,7 +208,7 @@ LAYER
             SIZE 3
             COLOR 66 170 239 # inside color
             OUTLINECOLOR 187 189 191
-            OPACITY 50
+            
         END
     END
 
@@ -221,7 +221,7 @@ LAYER
             SIZE 3
             COLOR 66 170 239 # inside color
             OUTLINECOLOR 187 189 191
-            OPACITY 100
+            
         END
     END
 
@@ -234,7 +234,7 @@ LAYER
             SIZE 3
             COLOR 66 170 239 # inside color
             OUTLINECOLOR 187 189 191
-            OPACITY 100
+            
         END
     END
 
@@ -247,7 +247,7 @@ LAYER
             SIZE 6
             COLOR 66 170 239 # inside color
             OUTLINECOLOR 187 189 191
-            OPACITY 100
+            
         END
     END
 
@@ -260,7 +260,7 @@ LAYER
             SIZE 6
             COLOR 66 170 239 # inside color
             OUTLINECOLOR 255 255 0
-            OPACITY 100
+            
         END
     END
 
@@ -273,7 +273,7 @@ LAYER
             SIZE 6
             COLOR 66 170 239 # inside color
             OUTLINECOLOR 255 0 0
-            OPACITY 100
+            
         END
     END
 
@@ -286,7 +286,7 @@ LAYER
             SIZE 12
             COLOR 66 170 239 # inside color
             OUTLINECOLOR 187 189 191
-            OPACITY 100
+            
         END
     END
 
@@ -300,7 +300,7 @@ LAYER
             COLOR 66 170 239 # inside color
             OUTLINECOLOR 255 255 0
             WIDTH 2
-            OPACITY 100
+            
         END
     END
 
@@ -314,7 +314,7 @@ LAYER
             COLOR 66 170 239 # inside color
             OUTLINECOLOR 255 0 0
             WIDTH 2
-            OPACITY 100
+            
         END
     END
 
@@ -330,7 +330,7 @@ LAYER
             COLOR 255 255 102 # inside color
             OUTLINECOLOR 128 128 128
             WIDTH 1
-            OPACITY 100
+            
         END
         LABEL
             MAXSCALEDENOM 5000000
@@ -359,7 +359,7 @@ LAYER
             COLOR 255 255 102 # inside color
             OUTLINECOLOR 128 128 128
             WIDTH 1
-            OPACITY 100
+            
         END
         LABEL
             MAXSCALEDENOM 5000000
@@ -388,7 +388,7 @@ LAYER
             COLOR 255 255 102 # inside color
             OUTLINECOLOR 128 128 128
             WIDTH 1
-            OPACITY 100
+            
         END
         LABEL
             MAXSCALEDENOM 5000000
@@ -417,7 +417,7 @@ LAYER
             COLOR 255 255 102 # inside color
             OUTLINECOLOR 128 128 128
             WIDTH 1
-            OPACITY 100
+            
         END
         LABEL
             MAXSCALEDENOM 5000000
@@ -446,7 +446,7 @@ LAYER
             COLOR 255 255 102 # inside color
             OUTLINECOLOR 0 0 0
             WIDTH 2
-            OPACITY 100
+            
         END
         LABEL
             MAXSCALEDENOM 5000000
@@ -475,7 +475,7 @@ LAYER
             COLOR 255 255 102 # inside color
             OUTLINECOLOR 0 0 0
             WIDTH 2
-            OPACITY 100
+            
         END
         LABEL
             MAXSCALEDENOM 5000000
@@ -504,7 +504,7 @@ LAYER
             COLOR 255 255 102 # inside color
             OUTLINECOLOR 0 0 0
             WIDTH 2
-            OPACITY 100
+            
         END
         LABEL
             MAXSCALEDENOM 5000000
@@ -533,7 +533,7 @@ LAYER
             COLOR 255 255 102 # inside color
             OUTLINECOLOR 0 0 0
             WIDTH 2
-            OPACITY 100
+            
         END
         LABEL
             MAXSCALEDENOM 5000000
@@ -565,7 +565,7 @@ LAYER
             COLOR 255 0 0 # inside color
             OUTLINECOLOR 128 128 128
             WIDTH 1
-            OPACITY 100
+            
         END
         LABEL
             MAXSCALEDENOM 5000000
@@ -594,7 +594,7 @@ LAYER
             COLOR 255 0 0 # inside color
             OUTLINECOLOR 128 128 128
             WIDTH 1
-            OPACITY 100
+            
         END
         LABEL
             MAXSCALEDENOM 5000000
@@ -623,7 +623,7 @@ LAYER
             COLOR 255 0 0 # inside color
             OUTLINECOLOR 128 128 128
             WIDTH 1
-            OPACITY 100
+            
         END
         LABEL
             MAXSCALEDENOM 5000000
@@ -652,7 +652,7 @@ LAYER
             COLOR 255 0 0 # inside color
             OUTLINECOLOR 128 128 128
             WIDTH 1
-            OPACITY 100
+            
         END
         LABEL
             MAXSCALEDENOM 5000000
@@ -681,7 +681,7 @@ LAYER
             COLOR 255 0 0 # inside color
             OUTLINECOLOR 0 0 0
             WIDTH 2
-            OPACITY 100
+            
         END
         LABEL
             MAXSCALEDENOM 5000000
@@ -710,7 +710,7 @@ LAYER
             COLOR 255 0 0 # inside color
             OUTLINECOLOR 0 0 0
             WIDTH 2
-            OPACITY 100
+            
         END
         LABEL
             MAXSCALEDENOM 5000000
@@ -739,7 +739,7 @@ LAYER
             COLOR 255 0 0 # inside color
             OUTLINECOLOR 0 0 0
             WIDTH 2
-            OPACITY 100
+            
         END
         LABEL
             MAXSCALEDENOM 5000000
@@ -768,7 +768,7 @@ LAYER
             COLOR 255 0 0 # inside color
             OUTLINECOLOR 0 0 0
             WIDTH 2
-            OPACITY 100
+            
         END
         LABEL
             MAXSCALEDENOM 5000000
@@ -920,7 +920,7 @@ LAYER
     TOLERANCE 1
     TOLERANCEUNITS PIXELS
     TEMPLATE void
-    OPACITY 50
+    
     LABELCACHE off
     CLASS
         NAME "RapidImpactAssessment"
@@ -1418,7 +1418,7 @@ LAYER
     STATUS OFF
     #DATA /var/lib/mapserver/data/forecasts/s2s/2019/201910/2019102000/s2s.shp
     TEMPLATE void
-    OPACITY 90
+    
     CLASSITEM "flag"
     CLASS
         NAME "3"
@@ -1503,7 +1503,7 @@ LAYER
     #DATA /var/lib/mapserver/data/forecasts/seasonal/2017/201706/swp.shp
     TEMPLATE "/var/lib/mapserver/data/pepe.html"
     # TEMPLATE void
-    OPACITY 90
+    
     CLASSITEM "flag"
     CLASS
         NAME "3"

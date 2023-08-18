@@ -38,7 +38,7 @@ LABEL
   
 END
 END
-OPACITY 100
+
 STATUS OFF
 PROJECTION
 "init=epsg:4326"
@@ -161,7 +161,7 @@ CLASS
 END #end class
 
 
-OPACITY 100
+
 STATUS OFF
 PROJECTION
 "init=epsg:4326"

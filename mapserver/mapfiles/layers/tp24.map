@@ -64,7 +64,7 @@ METADATA
 "wms_title"		"tp24"
 "ows_include_items" "all"
 END
-OPACITY 100
+
 STATUS OFF
 PROJECTION
 #"init=epsg:4326"

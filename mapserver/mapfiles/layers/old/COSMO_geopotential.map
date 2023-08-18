@@ -12,7 +12,7 @@ METADATA
 "ows_include_items" "all" 
 END
 PROCESSING "BANDS=1,2,3"
-OPACITY 100
+
 STATUS OFF
 PROJECTION
 "init=epsg:4326"

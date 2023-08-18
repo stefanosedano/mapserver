@@ -64,7 +64,7 @@
     "wms_title"		"scWB"
     "ows_include_items" "all"
     END
-    OPACITY 100
+    
     STATUS OFF
     PROJECTION
     "init=epsg:3035"

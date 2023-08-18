@@ -64,7 +64,6 @@ METADATA
 "wms_title"		"gust"
 "ows_include_items" "all"
 END
-OPACITY 100
 STATUS OFF
 PROJECTION
 #"init=epsg:4326"
