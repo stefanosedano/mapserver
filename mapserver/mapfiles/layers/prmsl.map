@@ -202,7 +202,7 @@ END #layer
 
 LAYER
   COMPOSITE
-    OPACITY 50
+    OPACITY 25
   END #composite
 VALIDATION
 	"run" "[a-zA-Z_\-\s0-9\.\/]+"
