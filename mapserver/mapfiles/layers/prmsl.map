@@ -201,6 +201,9 @@ END #layer
 
 
 LAYER
+  COMPOSITE
+    OPACITY 50
+  END #composite
 VALIDATION
 	"run" "[a-zA-Z_\-\s0-9\.\/]+"
 	"step" "[a-zA-Z_\-\s0-9\.\/]+"
@@ -216,6 +219,8 @@ METADATA
 "wms_title"		"p"
 "ows_include_items" "all"
 END
+
+
 
 STATUS DEFAULT
 PROJECTION

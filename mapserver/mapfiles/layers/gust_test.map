@@ -1,0 +1,140 @@
+
+	MAP
+	NAME SEEMHEWS
+	STATUS ON
+	IMAGECOLOR 255 255 255
+	SIZE 250 250
+	EXTENT 8.5 45.36 8.8 45.60
+	UNITS dd
+	MAXSIZE 250000
+	CONFIG "MS_ERRORFILE" "/home/logs/gust.log"
+	FONTSET "/etc/mapserver/font.txt"
+	OUTPUTFORMAT
+	  NAME "png8"
+	  DRIVER AGG/PNG8
+	  MIMETYPE "image/png; mode=8bit"
+	  IMAGEMODE RGB
+	  EXTENSION "png"
+	  FORMATOPTION "QUANTIZE_FORCE=on"
+	  FORMATOPTION "QUANTIZE_COLORS=256"
+	  FORMATOPTION "GAMMA=0.75"
+	END
+	PROJECTION
+	"init=epsg:4326"
+	END
+	LEGEND
+	  STATUS ON
+	  KEYSIZE 18 12
+	  KEYSPACING 15 5
+	  # LABEL object
+	  LABEL
+	    TYPE BITMAP
+	    SIZE small
+	    COLOR 0 0 89
+	  END
+	END
+
+	WEB
+
+
+	METADATA
+	"ows_enable_request" "*"
+	"wms_enable_request" "*"
+	"wfs_enable_request" "*"
+	"sos_enable_request" "*"
+	"wcs_enable_request" "*"
+	"wms_title"		"gust"
+	"wms_srs"	"EPSG:4326 EPSG:3857 EPSG:3035"
+	END
+
+	END
+LAYER
+VALIDATION
+	"run" "[a-zA-Z_\-\s0-9\.\/]+"
+	"step" "[a-zA-Z_\-\s0-9\.\/]+"
+	"model" "[a-zA-Z_\-\s0-9\.\/]+"
+	"level" "[a-zA-Z_\-\s0-9\.\/]+"
+END
+DATA '/var/s3fs/nwp/GEOTIFF/%model%/%run%/%run%_%step%_gust_%level%.tif'
+NAME "gust"
+TYPE RASTER
+METADATA
+"gml_featureid"		"gid"
+"gml_include_items"	"all"
+"wms_title"		"gust"
+"ows_include_items" "all"
+END
+STATUS OFF
+PROJECTION
+#"init=epsg:4326"
+AUTO
+END
+
+
+CLASS
+  NAME "BF 0"
+  EXPRESSION ([pixel] < 4)
+  STYLE
+    COLORRANGE "#FFFFFF" "#67F7F0"
+    DATARANGE 0 4
+  END #STYLE
+END #end class
+
+CLASS
+  NAME "BF 0"
+  EXPRESSION ([pixel] >= 4 AND [pixel] < 7)
+  STYLE
+    COLORRANGE "#67F7F0" "#01FF00"
+    DATARANGE 4 7
+  END #STYLE
+END #end class
+
+CLASS
+  NAME "BF 0"
+  EXPRESSION ([pixel] >= 7 AND [pixel] < 9)
+  STYLE
+    COLORRANGE "#01FF00" "#FFEF00"
+    DATARANGE 7 9
+  END #STYLE
+END #end class
+
+CLASS
+  NAME "BF 0"
+  EXPRESSION ([pixel] >= 9 AND [pixel] < 11)
+  STYLE
+    COLORRANGE "#FFEF00" "#FF3B2A"
+    DATARANGE 9 11
+  END #STYLE
+END #end class
+
+CLASS
+  NAME "BF 0"
+  EXPRESSION ([pixel] >= 11 AND [pixel] < 13)
+  STYLE
+    COLORRANGE "#FF3B2A" "#FF322C"
+    DATARANGE 11 13
+  END #STYLE
+END #end class
+
+CLASS
+  NAME "BF 0"
+  EXPRESSION ([pixel] >= 13 AND [pixel] < 16)
+  STYLE
+    COLORRANGE "#FF322C" "#FF149F"
+    DATARANGE 13 16
+  END #STYLE
+END #end class
+
+CLASS
+  NAME "BF 0"
+  EXPRESSION ([pixel] >= 16 AND [pixel] < 2000)
+  STYLE
+    COLORRANGE "#FF149F" "#A325F7"
+    DATARANGE 16 2000
+  END #STYLE
+END #end class
+
+
+END
+
+END #MAP
