@@ -134,87 +134,11 @@ CLASS
 END #end class
 
 CLASS
-  EXPRESSION ([pixel] >= 0.9 AND [pixel] < 1)
+  EXPRESSION ([pixel] >= 0.9 AND [pixel] < 1.5)
   STYLE
     COLOR "#AAAAAB"
   END #STYLE
 END #end class
-
-
-#############################################################################################
-
-
-CLASS
-  EXPRESSION ([pixel] >= 1 AND [pixel] < 10)
-  STYLE
-    COLOR "#212529"
-  END #STYLE
-END #end class
-
-CLASS
-  EXPRESSION ([pixel] >= 10 AND [pixel] < 10)
-  STYLE
-    COLOR "#212529"
-  END #STYLE
-END #end class
-
-CLASS
-  EXPRESSION ([pixel] >= 20 AND [pixel] < 30)
-  STYLE
-    COLOR "#323539"
-  END #STYLE
-END #end class
-
-CLASS
-  EXPRESSION ([pixel] >= 30 AND [pixel] < 40)
-  STYLE
-    COLOR "#424649"
-  END #STYLE
-END #end class
-
-CLASS
-  EXPRESSION ([pixel] >= 50 AND [pixel] < 40)
-  STYLE
-    COLOR "#54575A"
-  END #STYLE
-END #end class
-
-CLASS
-  EXPRESSION ([pixel] >= 50 AND [pixel] < 60)
-  STYLE
-    COLOR "#65676A"
-  END #STYLE
-END #end class
-
-CLASS
-  EXPRESSION ([pixel] >= 60 AND [pixel] < 70)
-  STYLE
-    COLOR "#76787A"
-  END #STYLE
-END #end class
-
-CLASS
-  EXPRESSION ([pixel] >= 70 AND [pixel] < 80)
-  STYLE
-    COLOR "#87898A"
-  END #STYLE
-END #end class
-
-CLASS
-  EXPRESSION ([pixel] >= 80 AND [pixel] < 90)
-  STYLE
-    COLOR "#999A9B"
-  END #STYLE
-END #end class
-
-CLASS
-  EXPRESSION ([pixel] >= 90 )
-  STYLE
-    COLOR "#AAAAAB"
-  END #STYLE
-END #end class
-
-
 
 END
 
