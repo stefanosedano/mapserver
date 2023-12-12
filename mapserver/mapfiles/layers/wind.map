@@ -3,10 +3,9 @@
 	STATUS ON
 	IMAGECOLOR 255 255 255
 	SIZE 250 250
-	EXTENT 8.5 45.36 8.8 45.60
 	UNITS dd
 	MAXSIZE 250000
-	CONFIG "MS_ERRORFILE" "/home/logs/t.log"
+	CONFIG "MS_ERRORFILE" "/home/logs/wind.log"
 	FONTSET "/etc/mapserver/font.txt"
 	OUTPUTFORMAT
 	  NAME "png8"
