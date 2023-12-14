@@ -102,8 +102,8 @@ CLASS
     STYLE
       WIDTH 2
       RANGEITEM 'prmsl'
-      COLORRANGE "#FFFFFF" "#AC2F2F"
-      DATARANGE 101000 102500
+      COLORRANGE "#AC2F2F" "#AC2F2F"
+      DATARANGE 102000 205000
     END
     TEXT (tostring(([prmsl]/100),"%.0f"))
     LABEL
