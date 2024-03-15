@@ -54,7 +54,7 @@ AUTO
 END
 
 DATA '/var/s3fs/baselayers/sm_rivers/sm_rivers_l1_epsg3857_wide.shp'
-NAME "vrbas"
+NAME "sm_rivers_l1_epsg3857_wide"
 TYPE LINE
 METADATA
 "gml_featureid"		"gid"
