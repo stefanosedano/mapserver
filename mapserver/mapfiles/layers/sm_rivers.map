@@ -43,7 +43,7 @@
 	"wfs_enable_request" "*"
 	"sos_enable_request" "*"
 	"wcs_enable_request" "*"
-	"wms_title"		"vrbas"
+	"wms_title"		"sm_rivers_l1_epsg3857_wide"
 	"wms_srs"	"EPSG:4326 EPSG:3857 EPSG:3035"
 	END
 
