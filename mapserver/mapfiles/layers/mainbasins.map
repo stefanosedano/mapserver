@@ -20,7 +20,7 @@
 	  FORMATOPTION "GAMMA=0.75"
 	END
 	PROJECTION
-	"init=epsg:4326"
+	"init=epsg:3857"
 	END
 	LEGEND
 	  STATUS ON
