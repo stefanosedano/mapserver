@@ -53,7 +53,7 @@ PROJECTION
 AUTO
 END
 
-DATA '/var/s3fs/baselayers/vrbas_catchments/Vrbas_catchments.shp'
+DATA '/var/s3fs/baselayers/mainbasins/mainbasins_epsg3857.shp'
 NAME "mainbasins_epsg3857"
 TYPE LINE
 METADATA
