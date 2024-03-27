@@ -71,7 +71,7 @@ AUTO
 END
 
 CLASS
-
+  NAME "-40 -28"
   EXPRESSION ([pixel] >= -40 AND [pixel] < -28)
   STYLE
     COLOR 0 0 128
@@ -79,6 +79,7 @@ CLASS
 END #end class
 
 CLASS
+ NAME "-28 -24"
   EXPRESSION ([pixel] >= -28 AND [pixel] < -24)
   STYLE
     COLOR 0 0 217
@@ -86,6 +87,7 @@ CLASS
 END #end class
 
 CLASS
+ NAME "-24 -20"
   EXPRESSION ([pixel] >= -24 AND [pixel] < -20)
   STYLE
     COLOR 64 0 255
@@ -93,6 +95,7 @@ CLASS
 END #end class
 
 CLASS
+ NAME "-20 -16"
   EXPRESSION ([pixel] >= -20 AND [pixel] < -16)
   STYLE
     COLOR 128 0 255
@@ -100,6 +103,7 @@ CLASS
 END #end class
 
 CLASS
+ NAME "-16 -12"
   EXPRESSION ([pixel] >= -16 AND [pixel] < -12)
   STYLE
     COLOR 0 128 255
@@ -107,6 +111,7 @@ CLASS
 END #end class
 
 CLASS
+ NAME "-12 -8"
   EXPRESSION ([pixel] >= -12 AND [pixel] < -8)
   STYLE
     COLOR 0 255 255
@@ -114,6 +119,7 @@ CLASS
 END #end class
 
 CLASS
+ NAME "-8 -4"
   EXPRESSION ([pixel] >= -8 AND [pixel] < -4)
   STYLE
     COLOR 0 255 128
@@ -121,6 +127,7 @@ CLASS
 END #end class
 
 CLASS
+ NAME "-4 -0"
   EXPRESSION ([pixel] >= -4 AND [pixel] < 0)
   STYLE
     COLOR 128 255 0
@@ -128,6 +135,7 @@ CLASS
 END #end class
 
 CLASS
+ NAME "0 4"
   EXPRESSION ([pixel] >= 0 AND [pixel] < 4)
   STYLE
     COLOR 218 255 0
@@ -135,6 +143,7 @@ CLASS
 END #end class
 
 CLASS
+ NAME "4 8"
   EXPRESSION ([pixel] >= 4 AND [pixel] < 8)
   STYLE
     COLOR 255 255 0
@@ -142,6 +151,7 @@ CLASS
 END #end class
 
 CLASS
+ NAME "8 12"
   EXPRESSION ([pixel] >= 8 AND [pixel] < 12)
   STYLE
     COLOR 255 246 0
@@ -149,6 +159,7 @@ CLASS
 END #end class
 
 CLASS
+ NAME "12 16"
   EXPRESSION ([pixel] >= 12 AND [pixel] < 16)
   STYLE
     COLOR 255 218 0
@@ -156,6 +167,7 @@ CLASS
 END #end class
 
 CLASS
+ NAME "16 20"
   EXPRESSION ([pixel] >= 16 AND [pixel] < 20)
   STYLE
     COLOR 255 176 0
@@ -163,6 +175,7 @@ CLASS
 END #end class
 
 CLASS
+ NAME "20 24"
   EXPRESSION ([pixel] >= 20 AND [pixel] < 24)
   STYLE
     COLOR 255 128 0
@@ -170,6 +183,7 @@ CLASS
 END #end class
 
 CLASS
+ NAME "24 28"
   EXPRESSION ([pixel] >= 24 AND [pixel] < 28)
   STYLE
     COLOR 255 79 0
@@ -177,6 +191,7 @@ CLASS
 END #end class
 
 CLASS
+ NAME "28 32"
   EXPRESSION ([pixel] >= 28 AND [pixel] < 32)
   STYLE
     COLOR 255 37 0
@@ -184,6 +199,7 @@ CLASS
 END #end class
 
 CLASS
+ NAME "32 36"
   EXPRESSION ([pixel] >= 32 AND [pixel] < 36)
   STYLE
     COLOR 255 9 0
@@ -191,6 +207,7 @@ CLASS
 END #end class
 
 CLASS
+ NAME "36 40"
   EXPRESSION ([pixel] >= 36 AND [pixel] < 40)
   STYLE
     COLOR 255 0 0
@@ -198,6 +215,7 @@ CLASS
 END #end class
 
 CLASS
+ NAME ">40"
   EXPRESSION ([pixel] >= 40)
   STYLE
     COLOR 255 0 255

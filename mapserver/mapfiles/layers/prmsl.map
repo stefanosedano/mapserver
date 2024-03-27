@@ -74,7 +74,7 @@ END
 LABELITEM "prmsl"
 
 CLASS
-    NAME "101000"
+    NAME "prmsl = 101000"
     EXPRESSION ([prmsl] == 101000)
     STYLE
       WIDTH 2.5
@@ -96,9 +96,8 @@ CLASS
 END # CLASS
 
 CLASS
-    NAME "Contours"
+    NAME "prmsl >= 102000"
     EXPRESSION ([prmsl] >= 102000)
-    NAME "Contours"
     STYLE
       WIDTH 2
       RANGEITEM 'prmsl'
@@ -121,9 +120,8 @@ CLASS
 END
 
 CLASS
-    NAME "Contours"
+    NAME "101000 < prmsl < 102000"
     EXPRESSION ([prmsl] > 101000 AND [prmsl] < 102000)
-    NAME "Contours"
     STYLE
       WIDTH 1
       RANGEITEM 'prmsl'
@@ -146,9 +144,8 @@ CLASS
 END
 
 CLASS
-    NAME "Contours"
+    NAME "100000 < prmsl < 101000"
     EXPRESSION ([prmsl] < 101000 AND [prmsl] > 100000)
-    NAME "Contours"
     STYLE
       WIDTH 1
       RANGEITEM 'prmsl'
@@ -171,9 +168,8 @@ CLASS
 END
 
 CLASS
-    NAME "Contours"
+    NAME "prmsl < 100000"
     EXPRESSION ([prmsl] <= 100000)
-    NAME "Contours"
     STYLE
       WIDTH 2
       RANGEITEM 'prmsl'
