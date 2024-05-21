@@ -57,51 +57,116 @@ MAP
       "wms_title" "rivers"
       "ows_include_items" "all"
     END
+
+    # Classes for zoomed-out view
     CLASS
-      NAME "width6"
+      NAME "width6_zoomed_out"
       EXPRESSION ([width] = 6)
+      MINSCALEDENOM  1000000
       STYLE
         WIDTH 1
         COLOR "#1563aa"
       END
     END
     CLASS
-      NAME "width5"
+      NAME "width5_zoomed_out"
       EXPRESSION ([width] = 5)
+      MINSCALEDENOM  1000000
       STYLE
         WIDTH 1
         COLOR "#3e8ec4"
       END
     END
     CLASS
-      NAME "width4"
+      NAME "width4_zoomed_out"
       EXPRESSION ([width] = 4)
+      MINSCALEDENOM  1000000
       STYLE
         WIDTH 1
         COLOR "#73b3d8"
       END
     END
     CLASS
-      NAME "width3"
+      NAME "width3_zoomed_out"
       EXPRESSION ([width] = 3)
+      MINSCALE 10000000
       STYLE
         WIDTH 1
         COLOR "#b0d2e8"
       END
     END
     CLASS
-      NAME "width2"
+      NAME "width2_zoomed_out"
       EXPRESSION ([width] = 2)
+      MINSCALEDENOM  1000000
       STYLE
         WIDTH 1
         COLOR "#d8e7f5"
       END
     END
+    #CLASS
+    #  NAME "width1_zoomed_out"
+    #  EXPRESSION ([width] = 1)
+    #  MINSCALEDENOM  1000000
+    #  STYLE
+    #    WIDTH 1
+    #    COLOR "#f7fbff"
+    #  END
+    #END
+
+
+    # Classes for zoomed-in view
     CLASS
-      NAME "width1"
-      EXPRESSION ([width] = 1)
+      NAME "width6_zoomed_in"
+      EXPRESSION ([width] = 6)
+      MAXSCALEDENOM  1000000
       STYLE
-        WIDTH 1
+        WIDTH 3
+        COLOR "#1563aa"
+      END
+    END
+    CLASS
+      NAME "width5_zoomed_in"
+      EXPRESSION ([width] = 5)
+      MAXSCALEDENOM  1000000
+      STYLE
+        WIDTH 3
+        COLOR "#3e8ec4"
+      END
+    END
+    CLASS
+      NAME "width4_zoomed_in"
+      EXPRESSION ([width] = 4)
+      MAXSCALEDENOM  1000000
+      STYLE
+        WIDTH 3
+        COLOR "#73b3d8"
+      END
+    END
+    CLASS
+      NAME "width3_zoomed_in"
+      EXPRESSION ([width] = 3)
+      MAXSCALEDENOM  1000000
+      STYLE
+        WIDTH 3
+        COLOR "#b0d2e8"
+      END
+    END
+    CLASS
+      NAME "width2_zoomed_in"
+      EXPRESSION ([width] = 2)
+      MAXSCALEDENOM  1000000
+      STYLE
+        WIDTH 3
+        COLOR "#d8e7f5"
+      END
+    END
+    CLASS
+      NAME "width1_zoomed_in"
+      EXPRESSION ([width] = 1)
+      MAXSCALEDENOM  1000000
+      STYLE
+        WIDTH 3
         COLOR "#f7fbff"
       END
     END
