@@ -1,0 +1,110 @@
+MAP
+  NAME SEEMHEWS
+  STATUS ON
+  IMAGECOLOR 255 255 255
+  SIZE 250 250
+  EXTENT 8.5 45.36 8.8 45.60
+  UNITS dd
+  MAXSIZE 250000
+  CONFIG "MS_ERRORFILE" "/home/logs/sm_rivers.log"
+  FONTSET "/etc/mapserver/font.txt"
+  OUTPUTFORMAT
+    NAME "png8"
+    DRIVER AGG/PNG8
+    MIMETYPE "image/png; mode=8bit"
+    IMAGEMODE RGB
+    EXTENSION "png"
+    FORMATOPTION "QUANTIZE_FORCE=on"
+    FORMATOPTION "QUANTIZE_COLORS=256"
+    FORMATOPTION "GAMMA=0.75"
+  END
+  PROJECTION
+    "init=epsg:3857"
+  END
+  LEGEND
+    STATUS ON
+    KEYSIZE 18 12
+    KEYSPACING 15 5
+    LABEL
+      TYPE BITMAP
+      SIZE small
+      COLOR 0 0 89
+    END
+  END
+
+  WEB
+    METADATA
+      "ows_enable_request" "*"
+      "wms_enable_request" "*"
+      "wfs_enable_request" "*"
+      "sos_enable_request" "*"
+      "wcs_enable_request" "*"
+      "wms_title" "rivers"
+      "wms_srs" "EPSG:4326 EPSG:3857 EPSG:3035"
+    END
+  END
+
+  LAYER
+    PROJECTION
+      AUTO
+    END
+    DATA '/var/s3fs/baselayers/rivers/merged.shp'
+    NAME "rivers"
+    TYPE LINE
+    METADATA
+      "gml_featureid" "gid"
+      "gml_include_items" "all"
+      "wms_title" "rivers"
+      "ows_include_items" "all"
+    END
+    CLASS
+      NAME "width6"
+      EXPRESSION ([width] = 6)
+      STYLE
+        WIDTH 1
+        COLOR "#1563aa"
+      END
+    END
+    CLASS
+      NAME "width5"
+      EXPRESSION ([width] = 5)
+      STYLE
+        WIDTH 1
+        COLOR "#3e8ec4"
+      END
+    END
+    CLASS
+      NAME "width4"
+      EXPRESSION ([width] = 4)
+      STYLE
+        WIDTH 1
+        COLOR "#73b3d8"
+      END
+    END
+    CLASS
+      NAME "width3"
+      EXPRESSION ([width] = 3)
+      STYLE
+        WIDTH 1
+        COLOR "#b0d2e8"
+      END
+    END
+    CLASS
+      NAME "width2"
+      EXPRESSION ([width] = 2)
+      STYLE
+        WIDTH 1
+        COLOR "#d8e7f5"
+      END
+    END
+    CLASS
+      NAME "width1"
+      EXPRESSION ([width] = 1)
+      STYLE
+        WIDTH 1
+        COLOR "#f7fbff"
+      END
+    END
+  END
+
+END #MAP
